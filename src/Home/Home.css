@@ -1,0 +1,31 @@
+#logo {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.newPost{
+    clear: both;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 25px;
+}
+
+#newPostInput{
+    margin-bottom: 10px;
+}
+
+.posts{
+    clear: both;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 25px;
+    border-style: groove;
+    border-color: grey;
+}
+
+.postUserImage {
+    width: 140px;
+    float: left;
+}
