@@ -23,6 +23,7 @@ router.post("/signup", function(req, res) {
   var userID = req.body.id;
   var userPW = req.body.pw;
 
+  
   res.send("id: " + userID + "pw :" + userPW);
 });
 
