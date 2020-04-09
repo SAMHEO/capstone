@@ -12,10 +12,11 @@ const Navigation = (props) => {
       <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
         <Nav>
           <Nav.Link href="/">Piazza</Nav.Link>
-          <Nav.Link href="/Apartment">Apartment</Nav.Link>
-          <Nav.Link href="/About">About</Nav.Link>
-          <Nav.Link href="/Profile">Profile</Nav.Link>
-          <Nav.Link href="/Login">Login / Sign Up</Nav.Link>
+          <Nav.Link href="/apartment">Apartment</Nav.Link>
+          <Nav.Link href="/roommate">Roommates</Nav.Link>
+          <Nav.Link href="/about">About</Nav.Link>
+          <Nav.Link href="/profile">Profile</Nav.Link>
+          <Nav.Link href="/login">Login / Sign Up</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

@@ -1,0 +1,14 @@
+.carousel-caption {
+  color: black;
+}
+.carousel-indicators li {
+  opacity: 0.2;
+  filter: invert(1);
+}
+.carousel-indicators .active {
+  opacity: 1;
+}
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  filter: invert(1);
+}
