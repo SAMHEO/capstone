@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import history from "./../history";
-import { Navbar, Nav, Form, Button } from "react-bootstrap";
-import { withRouter } from "react-router-dom";
+import { Nav } from "react-bootstrap";
 import "./Signup.css";
 
 class Signup extends Component {
