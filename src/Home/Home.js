@@ -38,7 +38,7 @@ var tempUser1Time = "April 4, 2020, 22:37";
 function Post1() {
   return (
     <div class="card">
-      <img src="ExampleImage.png" class="card-img-top" alt="postUserImage" />
+      <img src="terraceview.jpeg" class="card-img-top" alt="postUserImage" />
       <div class="card-body">
         <h5 class="card-title">{tempUser1Name}</h5>
         <p class="card-text">
@@ -54,7 +54,7 @@ var tempUser2Time = "April 4, 2020, 22:33";
 function Post2() {
   return (
     <div class="card">
-      <img src="ExampleImage.png" class="card-img-top" alt="ExampleImage" />
+      <img src="avatar.png" class="card-img-top" alt="ExampleImage" />
       <div class="card-body">
         <h5 class="card-title">{tempUser2Name}</h5>
         <p class="card-text">
@@ -86,7 +86,7 @@ export default class Home extends Component {
               <Post1 />
             </Col>
             <Col>
-              <Post2 />
+              <Post1 />
             </Col>
           </Row>
         </Container>
@@ -101,10 +101,10 @@ export default class Home extends Component {
           </Row>
           <Row>
             <Col>
-              <Post1 />
+              <Post2 />
             </Col>
             <Col>
-              <Post1 />
+              <Post2 />
             </Col>
             <Col>
               <Post2 />

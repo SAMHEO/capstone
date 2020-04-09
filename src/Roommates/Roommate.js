@@ -55,41 +55,39 @@ class Roommate extends Component {
           <Carousel.Item>
             <Image
               className="d-block w-50 center"
-              src="logo192.png"
+              src="avatar.png"
               alt="First slide"
               roundedCircle
             />
             <Carousel.Caption>
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              <h3>User 1</h3>
+              <p>I want to find a roommate with similar lifestyle as me first person</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
             <Image
               className="d-block w-50 center"
-              src="logo192.png"
+              src="avatar.png"
               alt="Second slide"
               roundedCircle
             />
 
             <Carousel.Caption>
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <h3>User 2</h3>
+              <p>I want to find a roommate with similar lifestyle as me second person</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
             <Image
               className="d-block w-50 center"
-              src="logo192.png"
+              src="avatar.png"
               alt="Third slide"
               roundedCircle
             />
 
             <Carousel.Caption>
-              <h3>Third slide label</h3>
-              <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
+              <h3>User 3</h3>
+              <p> want to find a roommate with similar lifestyle as me third person</p>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
