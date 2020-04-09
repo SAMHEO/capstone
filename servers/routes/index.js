@@ -17,13 +17,31 @@ router.get("/getData", (req, res) => {
   });
 });
 
+router.post("/login", function (req, res) {
+  var email = req.body.email;
+  var password = req.body.password;
+
+  if (email == "admin@vt.edu" && password == "1") {
+    // res.send("success");
+    res.json({
+      id: 1,
+      email: email,
+      isLogin: true,
+      success: true,
+    });
+  } else {
+    res.json({
+      success: false,
+    });
+  }
+});
+
 // Signup api example
 router.get("/signup", (req, res) => res.json({ example: "example" }));
-router.post("/signup", function(req, res) {
+router.post("/signup", function (req, res) {
   var userID = req.body.id;
   var userPW = req.body.pw;
 
-  
   res.send("id: " + userID + "pw :" + userPW);
 });
 

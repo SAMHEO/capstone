@@ -5,6 +5,55 @@ import { withRouter } from "react-router-dom";
 import "./Login.css";
 
 class Login extends Component {
+  constructor(props) {
+    super(props);
+    // this.handleEmailChange = this.handleEmailChange.bind(this);
+    // this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.state = {
+      id: null,
+      email: "",
+      password: "",
+      isLogin: null,
+    };
+  }
+
+  handleEmailChange = (e) => {
+    this.setState({ email: e.target.value });
+  };
+  handlePasswordChange = (e) => {
+    this.setState({ password: e.target.value });
+  };
+
+  login = (e) => {
+    e.preventDefault();
+
+    const login_info = {
+      method: "POST",
+      body: JSON.stringify(this.state),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    fetch("api/login", login_info)
+      .then((res) => {
+        return res.json();
+      })
+      .then((json) => {
+        if (json.success === true) {
+          alert("Logged in");
+          window.localStorage.setItem("userInfo", JSON.stringify(json));
+          this.setState({
+            id: json.idx,
+            email: json.email,
+            isLogin: json.success,
+          });
+          this.props.history.push("/");
+        } else {
+          alert("Check your email or password");
+        }
+      });
+  };
+
   render() {
     return (
       <Container className="align-middle">
@@ -14,47 +63,55 @@ class Login extends Component {
               <div style={{ clear: "both", margin: "25px" }} align="center">
                 <h2>Login Page</h2>
               </div>
-              <div class="form-group" align="center">
-                <input
-                  type="text"
-                  class="login-box"
-                  id="username-input-box"
-                  placeholder="Username / Email Adddress"
-                ></input>
-              </div>
-              <div class="form-group" align="center">
-                <input
-                  type="text"
-                  class="login-box"
-                  id="password-input-box"
-                  placeholder="Password"
-                ></input>
-              </div>
-              <div align="left" style={{ width: "28%" }} class="center">
-                <td class="text-center">
+              <form onsubmit={this.login}>
+                <div class="form-group" align="center">
                   <input
-                    type="checkbox"
-                    class="form-check-input"
-                    value="0"
-                    id="remember-me"
+                    type="email"
+                    class="login-box"
+                    onChange={this.handleEmailChange}
+                    id="username-input-box"
+                    placeholder="Username / Email Adddress"
+                    required
+                    autofocus
                   ></input>
-                </td>
-                <td class="text-center">Remember Me</td>
-              </div>
-              <div>
-                <button
-                  type="submit"
-                  class="btn btn-success btn-default center"
-                  id="login-button"
-                >
-                  <span class="glyphicon glyphicon-off"></span> Login{" "}
-                </button>
-              </div>
+                </div>
+                <div class="form-group" align="center">
+                  <input
+                    type="password"
+                    class="login-box"
+                    onChange={this.handlePasswordChange}
+                    id="password-input-box"
+                    placeholder="Password"
+                    required
+                  ></input>
+                </div>
+                <div align="left" style={{ width: "28%" }} class="center">
+                  <td class="text-center">
+                    <input
+                      type="checkbox"
+                      class="form-check-input"
+                      value="0"
+                      id="remember-me"
+                    ></input>
+                  </td>
+                  <td class="text-center">Remember Me</td>
+                </div>
+                <div>
+                  <button
+                    type="submit"
+                    class="btn btn-success btn-default center"
+                    id="login-button"
+                    onClick={this.login}
+                  >
+                    <span class="glyphicon glyphicon-off"></span> Login{" "}
+                  </button>
+                </div>
+              </form>
               <div class="center" style={{ width: "30%" }}>
-                <Nav.Link href="/Signup">
+                <Nav.Link href="/signup">
                   Don't have an account? Sign Up
                 </Nav.Link>
-                <Nav.Link href="/Forget">Forget your password?</Nav.Link>
+                <Nav.Link href="/forget">Forget your password?</Nav.Link>
               </div>
             </div>
           </Col>
