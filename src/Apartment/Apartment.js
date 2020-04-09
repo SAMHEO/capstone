@@ -27,7 +27,7 @@ function ApartmentPostExample1() {
   return (
     <div class="posts apartment">
       <img
-        src="ExampleImage.png"
+        src="edge.jpg"
         alt="ExampleImage"
         class="postUserImage"
       ></img>

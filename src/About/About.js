@@ -26,7 +26,10 @@ class About extends Component {
           <h2>About Page</h2>
         </div>
         <div align="center">
-          This is a brief introduction about us and our project
+          This is a brief introduction about us and our project.<br></br>
+          Our project is to build an website for residents in Blacksburg to find a better housing or a new roommate.
+          
+
         </div>
       </div>
     );
