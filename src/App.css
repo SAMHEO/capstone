@@ -6,6 +6,10 @@
   font-weight: bold;
 }
 
-.App .container{
-  align-content: center
+.App .container {
+  align-content: center;
+}
+
+hr {
+  background-color: #000000;
 }
