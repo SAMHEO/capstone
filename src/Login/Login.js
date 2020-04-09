@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import history from "./../history";
 import { Nav, Container, Row, Col } from "react-bootstrap";
-import { withRouter } from "react-router-dom";
 import "./Login.css";
 
 class Login extends Component {
@@ -117,7 +115,11 @@ class Login extends Component {
           </Col>
           <Col className="align-middle">
             <div>
-              <img src="ExampleImage.png" className="d-block w-100 " />
+              <img
+                src="ExampleImage.png"
+                className="d-block w-100 "
+                alt="..."
+              />
             </div>
           </Col>
         </Row>

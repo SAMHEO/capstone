@@ -2,33 +2,7 @@ import React, { Component } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import history from "./../history";
 import "./Home.css";
-
-function MainLogo() {
-  return <h1>Home Finder</h1>;
-}
-
-function NewPost() {
-  return (
-    <div class="newPost">
-      <label>Publish a new post: </label>
-      <textarea
-        class="form-control"
-        rows="5"
-        id="newPostInput"
-        placeholder="Say something"
-      ></textarea>
-      <button
-        type="submit"
-        class="btn btn-success btn-default"
-        id="submitPostButton"
-      >
-        <span class="glyphicon glyphicon-off"></span> Submit{" "}
-      </button>
-    </div>
-  );
-}
 
 //This is an example of user. Whieh will be used to connect with the database api
 var tempUser1Name = "user1";

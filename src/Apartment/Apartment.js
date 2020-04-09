@@ -3,34 +3,12 @@ import React, { Component } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { Button } from "react-bootstrap";
-import history from "./../history";
 import "./Apartment.css";
-
-function ApartmentPost(name, address, price, description) {
-  return (
-    <div class="posts apartment">
-      <img
-        src="ExampleImage.png"
-        alt="ExampleImage"
-        class="postUserImage"
-      ></img>
-      <p>{name}</p>
-      <p>{address}</p>
-      <p>{price}</p>
-      <p>{description}</p>
-    </div>
-  );
-}
 
 function ApartmentPostExample1() {
   return (
     <div class="posts apartment">
-      <img
-        src="edge.jpg"
-        alt="ExampleImage"
-        class="postUserImage"
-      ></img>
+      <img src="edge.jpg" alt="ExampleImage" class="postUserImage"></img>
       <p>TerraceView</p>
       <p>500 Hunt Club Rd.</p>
       <p>$480 / Month</p>
