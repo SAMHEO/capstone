@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../dbconnection");
+'use strict';
 
 router.get("/", (req, res) => res.json({ username: "bryan~~~" }));
 router.get("/group", (req, res) => res.json({ username: "dev group. bryan" }));
@@ -17,10 +18,18 @@ router.get("/getData", (req, res) => {
   });
 });
 
-router.get("/search", function (req,res){
+router.post("/search", function (req,res){
   var sort = req.body.sort;
   var maxPrice = req.body.maxPrice;
   var numBed = req.body.numBed;
+  const fs = require('fs');
+
+  fs.readFile('apt.json', (err, data) => {
+    if (err) throw err;
+    let apt = JSON.parse(data);
+    console.log(apt);
+  });
+
   if (maxPrice <= 700 & numBed == 1){
     res.json({
       id: 2,
