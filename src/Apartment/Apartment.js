@@ -5,14 +5,23 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./Apartment.css";
 
+var tempApt1Name = "Edge";
+var tempApt1Time = "April 4, 2020, 22:37";
 function ApartmentPostExample1() {
   return (
-    <div class="posts apartment">
-      <img src="edge.jpg" alt="ExampleImage" class="postUserImage"></img>
-      <p>TerraceView</p>
-      <p>500 Hunt Club Rd.</p>
-      <p>$480 / Month</p>
-      <p>3 bedrooms apartment for rent</p>
+    <div class="card ">
+      <div className="row">
+        <img src="edge.jpg" class="col-sm-6" alt="ExampleImage" />
+        <div class="col-sm-6">
+          <h5 class="card-title">{tempApt1Name}</h5>
+          <p class="card-text">
+            <p>500 Hunt Club Rd.</p>
+            <p>$480 / Month</p>
+            <p>3 bedrooms apartment for rent</p>
+            {tempApt1Time}
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
@@ -72,6 +81,14 @@ class Apartment extends Component {
   render() {
     return (
       <Container>
+        <button
+          type="button"
+          class="btn btn-success btn-default center"
+          id="search-button"
+          onClick={this.search}
+        >
+          <span class="glyphicon glyphicon-off"></span> Search{" "}
+        </button>
         <Row>
           <Col xs={12}>
             <div style={{ justifyContent: "center", padding: 30 }}>
