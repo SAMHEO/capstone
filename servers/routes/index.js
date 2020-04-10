@@ -27,9 +27,10 @@ router.post("/search", function (req, res) {
   fs.readFile("servers/apt.json", (err, data) => {
     if (err) throw err;
     let apt = JSON.parse(data);
-    console.log(apt);
+    //console.log(apt);
   });
 
+<<<<<<< HEAD
   if ((maxPrice <= 700) & (numBed == 1)) {
     res.json({
       id: 2,
@@ -38,6 +39,17 @@ router.post("/search", function (req, res) {
       success: true,
     });
   } else {
+=======
+  for(var i = 0; i < apt.length; i++) {
+    var apartment = apt[i];
+
+    console.log(apartment.name);
+}
+  if (maxPrice <= 700 & numBed == 1){
+    res.send(apt);
+  } 
+  else {
+>>>>>>> 06a83c121e1790e63f7e70654168c16adf0ad88b
     res.json({
       success: false,
     });
