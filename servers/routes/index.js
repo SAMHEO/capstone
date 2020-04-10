@@ -17,6 +17,25 @@ router.get("/getData", (req, res) => {
   });
 });
 
+router.post("/signup", function (req,res){
+  var email = req.body.email;
+  var password = req.body.password;
+  var repassword = req.body.repassword;
+  if (email == "euno@vt.edu"){
+    res.json({
+      id: 2,
+      email: email,
+      password: password,
+      success: true,
+    });
+  } 
+  else {
+    res.json({
+      success: false,
+    });
+  }
+})
+
 router.post("/login", function (req, res) {
   var email = req.body.email;
   var password = req.body.password;
