@@ -52,7 +52,7 @@ class Apartment extends Component {
     e.preventDefault();
 
     const search_info = {
-      method: "GET",
+      method: "POST",
       body: JSON.stringify(this.state),
       headers: {
         "Content-Type": "application/json",
