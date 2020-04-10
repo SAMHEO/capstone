@@ -26,7 +26,7 @@ class Signup extends Component {
 
   signup = (e) => {
     e.preventDefault();
-    if (this.state.password == this.state.repassword) {
+    if (this.state.password === this.state.repassword) {
       const signup_info = {
         method: "POST",
         body: JSON.stringify(this.state),
