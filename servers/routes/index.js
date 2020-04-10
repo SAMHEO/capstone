@@ -24,7 +24,7 @@ router.post("/search", function (req, res) {
   var numBed = req.body.numBed;
   const fs = require("fs");
 
-  fs.readFile("apt.json", (err, data) => {
+  fs.readFile("servers/apt.json", (err, data) => {
     if (err) throw err;
     let apt = JSON.parse(data);
     console.log(apt);
