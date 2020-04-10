@@ -17,6 +17,25 @@ router.get("/getData", (req, res) => {
   });
 });
 
+router.get("/search", function (req,res){
+  var sort = req.body.sort;
+  var maxPrice = req.body.maxPrice;
+  var numBed = req.body.numBed;
+  if (maxPrice <= 700 & numBed == 1){
+    res.json({
+      id: 2,
+      sort: email,
+      password: password,
+      success: true,
+    });
+  } 
+  else {
+    res.json({
+      success: false,
+    });
+  }
+})
+
 router.post("/signup", function (req,res){
   var email = req.body.email;
   var password = req.body.password;
