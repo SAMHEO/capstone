@@ -24,42 +24,31 @@ router.post("/search", function (req, res) {
   var numBed = req.body.numBed;
   const fs = require("fs");
 
+  console.log(maxPrice);
+  console.log(numBed);
   fs.readFile("servers/apt.json", (err, data) => {
     if (err) throw err;
-<<<<<<< HEAD
-    apartments = JSON.parse(data);
-    // console.log(apt);
-    console.log(apartments);
-    for (apt in apartments) {
-      console.log("Test");
-      var apartment = apt;
-
-=======
     let apt = JSON.parse(data);
     //console.log(apt);
     for(var i = 0; i < apt.length; i++) {
       var apartment = apt[i];
-  
->>>>>>> 695d84f94c641b4489828c36490d6e953bfc9c5b
+      
+      if (maxPrice >= apartment.price & numBed == apartment.beds){
+        //res.send(apartment);
+        res.json({
+          success: true,
+        });
+      } 
+      else {
+        res.json({
+          success: false,
+        });
+      }
       console.log(apartment.name);
     }
+    });
   });
 
-<<<<<<< HEAD
-  if ((maxPrice <= 700) & (numBed == 1)) {
-    res.send(apt);
-  } else {
-=======
-  if (maxPrice <= 700 & numBed == 1){
-    res.send(apt);
-  } 
-  else {
->>>>>>> 695d84f94c641b4489828c36490d6e953bfc9c5b
-    res.json({
-      success: false,
-    });
-  }
-});
 
 router.post("/signup", function (req, res) {
   var email = req.body.email;

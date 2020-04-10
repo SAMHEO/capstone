@@ -63,8 +63,8 @@ class Apartment extends Component {
         return res.json();
       })
       .then((json) => {
-        if (json.maxPrice === true) {
-          alert("Logged in");
+        if (json.success === true) {
+          alert("Found!");
           window.localStorage.setItem("userInfo", JSON.stringify(json));
           this.setState({
             id: json.idx,
@@ -73,7 +73,7 @@ class Apartment extends Component {
           });
           this.props.history.push("/");
         } else {
-          alert("Check your email or password");
+          alert("Could not find any");
         }
       });
   };
@@ -81,14 +81,6 @@ class Apartment extends Component {
   render() {
     return (
       <Container>
-        <button
-          type="button"
-          class="btn btn-success btn-default center"
-          id="search-button"
-          onClick={this.search}
-        >
-          <span class="glyphicon glyphicon-off"></span> Search{" "}
-        </button>
         <Row>
           <Col xs={12}>
             <div style={{ justifyContent: "center", padding: 30 }}>
@@ -121,10 +113,10 @@ class Apartment extends Component {
               <select class="custom-select" id="inputGroupSelect01">
                 <option selected>Beds</option>
                 <option value="1">Studio</option>
-                <option value="2">One Bed</option>
-                <option value="2">Two Bed</option>
-                <option value="2">Three Bed</option>
-                <option value="2">Four Bed +</option>
+                <option value="2">1</option>
+                <option value="2">2</option>
+                <option value="2">3</option>
+                <option value="2">4 +</option>
                 
               </select>
             </div>
