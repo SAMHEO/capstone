@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Samnyeong Heo",
+    "age": 55,
+    "sex": "male",
+    "description": "",
+    "image": "example.png",
+    "preferences": [],
+    "tags": []
+  },
+  {
+    "id": 2,
+    "name": "Euno Cho",
+    "age": 44,
+    "sex": "female",
+    "description": "",
+    "image": "example.png",
+    "preferences": [],
+    "tags": []
+  },
+  {
+    "id": 3,
+    "name": "Yinwen Li",
+    "age": 33,
+    "sex": "male",
+    "description": "",
+    "image": "example.png",
+    "preferences": [],
+    "tags": []
+  },
+  {
+    "id": 4,
+    "name": "Chenzhuoer Li",
+    "age": 22,
+    "sex": "male",
+    "description": "",
+    "image": "example.png",
+    "preferences": [],
+    "tags": []
+  }
+]
