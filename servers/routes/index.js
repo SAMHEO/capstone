@@ -27,16 +27,16 @@ router.post("/search", function (req,res){
   fs.readFile('servers/apt.json', (err, data) => {
     if (err) throw err;
     let apt = JSON.parse(data);
-    console.log(apt);
+    //console.log(apt);
   });
 
+  for(var i = 0; i < apt.length; i++) {
+    var apartment = apt[i];
+
+    console.log(apartment.name);
+}
   if (maxPrice <= 700 & numBed == 1){
-    res.json({
-      id: 2,
-      sort: email,
-      password: password,
-      success: true,
-    });
+    res.send(apt);
   } 
   else {
     res.json({
