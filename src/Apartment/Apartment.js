@@ -86,7 +86,7 @@ class Apartment extends Component {
             <div style={{ justifyContent: "center", padding: 30 }}>
              
               
-            <div class="input-group mb-3">
+            <div class="input-group mb-3" id="input-group1">
               <div class="input-group-prepend">
                 <label class="input-group-text" for="Sort">Preferences</label>
               </div>
@@ -98,7 +98,7 @@ class Apartment extends Component {
               </select>
               </div>
 
-              <div class="input-group mb-3">
+              <div class="input-group mb-3" id="input-group2">
                 <div class="input-group-prepend">
                   <span class="input-group-text">Maximum amount </span>
                   <span class="input-group-text">0.00</span>
@@ -106,11 +106,11 @@ class Apartment extends Component {
                 <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)"></input>
               </div>
 
-            <div class="input-group mb-3">
+            <div class="input-group mb-3" id="input-group3">
               <div class="input-group-prepend">
                 <label class="input-group-text" for="Beds">Preferences</label>
               </div>
-              <select class="custom-select" id="inputGroupSelect01">
+              <select class="custom-select" id="inputGroupSelect02">
                 <option selected>Beds</option>
                 <option value="1">Studio</option>
                 <option value="2">1</option>

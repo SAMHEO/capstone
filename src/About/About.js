@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./About.css";
 
 class About extends Component {
   constructor(props) {
@@ -19,17 +20,12 @@ class About extends Component {
 
     return (
       <div style={{ justifyContent: "center", padding: 30 }}>
-        <header className="App-header">
-          {username ? `Hello ${username}` : "Hello World"}
-        </header>
+        
         <div style={{ clear: "both" }} align="center">
-          <h2>About Page</h2>
+          <h2>About Us</h2>
         </div>
-        <div align="center">
-          This is a brief introduction about us and our project.<br></br>
-          Our project is to build an website for residents in Blacksburg to find a better housing or a new roommate.
-          
-
+        <div align="center" id="about">
+          Our Home Finder project aims to find suitable apartment accommodation for the relevant personnel in any university community. We have created a platform for mutual communication, and people can post information about renting apartments on our platform. Everyone can set the type of apartment they like, and filter according to the relevant conditions to find the apartment that meets the needs of each user. At the same time, users can also match future roommates with their personal characteristics and preferences for roommates, helping our users get along with roommates in the future.
         </div>
       </div>
     );
