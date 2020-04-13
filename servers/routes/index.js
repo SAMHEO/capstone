@@ -18,13 +18,27 @@ router.get("/getData", (req, res) => {
   });
 });
 
+router.get("/users", (req, res) => {
+  db.query(`Select * from clients`, (err, rows) => {
+    if (!err) {
+      res.send(rows);
+    } else {
+      console.log(`Query error: ${err}`);
+      res.send(err);
+    }
+  });
+});
 router.post("/user", (req, res) => {
   db.query(
     `select * from clients where name = "${req.body.name}"`,
     (err, rows) => {
       if (!err) {
-        console.log(rows[0].ideal_rent);
-        res.json({ rent: rows[0].ideal_rent });
+        rent = rows[0].ideal_rent;
+        image = rows[0].image ? "user.jpg" : "avatar.png";
+        res.json({
+          rent: rent,
+          image: image,
+        });
       } else {
         console.log(`query error: ${err}`);
         res.send(err);

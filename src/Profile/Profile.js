@@ -61,7 +61,10 @@ class Profile extends Component {
       })
       .then((body) => {
         console.log(body);
-        this.setState({ rent: body.rent });
+        this.setState({
+          rent: body.rent,
+          image: body.image,
+        });
         console.log(this.state);
       });
   }
@@ -71,7 +74,7 @@ class Profile extends Component {
         <div>
           <div class="center">
             <img
-              src="avatar.png"
+              src={this.state.image}
               className="d-block center"
               alt="..."
               id="user-photo"
@@ -79,8 +82,9 @@ class Profile extends Component {
           </div>
           <div></div>
           <div class="profile-box">
-            Basic Information
-            {this.state.name}
+            <p>Basic Information</p>
+            <p>{this.state.name}</p>
+            <p>Looking for Rent under {this.state.rent}</p>
             <div class="preofile-box" id="basic-info">
               <li>
                 {this.state.sex}, {this.state.age}
