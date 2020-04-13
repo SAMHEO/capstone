@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Spinner, Nav, Container, Col } from "react-bootstrap";
+import { Spinner, Nav, Container } from "react-bootstrap";
 import "./Profile.css";
 
 function TagExample1() {

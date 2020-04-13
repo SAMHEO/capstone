@@ -5,10 +5,10 @@ import Col from "react-bootstrap/Col";
 import "./Home.css";
 
 //This is an example of user. Whieh will be used to connect with the database api
-var tempUser1Name = "user1";
-var tempUser1Des =
-  "I want to find an apartment with individual bedroom and bathroom.";
-var tempUser1Time = "April 4, 2020, 22:37";
+// var tempUser1Name = "user1";
+// var tempUser1Des =
+//   "I want to find an apartment with individual bedroom and bathroom.";
+// var tempUser1Time = "April 4, 2020, 22:37";
 // function Post1() {
 //   return (
 //     <div class="card">
@@ -22,22 +22,22 @@ var tempUser1Time = "April 4, 2020, 22:37";
 //     </div>
 //   );
 // }
-var tempUser2Name = "user2";
+// var tempUser2Name = "user2";
 var tempUser2Des = "I want to find a roommate with similar lifestyle as me.";
 var tempUser2Time = "April 4, 2020, 22:33";
-function Post2() {
-  return (
-    <div class="card">
-      <img src="avatar.png" class="card-img-top" alt="ExampleImage" />
-      <div class="card-body">
-        <h5 class="card-title">{tempUser2Name}</h5>
-        <p class="card-text">
-          {tempUser2Des} {tempUser2Time}
-        </p>
-      </div>
-    </div>
-  );
-}
+// function Post2() {
+//   return (
+//     <div class="card">
+//       <img src="avatar.png" class="card-img-top" alt="ExampleImage" />
+//       <div class="card-body">
+//         <h5 class="card-title">{tempUser2Name}</h5>
+//         <p class="card-text">
+//           {tempUser2Des} {tempUser2Time}
+//         </p>
+//       </div>
+//     </div>
+//   );
+// }
 
 export default class Home extends Component {
   constructor(props) {
@@ -99,7 +99,6 @@ export default class Home extends Component {
               <div class="card-body">
                 <h5 class="card-title">{apt.name}</h5>
                 <p class="card-text">
-                  {tempUser1Des} {tempUser1Time}
                 </p>
               </div>
             </div>
