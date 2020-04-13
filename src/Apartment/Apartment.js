@@ -71,7 +71,7 @@ class Apartment extends Component {
             email: json.email,
             isLogin: json.success,
           });
-          this.props.history.push("/");
+          this.props.history.push("/apartment");
         } else {
           alert("Could not find any");
         }
@@ -127,11 +127,11 @@ class Apartment extends Component {
                   numBeds={this.value}
                 >
                   <option selected>Beds</option>
-                  <option value="1">0</option>
-                  <option value="2">1</option>
+                  <option value="0">0</option>
+                  <option value="1">1</option>
                   <option value="2">2</option>
-                  <option value="2">3</option>
-                  <option value="2">4 +</option>
+                  <option value="3">3</option>
+                  <option value="4">4 +</option>
                 </select>
               </div>
 
