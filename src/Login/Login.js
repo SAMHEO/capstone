@@ -55,64 +55,70 @@ class Login extends Component {
   render() {
     return (
       <Container className="align-middle">
-        <Row>
-          <Col lg="8">
-            <div style={{ justifyContent: "center", padding: 30 }}>
-              <div style={{ clear: "both", margin: "25px" }} align="center">
-                <h2>Login Page</h2>
-              </div>
-              <form onsubmit={this.login}>
-                <div class="form-group" align="center">
-                  <input
-                    type="email"
-                    class="login-box"
-                    onChange={this.handleEmailChange}
-                    id="username-input-box"
-                    placeholder="Username / Email Adddress"
-                    required
-                    autofocus
-                  ></input>
-                </div>
-                <div class="form-group" align="center">
-                  <input
-                    type="password"
-                    class="login-box"
-                    onChange={this.handlePasswordChange}
-                    id="password-input-box"
-                    placeholder="Password"
-                    required
-                  ></input>
-                </div>
-                <div align="left" style={{ width: "28%", minWidth: "200px"}} class="center">
-                  <td class="text-center">
-                    <input
-                      type="checkbox"
-                      class="form-check-input"
-                      value="0"
-                      id="remember-me"
-                    ></input>
-                  </td>
-                  <td class="text-center">Remember Me</td>
-                </div>
-                <div>
-                  <button
-                    type="submit"
-                    class="btn btn-success btn-default center"
-                    id="login-button"
-                    onClick={this.login}
-                  >
-                    <span class="glyphicon glyphicon-off"></span> Login{" "}
-                  </button>
-                </div>
-              </form>
-              <div class="center" style={{ width: "30%", minWidth: "250px" }}>
-                <Nav.Link href="/signup" style={{ minWidth: "300px" }}>
-                  Don't have an account? Sign Up
-                </Nav.Link>
-                <Nav.Link href="/forget" style={{ minWidth: "250px" }}>Forget your password?</Nav.Link>
-              </div>
+        {/* <Row>
+          <Col lg="8"> */}
+        <div style={{ justifyContent: "center", padding: 30 }}>
+          <div style={{ clear: "both", margin: "25px" }} align="center">
+            <h2>Login Page</h2>
+          </div>
+          <form onsubmit={this.login}>
+            <div class="form-group" align="center">
+              <input
+                type="email"
+                class="login-box"
+                onChange={this.handleEmailChange}
+                id="username-input-box"
+                placeholder="Username / Email Adddress"
+                required
+                autofocus
+              ></input>
             </div>
-          </Col>
+            <div class="form-group" align="center">
+              <input
+                type="password"
+                class="login-box"
+                onChange={this.handlePasswordChange}
+                id="password-input-box"
+                placeholder="Password"
+                required
+              ></input>
+            </div>
+            <div
+              align="left"
+              style={{ width: "28%", minWidth: "200px" }}
+              class="center"
+            >
+              <td class="text-center">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  value="0"
+                  id="remember-me"
+                ></input>
+              </td>
+              <td class="text-center">Remember Me</td>
+            </div>
+            <div>
+              <button
+                type="submit"
+                class="btn btn-success btn-default center"
+                id="login-button"
+                onClick={this.login}
+              >
+                <span class="glyphicon glyphicon-off"></span> Login{" "}
+              </button>
+            </div>
+          </form>
+          <div class="center" style={{ width: "30%", minWidth: "250px" }}>
+            <Nav.Link href="/signup" style={{ minWidth: "300px" }}>
+              Don't have an account? Sign Up
+            </Nav.Link>
+            <Nav.Link href="/forget" style={{ minWidth: "250px" }}>
+              Forget your password?
+            </Nav.Link>
+          </div>
+        </div>
+        {/* </Col>
           <Col className="align-middle">
             <div>
               <img
@@ -122,7 +128,7 @@ class Login extends Component {
               />
             </div>
           </Col>
-        </Row>
+        </Row> */}
       </Container>
     );
   }
