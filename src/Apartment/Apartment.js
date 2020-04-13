@@ -92,18 +92,17 @@ class Apartment extends Component {
         <Row>
           <Col xs={12}>
             <div style={{ justifyContent: "center", padding: 30 }}>
-             
-              
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <label class="input-group-text" for="Sort">Preferences</label>
-              </div>
-              <select class="custom-select" id="inputGroupSelect01">
-                <option selected>Sort</option>
-                <option value="1">Price(Low to High)</option>
-                <option value="2">Price(Hight to Low)</option>
-                
-              </select>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="Sort">
+                    Preferences
+                  </label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01">
+                  <option selected>Sort</option>
+                  <option value="1">Price(Low to High)</option>
+                  <option value="2">Price(Hight to Low)</option>
+                </select>
               </div>
 
               <div class="input-group mb-3">
@@ -111,35 +110,40 @@ class Apartment extends Component {
                   <span class="input-group-text">Maximum amount </span>
                   <span class="input-group-text">0.00</span>
                 </div>
-                <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)"></input>
+                <input
+                  type="text"
+                  class="form-control"
+                  aria-label="Dollar amount (with dot and two decimal places)"
+                ></input>
               </div>
 
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <label class="input-group-text" for="Beds">Preferences</label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="Beds">
+                    Preferences
+                  </label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01">
+                  <option selected>Beds</option>
+                  <option value="1">Studio</option>
+                  <option value="2">One Bed</option>
+                  <option value="2">Two Bed</option>
+                  <option value="2">Three Bed</option>
+                  <option value="2">Four Bed +</option>
+                </select>
               </div>
-              <select class="custom-select" id="inputGroupSelect01">
-                <option selected>Beds</option>
-                <option value="1">Studio</option>
-                <option value="2">One Bed</option>
-                <option value="2">Two Bed</option>
-                <option value="2">Three Bed</option>
-                <option value="2">Four Bed +</option>
-                
-              </select>
-            </div>
 
-            <div>
-              <button
-                type="submit"
-                class="btn btn-success btn-default center"
-                id="search-button"
-                onClick={this.search}
-                align = "right"
-              >
-                <span class="glyphicon glyphicon-off"></span> Search{" "}
-              </button>
-            </div>
+              <div>
+                <button
+                  type="submit"
+                  class="btn btn-success btn-default center"
+                  id="search-button"
+                  onClick={this.search}
+                  align="right"
+                >
+                  <span class="glyphicon glyphicon-off"></span> Search{" "}
+                </button>
+              </div>
 
               <div class="center">
                 <h2 id="apartmentLogo" align="center" class="ceneter">

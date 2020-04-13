@@ -8,7 +8,18 @@ router.get("/group", (req, res) => res.json({ username: "dev group. bryan" }));
 
 // DB query example
 router.get("/getData", (req, res) => {
-  db.query("select * from table", (err, rows) => {
+  db.query("select * from apartments", (err, rows) => {
+    if (!err) {
+      res.send(rows);
+    } else {
+      console.log(`query error: ${err}`);
+      res.send(err);
+    }
+  });
+});
+
+router.get("/getApts", function (req, res) {
+  db.query("SELECT * FROM apartments", (err, rows) => {
     if (!err) {
       res.send(rows);
     } else {
@@ -26,35 +37,18 @@ router.post("/search", function (req, res) {
 
   fs.readFile("servers/apt.json", (err, data) => {
     if (err) throw err;
-<<<<<<< HEAD
-    apartments = JSON.parse(data);
-    // console.log(apt);
-    console.log(apartments);
-    for (apt in apartments) {
-      console.log("Test");
-      var apartment = apt;
-
-=======
     let apt = JSON.parse(data);
     //console.log(apt);
-    for(var i = 0; i < apt.length; i++) {
+    for (var i = 0; i < apt.length; i++) {
       var apartment = apt[i];
-  
->>>>>>> 695d84f94c641b4489828c36490d6e953bfc9c5b
+
       console.log(apartment.name);
     }
   });
 
-<<<<<<< HEAD
   if ((maxPrice <= 700) & (numBed == 1)) {
     res.send(apt);
   } else {
-=======
-  if (maxPrice <= 700 & numBed == 1){
-    res.send(apt);
-  } 
-  else {
->>>>>>> 695d84f94c641b4489828c36490d6e953bfc9c5b
     res.json({
       success: false,
     });
