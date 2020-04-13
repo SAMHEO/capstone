@@ -99,10 +99,10 @@ router.post("/search", function (req, res) {
 
   console.log(maxPrice);
   db.query(
-    `SELECT name, average_rent, rate, num_room,address from roommate_finder.apartments where rent <= ${maxPrice} AND num_room = ${numBed}`,
+    `SELECT name, rent, rate, num_room,address from roommate_finder.apartments where rent <= ${maxPrice} AND num_room = ${numBed}`,
     (err, rows) => {
       if (rows != 0) {
-        console.log(rows[0]);
+        //console.log(rows[0]);
         res.json({
           aptList: rows,
           // nameOfAPT: rows[0].name,
