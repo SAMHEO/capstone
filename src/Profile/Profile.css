@@ -1,0 +1,63 @@
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#profile-page {
+    display: "flex";
+    width: 60%;
+    padding: 30;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#user-photo {
+    width: 250px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.profile-box {
+    align: left;
+    margin: 10px;
+}
+
+
+#basic-info {
+    border-style: groove;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+
+#edit-button {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.tag {
+    border-style: groove;
+    border-color: grey;
+    border-radius: 5px;
+    width: min-content;
+    display: inline;
+    padding: 3px;
+    margin-right: 5px;
+}
+
+.new-tag {
+    border-bottom: groove; 
+    border-color: grey;
+    border-radius: 5px;
+    width: min-content;
+    display: inline;
+    padding: 3px;
+    margin-right: 5px;
+}

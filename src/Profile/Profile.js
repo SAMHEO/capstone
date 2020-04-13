@@ -1,12 +1,105 @@
 import React, { Component } from "react";
 import "./Profile.css";
 
+function AddNewTag() {
+  return(<div class="new-tag">+ Add New Tag</div>);
+}
+function TagExample1() {
+  return(<div class="tag">Introvert</div>);
+}
+function TagExample2() {
+  return(<div class="tag">Quiet</div>);
+}
+function TagExample3() {
+  return(<div class="tag">Dislike Party</div>);
+}
+function TagExample4() {
+  return(<div class="tag">Easygoing</div>);
+}
+function TagExample5() {
+  return(<div class="tag">Has no pet</div>);
+}
+function TagExample6() {
+  return(<div class="tag">Has a vehicle</div>);
+}
+function TagExample7() {
+  return(<div class="tag">Individual Bedroom</div>);
+}
+function TagExample8() {
+  return(<div class="tag">Individual Bathroom</div>);
+}
+function TagExample9() {
+  return(<div class="tag">Near Bus Station</div>);
+}
+
+
 class Profile extends Component {
+
+  edit = (e) => {
+  };
+
   render() {
     return (
-      <div style={{ display: "flex", justifyContent: "center", padding: 30 }}>
+      <div id="profile-page" style={{  }}>
         <div>
-          <h2>Profile Page</h2>
+          <div class="center">
+              <img
+                src="avatar.png"
+                className="d-block center"
+                alt="..."
+                id="user-photo"
+              />
+          </div>
+          <div>
+            
+          </div>
+          <div class="profile-box">
+            Basic Information
+            <div class="preofile-box" id="basic-info">
+              <li>Male, 22</li>
+              <li>Undergraduate student at Virginia Tech</li>
+              <li>As a sophomore student at Virginia Tech, I just moved out from university dormitory and I’m looking for an apartment with an individual bedroom and bathroom in each bedroom so that there is better privacy compared with my life in-campus dormitory.</li>
+            </div>
+          </div>
+
+          <div class="profile-box">
+            My Personality
+            <div class="preofile-box" id="basic-info">
+              <TagExample1 />
+              <TagExample2 />
+              <TagExample3 />
+              <AddNewTag />
+            </div>
+          </div>
+
+          <div class="profile-box">
+            I hope my roommate is 
+            <div class="preofile-box" id="basic-info">
+              <TagExample4 />
+              <TagExample5 />
+              <TagExample6 />
+              <AddNewTag />
+            </div>
+          </div>
+
+          <div class="profile-box">
+            I hope my apartment is 
+            <div class="preofile-box" id="basic-info">
+              <TagExample7 />
+              <TagExample8 />
+              <TagExample9 />
+              <AddNewTag />
+            </div>
+          </div>
+          
+          <button
+              type="edit"
+              class="btn btn-success btn-default center"
+              id="edit-button"
+              onClick={this.edit}
+            >
+              <span class="glyphicon glyphicon-off"></span> Edit{" "}
+            </button>
         </div>
       </div>
     );

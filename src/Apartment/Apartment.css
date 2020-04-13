@@ -15,6 +15,23 @@
     float: left;
 }
 
+.input-group {
+    float: left;
+    margin-right: 5px;
+}
+
+#input-group1 {
+    width: 20%;
+}
+
+#input-group2 {
+    width: 50%;
+}
+
+#input-group3 {
+    width: 20%;
+}
+
 #apartmentLogo {
     width: 100%;
     display: block;

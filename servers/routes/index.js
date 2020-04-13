@@ -32,9 +32,11 @@ router.get("/getApts", function (req, res) {
 router.post("/search", function (req, res) {
   var sort = req.body.sort;
   var maxPrice = req.body.maxPrice;
-  var numBed = req.body.numBed;
+  var numBed = req.body.numBeds;
   const fs = require("fs");
 
+  console.log(maxPrice);
+  console.log(numBed);
   fs.readFile("servers/apt.json", (err, data) => {
     if (err) throw err;
     let apt = JSON.parse(data);
@@ -42,17 +44,19 @@ router.post("/search", function (req, res) {
     for (var i = 0; i < apt.length; i++) {
       var apartment = apt[i];
 
-      console.log(apartment.name);
+      if ((maxPrice >= apartment.price) & (numBed == apartment.beds)) {
+        //res.send(apartment);
+        res.json({
+          success: true,
+        });
+      } else {
+        res.json({
+          success: false,
+        });
+      }
+      //console.log(apartment.name);
     }
   });
-
-  if ((maxPrice <= 700) & (numBed == 1)) {
-    res.send(apt);
-  } else {
-    res.json({
-      success: false,
-    });
-  }
 });
 
 router.post("/signup", function (req, res) {

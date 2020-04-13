@@ -34,7 +34,7 @@ class Apartment extends Component {
     this.state = {
       sort: "",
       maxPrice: "",
-      numBed: "",
+      numBeds: "",
     };
   }
 
@@ -63,8 +63,8 @@ class Apartment extends Component {
         return res.json();
       })
       .then((json) => {
-        if (json.maxPrice === true) {
-          alert("Logged in");
+        if (json.success === true) {
+          alert("Found!");
           window.localStorage.setItem("userInfo", JSON.stringify(json));
           this.setState({
             id: json.idx,
@@ -73,7 +73,7 @@ class Apartment extends Component {
           });
           this.props.history.push("/");
         } else {
-          alert("Check your email or password");
+          alert("Could not find any");
         }
       });
   };
@@ -81,31 +81,27 @@ class Apartment extends Component {
   render() {
     return (
       <Container>
-        <button
-          type="button"
-          class="btn btn-success btn-default center"
-          id="search-button"
-          onClick={this.search}
-        >
-          <span class="glyphicon glyphicon-off"></span> Search{" "}
-        </button>
         <Row>
           <Col xs={12}>
             <div style={{ justifyContent: "center", padding: 30 }}>
-              <div class="input-group mb-3">
+              <div class="input-group mb-3" id="input-group1">
                 <div class="input-group-prepend">
                   <label class="input-group-text" for="Sort">
                     Preferences
                   </label>
                 </div>
-                <select class="custom-select" id="inputGroupSelect01">
+                <select
+                  class="custom-select"
+                  id="inputGroupSelect01"
+                  onChange={this.handleSort}
+                >
                   <option selected>Sort</option>
                   <option value="1">Price(Low to High)</option>
                   <option value="2">Price(Hight to Low)</option>
                 </select>
               </div>
 
-              <div class="input-group mb-3">
+              <div class="input-group mb-3" id="input-group2">
                 <div class="input-group-prepend">
                   <span class="input-group-text">Maximum amount </span>
                   <span class="input-group-text">0.00</span>
@@ -114,22 +110,28 @@ class Apartment extends Component {
                   type="text"
                   class="form-control"
                   aria-label="Dollar amount (with dot and two decimal places)"
+                  onChange={this.handleMaxPrice}
                 ></input>
               </div>
 
-              <div class="input-group mb-3">
+              <div class="input-group mb-3" id="input-group3">
                 <div class="input-group-prepend">
                   <label class="input-group-text" for="Beds">
                     Preferences
                   </label>
                 </div>
-                <select class="custom-select" id="inputGroupSelect01">
+                <select
+                  class="custom-select"
+                  id="inputGroupSelect02"
+                  onChange={this.handleNumBeds}
+                  numBeds={this.value}
+                >
                   <option selected>Beds</option>
-                  <option value="1">Studio</option>
-                  <option value="2">One Bed</option>
-                  <option value="2">Two Bed</option>
-                  <option value="2">Three Bed</option>
-                  <option value="2">Four Bed +</option>
+                  <option value="1">0</option>
+                  <option value="2">1</option>
+                  <option value="2">2</option>
+                  <option value="2">3</option>
+                  <option value="2">4 +</option>
                 </select>
               </div>
 
