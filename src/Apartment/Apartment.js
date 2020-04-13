@@ -34,7 +34,7 @@ class Apartment extends Component {
     this.state = {
       sort: "",
       maxPrice: "",
-      numBed: "",
+      numBeds: "",
     };
   }
 
@@ -90,7 +90,7 @@ class Apartment extends Component {
               <div class="input-group-prepend">
                 <label class="input-group-text" for="Sort">Preferences</label>
               </div>
-              <select class="custom-select" id="inputGroupSelect01">
+              <select class="custom-select" id="inputGroupSelect01" onChange={this.handleSort}>
                 <option selected>Sort</option>
                 <option value="1">Price(Low to High)</option>
                 <option value="2">Price(Hight to Low)</option>
@@ -103,16 +103,16 @@ class Apartment extends Component {
                   <span class="input-group-text">Maximum amount </span>
                   <span class="input-group-text">0.00</span>
                 </div>
-                <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)"></input>
+                <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" onChange={this.handleMaxPrice}></input>
               </div>
 
             <div class="input-group mb-3" id="input-group3">
               <div class="input-group-prepend">
                 <label class="input-group-text" for="Beds">Preferences</label>
               </div>
-              <select class="custom-select" id="inputGroupSelect02">
+              <select class="custom-select" id="inputGroupSelect02" onChange={this.handleNumBeds} numBeds = {this.value}>
                 <option selected>Beds</option>
-                <option value="1">Studio</option>
+                <option value="1">0</option>
                 <option value="2">1</option>
                 <option value="2">2</option>
                 <option value="2">3</option>

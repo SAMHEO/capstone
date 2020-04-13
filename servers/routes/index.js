@@ -21,7 +21,7 @@ router.get("/getData", (req, res) => {
 router.post("/search", function (req, res) {
   var sort = req.body.sort;
   var maxPrice = req.body.maxPrice;
-  var numBed = req.body.numBed;
+  var numBed = req.body.numBeds;
   const fs = require("fs");
 
   console.log(maxPrice);
@@ -44,7 +44,7 @@ router.post("/search", function (req, res) {
           success: false,
         });
       }
-      console.log(apartment.name);
+      //console.log(apartment.name);
     }
     });
   });
