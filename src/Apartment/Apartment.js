@@ -35,6 +35,9 @@ class Apartment extends Component {
       sort: "",
       maxPrice: "",
       numBeds: "",
+      nameOfAPT: "",
+      priceOFAPT: 0,
+      apartmentList: []
     };
   }
 
@@ -48,11 +51,25 @@ class Apartment extends Component {
     this.setState({ numBeds: e.target.value });
   };
 
+  componentDidMount(){
+    
+    fetch("api/getApts")
+      .then((res) => {
+        return res.json();
+      })
+      .then((json) => {
+        //console.log(body);
+        this.setState({ apartmentList: json});
+        console.log(this.state);
+      });
+  }
+
   search = (e) => {
     e.preventDefault();
 
     const search_info = {
       method: "POST",
+      //make the body to the name of the apartment for now
       body: JSON.stringify(this.state),
       headers: {
         "Content-Type": "application/json",
@@ -65,13 +82,14 @@ class Apartment extends Component {
       .then((json) => {
         if (json.success === true) {
           alert("Found!");
+          console.log(json)
           window.localStorage.setItem("userInfo", JSON.stringify(json));
           this.setState({
-            id: json.idx,
-            email: json.email,
-            isLogin: json.success,
+            
+            apartmentList: json.aptList
           });
           this.props.history.push("/apartment");
+          console.log(this.state)
         } else {
           alert("Could not find any");
         }
@@ -153,10 +171,20 @@ class Apartment extends Component {
                 </h2>
               </div>
               <div class="apartmentPostsArea">
-                <ApartmentPostExample1 />
-                <ApartmentPostExample1 />
-                <ApartmentPostExample1 />
-                <ApartmentPostExample1 />
+                {this.state.apartmentList.map((apt, index) => (
+                  <div class="card" key = {index}>
+                  <div className="row">
+                    <img src="edge.jpg" class="col-sm-6" alt="ExampleImage" />
+                    <div class="col-sm-6">
+                      <h5 class="card-title">{apt.name}</h5>
+                      <p class="card-text">
+                        {apt.price}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                ))}
+                
               </div>
             </div>
           </Col>
