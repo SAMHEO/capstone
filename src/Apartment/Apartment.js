@@ -84,18 +84,21 @@ class Apartment extends Component {
         <Row>
           <Col xs={12}>
             <div style={{ justifyContent: "center", padding: 30 }}>
-             
-              
-            <div class="input-group mb-3" id="input-group1">
-              <div class="input-group-prepend">
-                <label class="input-group-text" for="Sort">Preferences</label>
-              </div>
-              <select class="custom-select" id="inputGroupSelect01" onChange={this.handleSort}>
-                <option selected>Sort</option>
-                <option value="1">Price(Low to High)</option>
-                <option value="2">Price(Hight to Low)</option>
-                
-              </select>
+              <div class="input-group mb-3" id="input-group1">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="Sort">
+                    Preferences
+                  </label>
+                </div>
+                <select
+                  class="custom-select"
+                  id="inputGroupSelect01"
+                  onChange={this.handleSort}
+                >
+                  <option selected>Sort</option>
+                  <option value="1">Price(Low to High)</option>
+                  <option value="2">Price(Hight to Low)</option>
+                </select>
               </div>
 
               <div class="input-group mb-3" id="input-group2">
@@ -103,35 +106,46 @@ class Apartment extends Component {
                   <span class="input-group-text">Maximum amount </span>
                   <span class="input-group-text">0.00</span>
                 </div>
-                <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" onChange={this.handleMaxPrice}></input>
+                <input
+                  type="text"
+                  class="form-control"
+                  aria-label="Dollar amount (with dot and two decimal places)"
+                  onChange={this.handleMaxPrice}
+                ></input>
               </div>
 
-            <div class="input-group mb-3" id="input-group3">
-              <div class="input-group-prepend">
-                <label class="input-group-text" for="Beds">Preferences</label>
+              <div class="input-group mb-3" id="input-group3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="Beds">
+                    Preferences
+                  </label>
+                </div>
+                <select
+                  class="custom-select"
+                  id="inputGroupSelect02"
+                  onChange={this.handleNumBeds}
+                  numBeds={this.value}
+                >
+                  <option selected>Beds</option>
+                  <option value="1">0</option>
+                  <option value="2">1</option>
+                  <option value="2">2</option>
+                  <option value="2">3</option>
+                  <option value="2">4 +</option>
+                </select>
               </div>
-              <select class="custom-select" id="inputGroupSelect02" onChange={this.handleNumBeds} numBeds = {this.value}>
-                <option selected>Beds</option>
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4 +</option>
-                
-              </select>
-            </div>
 
-            <div>
-              <button
-                type="submit"
-                class="btn btn-success btn-default center"
-                id="search-button"
-                onClick={this.search}
-                align = "right"
-              >
-                <span class="glyphicon glyphicon-off"></span> Search{" "}
-              </button>
-            </div>
+              <div>
+                <button
+                  type="submit"
+                  class="btn btn-success btn-default center"
+                  id="search-button"
+                  onClick={this.search}
+                  align="right"
+                >
+                  <span class="glyphicon glyphicon-off"></span> Search{" "}
+                </button>
+              </div>
 
               <div class="center">
                 <h2 id="apartmentLogo" align="center" class="ceneter">
