@@ -7,6 +7,7 @@ import Roommate from "./Roommates/Roommate";
 import About from "./About/About";
 import history from "./history";
 import Profile from "./Profile/Profile";
+import ProfileEdit from "./ProfileEdit/ProfileEdit"
 import Login from "./Login/Login";
 import Signup from "./Signup/Signup";
 import Forget from "./Forget/Forget";
@@ -21,6 +22,7 @@ export default class Routes extends Component {
           <Route path="/roommate" exact component={Roommate} />
           <Route path="/about" component={About} />
           <Route path="/profile" component={Profile} />
+          <Route path="/profileedit" component={ProfileEdit} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
           <Route path="/forget" component={Forget} />

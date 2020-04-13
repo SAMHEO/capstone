@@ -44,34 +44,48 @@ router.get("/getApts", function (req, res) {
   });
 });
 
+
 router.post("/search", function (req, res) {
   var sort = req.body.sort;
   var maxPrice = req.body.maxPrice;
   var numBed = req.body.numBeds;
-  const fs = require("fs");
+  // const fs = require("fs");
 
   console.log(maxPrice);
   console.log(numBed);
-  fs.readFile("servers/apt.json", (err, data) => {
-    if (err) throw err;
-    let apt = JSON.parse(data);
-    //console.log(apt);
-    for (var i = 0; i < apt.length; i++) {
-      var apartment = apt[i];
-
-      if ((maxPrice >= apartment.price) & (numBed == apartment.beds)) {
-        //res.send(apartment);
-        res.json({
-          success: true,
-        });
-      } else {
-        res.json({
-          success: false,
-        });
-      }
-      //console.log(apartment.name);
+  db.query(`SELECT name from roommate_finder.apartments where average_rent <= ${maxPrice}`, (err, rows) => {
+    if (rows != 0) {
+      console.log('names', rows)
+      res.json({
+        success: true,
+      });
+    } else {
+      console.log(`query error: ${err}`);
+      res.json({
+        success: false,
+      });
     }
-  });
+  })
+  // fs.readFile("servers/apt.json", (err, data) => {
+  //   if (err) throw err;
+  //   let apt = JSON.parse(data);
+  //   //console.log(apt);
+  //   for (var i = 0; i < apt.length; i++) {
+  //     var apartment = apt[i];
+
+  //     if ((maxPrice >= apartment.price) & (numBed == apartment.beds)) {
+  //       //res.send(apartment);
+  //       res.json({
+  //         success: true,
+  //       });
+  //     } else {
+  //       res.json({
+  //         success: false,
+  //       });
+  //     }
+  //     //console.log(apartment.name);
+  //   }
+  // });
 });
 
 router.post("/signup", function (req, res) {

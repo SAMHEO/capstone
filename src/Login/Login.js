@@ -83,7 +83,7 @@ class Login extends Component {
                     required
                   ></input>
                 </div>
-                <div align="left" style={{ width: "28%" }} class="center">
+                <div align="left" style={{ width: "28%", minWidth: "200px"}} class="center">
                   <td class="text-center">
                     <input
                       type="checkbox"
@@ -105,11 +105,11 @@ class Login extends Component {
                   </button>
                 </div>
               </form>
-              <div class="center" style={{ width: "30%" }}>
-                <Nav.Link href="/signup">
+              <div class="center" style={{ width: "30%", minWidth: "250px" }}>
+                <Nav.Link href="/signup" style={{ minWidth: "300px" }}>
                   Don't have an account? Sign Up
                 </Nav.Link>
-                <Nav.Link href="/forget">Forget your password?</Nav.Link>
+                <Nav.Link href="/forget" style={{ minWidth: "250px" }}>Forget your password?</Nav.Link>
               </div>
             </div>
           </Col>
