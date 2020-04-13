@@ -65,29 +65,33 @@ router.get("/getApts", function (req, res) {
   });
 });
 
-router.get("/homeApt", function(req,res){
-  db.query(`SELECT * FROM roommate_finder.apartments ORDER BY rate DESC LIMIT 3`, (err,rows) =>{
-    
-    if (!err) {
-      res.send(rows);
-      //console.log(rows);
-    } else {
-      console.log(`query error: ${err}`);
-      res.send(err);
+router.get("/homeApt", function (req, res) {
+  db.query(
+    `SELECT * FROM roommate_finder.apartments ORDER BY rate DESC LIMIT 3`,
+    (err, rows) => {
+      if (!err) {
+        res.send(rows);
+        //console.log(rows);
+      } else {
+        console.log(`query error: ${err}`);
+        res.send(err);
+      }
     }
-  });
+  );
 });
-router.get("/homeUser", function(req,res){
-  db.query(`SELECT * FROM roommate_finder.clients ORDER BY RAND() LIMIT 3`, (err,rows) =>{
-    
-    if (!err) {
-      res.send(rows);
-      //console.log(rows);
-    } else {
-      console.log(`query error: ${err}`);
-      res.send(err);
+router.get("/homeUser", function (req, res) {
+  db.query(
+    `SELECT * FROM roommate_finder.clients ORDER BY RAND() LIMIT 3`,
+    (err, rows) => {
+      if (!err) {
+        res.send(rows);
+        //console.log(rows);
+      } else {
+        console.log(`query error: ${err}`);
+        res.send(err);
+      }
     }
-  });
+  );
 });
 
 //getting apartment data from database according to the preferences
