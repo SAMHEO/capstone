@@ -24,7 +24,7 @@ router.post("/user", (req, res) => {
     (err, rows) => {
       if (!err) {
         console.log(rows[0].ideal_rent);
-        res.send({ rent: rows[0].ideal_rent });
+        res.json({ rent: rows[0].ideal_rent });
       } else {
         console.log(`query error: ${err}`);
         res.send(err);
@@ -44,7 +44,6 @@ router.get("/getApts", function (req, res) {
   });
 });
 
-
 router.post("/search", function (req, res) {
   var sort = req.body.sort;
   var maxPrice = req.body.maxPrice;
@@ -53,19 +52,22 @@ router.post("/search", function (req, res) {
 
   console.log(maxPrice);
   console.log(numBed);
-  db.query(`SELECT name from roommate_finder.apartments where average_rent <= ${maxPrice}`, (err, rows) => {
-    if (rows != 0) {
-      console.log('names', rows)
-      res.json({
-        success: true,
-      });
-    } else {
-      console.log(`query error: ${err}`);
-      res.json({
-        success: false,
-      });
+  db.query(
+    `SELECT name from roommate_finder.apartments where average_rent <= ${maxPrice}`,
+    (err, rows) => {
+      if (rows != 0) {
+        console.log("names", rows);
+        res.json({
+          success: true,
+        });
+      } else {
+        console.log(`query error: ${err}`);
+        res.json({
+          success: false,
+        });
+      }
     }
-  })
+  );
   // fs.readFile("servers/apt.json", (err, data) => {
   //   if (err) throw err;
   //   let apt = JSON.parse(data);

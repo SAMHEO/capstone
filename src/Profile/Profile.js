@@ -55,11 +55,15 @@ class Profile extends Component {
         "Content-Type": "application/json",
       },
     };
-    fetch("api/user", search_info).then((res) => {
-      console.log(res);
-      this.setState({ rent: res.rent });
-      console.log(this.state);
-    });
+    fetch("api/user", search_info)
+      .then((res) => {
+        return res.json();
+      })
+      .then((body) => {
+        console.log(body);
+        this.setState({ rent: body.rent });
+        console.log(this.state);
+      });
   }
   render() {
     return (
