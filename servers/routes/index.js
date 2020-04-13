@@ -18,6 +18,21 @@ router.get("/getData", (req, res) => {
   });
 });
 
+router.post("/user", (req, res) => {
+  db.query(
+    `select * from clients where name = "${req.body.name}"`,
+    (err, rows) => {
+      if (!err) {
+        console.log(rows[0].ideal_rent);
+        res.send({ rent: rows[0].ideal_rent });
+      } else {
+        console.log(`query error: ${err}`);
+        res.send(err);
+      }
+    }
+  );
+});
+
 router.get("/getApts", function (req, res) {
   db.query("SELECT * FROM apartments", (err, rows) => {
     if (!err) {
