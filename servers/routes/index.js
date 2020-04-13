@@ -65,13 +65,15 @@ router.post("/search", function (req, res) {
   // const fs = require("fs");
 
   console.log(maxPrice);
-  console.log(numBed);
   db.query(
-    `SELECT name from roommate_finder.apartments where average_rent <= ${maxPrice}`,
+    `SELECT name, average_rent from roommate_finder.apartments where average_rent <= ${maxPrice}`,
     (err, rows) => {
       if (rows != 0) {
-        console.log("names", rows);
+        console.log(rows[0]);
         res.json({
+          aptList: rows,
+          // nameOfAPT: rows[0].name,
+          // price: rows[0].average_rent,
           success: true,
         });
       } else {
@@ -82,26 +84,6 @@ router.post("/search", function (req, res) {
       }
     }
   );
-  // fs.readFile("servers/apt.json", (err, data) => {
-  //   if (err) throw err;
-  //   let apt = JSON.parse(data);
-  //   //console.log(apt);
-  //   for (var i = 0; i < apt.length; i++) {
-  //     var apartment = apt[i];
-
-  //     if ((maxPrice >= apartment.price) & (numBed == apartment.beds)) {
-  //       //res.send(apartment);
-  //       res.json({
-  //         success: true,
-  //       });
-  //     } else {
-  //       res.json({
-  //         success: false,
-  //       });
-  //     }
-  //     //console.log(apartment.name);
-  //   }
-  // });
 });
 
 router.post("/signup", function (req, res) {
