@@ -5,26 +5,26 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./Apartment.css";
 
-var tempApt1Name = "Edge";
-var tempApt1Time = "April 4, 2020, 22:37";
-function ApartmentPostExample1() {
-  return (
-    <div class="card ">
-      <div className="row">
-        <img src="edge.jpg" class="col-sm-6" alt="ExampleImage" />
-        <div class="col-sm-6">
-          <h5 class="card-title">{tempApt1Name}</h5>
-          <p class="card-text">
-            <p>500 Hunt Club Rd.</p>
-            <p>$480 / Month</p>
-            <p>3 bedrooms apartment for rent</p>
-            {tempApt1Time}
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-}
+// var tempApt1Name = "Edge";
+// var tempApt1Time = "April 4, 2020, 22:37";
+// function ApartmentPostExample1() {
+//   return (
+//     <div class="card ">
+//       <div className="row">
+//         <img src="edge.jpg" class="col-sm-6" alt="ExampleImage" />
+//         <div class="col-sm-6">
+//           <h5 class="card-title">{tempApt1Name}</h5>
+//           <p class="card-text">
+//             <p>500 Hunt Club Rd.</p>
+//             <p>$480 / Month</p>
+//             <p>3 bedrooms apartment for rent</p>
+//             {tempApt1Time}
+//           </p>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
 
 class Apartment extends Component {
   constructor(props) {
@@ -60,7 +60,7 @@ class Apartment extends Component {
       .then((json) => {
         //console.log(body);
         this.setState({ apartmentList: json});
-        console.log(this.state);
+        //console.log("hello", this.state);
       });
   }
 
@@ -178,13 +178,15 @@ class Apartment extends Component {
                     <div class="col-sm-6">
                       <h5 class="card-title">{apt.name}</h5>
                       <p class="card-text">
-                        {apt.price}
+                      <p>Price: ${apt.rent}</p>
+                      <p>Location: {apt.address}</p>
+                      <p>Rate: {apt.rate}</p>
+
                       </p>
                     </div>
                   </div>
                 </div>
                 ))}
-                
               </div>
             </div>
           </Col>

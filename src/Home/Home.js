@@ -9,19 +9,19 @@ var tempUser1Name = "user1";
 var tempUser1Des =
   "I want to find an apartment with individual bedroom and bathroom.";
 var tempUser1Time = "April 4, 2020, 22:37";
-function Post1() {
-  return (
-    <div class="card">
-      <img src="terraceview.jpeg" class="card-img-top" alt="postUserImage" />
-      <div class="card-body">
-        <h5 class="card-title">{tempUser1Name}</h5>
-        <p class="card-text">
-          {tempUser1Des} {tempUser1Time}
-        </p>
-      </div>
-    </div>
-  );
-}
+// function Post1() {
+//   return (
+//     <div class="card">
+//       <img src="terraceview.jpeg" class="card-img-top" alt="postUserImage" />
+//       <div class="card-body">
+//         <h5 class="card-title">{tempUser1Name}</h5>
+//         <p class="card-text">
+//           {tempUser1Des} {tempUser1Time}
+//         </p>
+//       </div>
+//     </div>
+//   );
+// }
 var tempUser2Name = "user2";
 var tempUser2Des = "I want to find a roommate with similar lifestyle as me.";
 var tempUser2Time = "April 4, 2020, 22:33";
@@ -40,6 +40,43 @@ function Post2() {
 }
 
 export default class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      apartmentList: [],
+      userList: []
+    };
+  }
+
+  callApi1() {
+    fetch("api/homeApt")
+      .then((res) => {
+        return res.json();
+      })
+      .then((json) => {
+        //console.log(json);
+        this.setState({ apartmentList: json});
+        //console.log(this.state.apartmentList[0].name);
+      });
+
+  }
+  callApi2() {
+    fetch("api/homeUser")
+    .then((res) => {
+      return res.json();
+    })
+    .then((json) => {
+      //console.log(json);
+      this.setState({ userList: json});
+      //console.log(this.state.apartmentList[0].name);
+    });
+  }
+  //loads intial apartment data when home page opens
+  componentDidMount(){
+    this.callApi1();
+    this.callApi2();
+  }
+
   render() {
     return (
       <div>
@@ -53,15 +90,24 @@ export default class Home extends Component {
           </Row>
 
           <Row>
+            {this.state.apartmentList.map((apt, index) => (
             <Col>
-              <Post1 />
+            <temp>
+
+            <div class="card">
+              <img src="terraceview.jpeg" class="card-img-top" alt="postUserImage" />
+              <div class="card-body">
+                <h5 class="card-title">{apt.name}</h5>
+                <p class="card-text">
+                  {tempUser1Des} {tempUser1Time}
+                </p>
+              </div>
+            </div>
+              
+            </temp>
             </Col>
-            <Col>
-              <Post1 />
-            </Col>
-            <Col>
-              <Post1 />
-            </Col>
+            )
+          )};
           </Row>
         </Container>
         <hr />
@@ -74,15 +120,22 @@ export default class Home extends Component {
             </div>
           </Row>
           <Row>
+          {this.state.userList.map((user, index) => (
             <Col>
-              <Post2 />
+
+            <div class="card">
+              <img src="avatar.png" class="card-img-top" alt="postUserImage" />
+              <div class="card-body">
+                <h5 class="card-title">{user.name}</h5>
+                <p class="card-text">
+                  {tempUser2Des} {tempUser2Time}
+                </p>
+              </div>
+            </div>
+              
             </Col>
-            <Col>
-              <Post2 />
-            </Col>
-            <Col>
-              <Post2 />
-            </Col>
+            )
+          )};
           </Row>
         </Container>
         <hr />

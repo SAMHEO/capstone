@@ -51,6 +51,7 @@ router.get("/getApts", function (req, res) {
   db.query("SELECT * FROM apartments", (err, rows) => {
     if (!err) {
       res.send(rows);
+      //console.log(rows)
     } else {
       console.log(`query error: ${err}`);
       res.send(err);
@@ -58,8 +59,29 @@ router.get("/getApts", function (req, res) {
   });
 });
 
-router.post({
-
+router.get("/homeApt", function(req,res){
+  db.query(`SELECT * FROM roommate_finder.apartments ORDER BY rate DESC LIMIT 3`, (err,rows) =>{
+    
+    if (!err) {
+      res.send(rows);
+      //console.log(rows);
+    } else {
+      console.log(`query error: ${err}`);
+      res.send(err);
+    }
+  });
+});
+router.get("/homeUser", function(req,res){
+  db.query(`SELECT * FROM roommate_finder.clients ORDER BY RAND() LIMIT 3`, (err,rows) =>{
+    
+    if (!err) {
+      res.send(rows);
+      //console.log(rows);
+    } else {
+      console.log(`query error: ${err}`);
+      res.send(err);
+    }
+  });
 });
 
 //getting apartment data from database according to the preferences
@@ -71,7 +93,7 @@ router.post("/search", function (req, res) {
 
   console.log(maxPrice);
   db.query(
-    `SELECT name, average_rent from roommate_finder.apartments where average_rent <= ${maxPrice}`,
+    `SELECT name, average_rent, rate, num_room,address from roommate_finder.apartments where rent <= ${maxPrice} AND num_room = ${numBed}`,
     (err, rows) => {
       if (rows != 0) {
         console.log(rows[0]);
