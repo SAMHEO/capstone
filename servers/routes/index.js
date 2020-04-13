@@ -34,12 +34,13 @@ router.post("/search", function (req, res) {
   var sort = req.body.sort;
   var maxPrice = req.body.maxPrice;
   var numBed = req.body.numBeds;
-  const fs = require("fs");
+  // const fs = require("fs");
 
   console.log(maxPrice);
   console.log(numBed);
   db.query(`SELECT name from roommate_finder.apartments where average_rent <= ${maxPrice}`, (err, rows) => {
-    if (!err) {
+    if (rows != 0) {
+      console.log('names', rows)
       res.json({
         success: true,
       });
