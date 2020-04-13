@@ -58,6 +58,11 @@ router.get("/getApts", function (req, res) {
   });
 });
 
+router.post({
+
+});
+
+//getting apartment data from database according to the preferences
 router.post("/search", function (req, res) {
   var sort = req.body.sort;
   var maxPrice = req.body.maxPrice;
