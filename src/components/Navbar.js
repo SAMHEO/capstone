@@ -1,6 +1,5 @@
 import React from "react";
 import "./Navbar.css";
-import { Link } from 'react-router-dom';
 import { Navbar, Nav } from "react-bootstrap";
 import { withRouter } from "react-router-dom";
 const Navigation = (props) => {
@@ -12,7 +11,7 @@ const Navigation = (props) => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse>
         <Nav className="navbar-nav ml-auto" id="nav-bar-container">
-          <Nav.Item class="link-item"><Nav.Link eventKey="1" href="/">Piazza</Nav.Link></Nav.Item>
+          <Nav.Item class="link-item"><Nav.Link eventKey="1" href="/">Home</Nav.Link></Nav.Item>
           <Nav.Item class="link-item"><Nav.Link eventKey="2" href="/apartment">Apartment</Nav.Link></Nav.Item>
           <Nav.Item class="link-item"><Nav.Link eventKey="3" href="/roommate">Roommates</Nav.Link></Nav.Item>
           <Nav.Item class="link-item"><Nav.Link eventKey="4" href="/about">About</Nav.Link></Nav.Item>

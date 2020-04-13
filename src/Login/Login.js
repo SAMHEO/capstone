@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Nav, Container, Row, Col } from "react-bootstrap";
+import { Nav, Container } from "react-bootstrap";
 import "./Login.css";
 
 class Login extends Component {
