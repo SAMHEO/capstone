@@ -1,9 +1,7 @@
 import React, { Component } from "react";
+import { Navbar, Nav } from "react-bootstrap";
 import "./Profile.css";
 
-function AddNewTag() {
-  return(<div class="new-tag">+ Add New Tag</div>);
-}
 function TagExample1() {
   return(<div class="tag">Introvert</div>);
 }
@@ -36,6 +34,7 @@ function TagExample9() {
 class Profile extends Component {
 
   edit = (e) => {
+    //TODO the backend edit function
   };
 
   render() {
@@ -64,31 +63,28 @@ class Profile extends Component {
 
           <div class="profile-box">
             My Personality
-            <div class="preofile-box" id="basic-info">
+            <div id="basic-info" class="tag-box">
               <TagExample1 />
               <TagExample2 />
               <TagExample3 />
-              <AddNewTag />
             </div>
           </div>
 
           <div class="profile-box">
             I hope my roommate is 
-            <div class="preofile-box" id="basic-info">
+            <div id="apartment-info" class="tag-box">
               <TagExample4 />
               <TagExample5 />
               <TagExample6 />
-              <AddNewTag />
             </div>
           </div>
 
           <div class="profile-box">
             I hope my apartment is 
-            <div class="preofile-box" id="basic-info">
+            <div id="roommate-info" class="tag-box">
               <TagExample7 />
               <TagExample8 />
               <TagExample9 />
-              <AddNewTag />
             </div>
           </div>
           
@@ -98,7 +94,7 @@ class Profile extends Component {
               id="edit-button"
               onClick={this.edit}
             >
-              <span class="glyphicon glyphicon-off"></span> Edit{" "}
+              <Nav.Link href="/profileedit" id="edit-link">Edit</Nav.Link>
             </button>
         </div>
       </div>

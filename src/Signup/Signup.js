@@ -101,7 +101,7 @@ class Signup extends Component {
             <span class="glyphicon glyphicon-off"></span> Sign Up{" "}
           </button>
         </div>
-        <div class="center" style={{ width: "30%" }}>
+        <div class="center" style={{ width: "30%", minWidth: "265px"}}>
           <Nav.Link href="/Login">Already have an account? Login</Nav.Link>
         </div>
       </div>

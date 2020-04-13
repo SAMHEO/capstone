@@ -1,3 +1,23 @@
 .btn-space {
   margin-right: 5px;
 }
+
+.spacer {
+  flex: 1;
+}
+
+#nav-bar-container {
+  display: flex;
+}
+
+.link-item {
+  display: flex;
+}
+
+#link-item1 {
+  display: flex;
+}
+
+#link-item2 {
+  display: flex;
+}
