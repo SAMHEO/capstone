@@ -33,9 +33,15 @@ router.post("/user", (req, res) => {
     `select * from clients where name = "${req.body.name}"`,
     (err, rows) => {
       if (!err) {
+        age = rows[0].birthday;
+        sex = rows[0].sex;
+        phone = rows[0].phone;
         rent = rows[0].ideal_rent;
         image = rows[0].image ? "user.jpg" : "avatar.png";
         res.json({
+          age: age,
+          sex: sex,
+          phone: phone,
           rent: rent,
           image: image,
         });

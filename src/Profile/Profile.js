@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Navbar, Nav } from "react-bootstrap";
+import { Spinner, Nav, Container, Col } from "react-bootstrap";
 import "./Profile.css";
 
 function TagExample1() {
@@ -30,6 +30,13 @@ function TagExample9() {
   return <div class="tag">Near Bus Station</div>;
 }
 
+function getAgeFromBirthdate(birthdate) {
+  var birthday = new Date(birthdate);
+  var today = new Date();
+  var years = today.getFullYear() - birthday.getFullYear();
+  return years;
+}
+
 class Profile extends Component {
   constructor(props) {
     super(props);
@@ -38,11 +45,13 @@ class Profile extends Component {
       name: "John",
       age: 0,
       sex: "",
+      phone: "",
       rent: 0,
       description: "",
       image: "",
       preferences: [],
       tags: [],
+      isLoading: true,
     };
   }
   edit = (e) => {};
@@ -62,83 +71,93 @@ class Profile extends Component {
       .then((body) => {
         console.log(body);
         this.setState({
+          age: getAgeFromBirthdate(body.age),
+          sex: body.sex.toUpperCase(),
+          phone: body.phone,
           rent: body.rent,
           image: body.image,
+          isLoading: false,
         });
         console.log(this.state);
       });
   }
   render() {
+    const { isLoading } = this.state;
     return (
-      <div id="profile-page" style={{}}>
-        <div>
-          <div class="center">
-            <img
-              src={this.state.image}
-              className="d-block center"
-              alt="..."
-              id="user-photo"
-            />
-          </div>
-          <div></div>
-          <div class="profile-box">
-            <p>Basic Information</p>
-            <p>{this.state.name}</p>
-            <p>Looking for Rent under {this.state.rent}</p>
-            <div class="preofile-box" id="basic-info">
-              <li>
-                {this.state.sex}, {this.state.age}
-              </li>
-              <li>Undergraduate student at Virginia Tech</li>
-              <li>
-                {this.state.description}
-                As a sophomore student at Virginia Tech, I just moved out from
-                university dormitory and I’m looking for an apartment with an
-                individual bedroom and bathroom in each bedroom so that there is
-                better privacy compared with my life in-campus dormitory.
-              </li>
+      <Container className="text-center mt-4 mb-4">
+        {isLoading ? (
+          <Spinner animation="grow" />
+        ) : (
+          <div id="profile-page" style={{}}>
+            <div>
+              <div class="center">
+                <img
+                  src={this.state.image}
+                  className="d-block center"
+                  alt="..."
+                  id="user-photo"
+                />
+              </div>
+              <div></div>
+              <div class="profile-box">
+                <p>
+                  {this.state.name} {this.state.age} {this.state.sex}
+                </p>
+                <p>Looking for Rent under {this.state.rent}</p>
+                <div class="preofile-box" id="basic-info">
+                  <li>Undergraduate student at Virginia Tech</li>
+                  <li>
+                    {this.state.description}
+                    As a sophomore student at Virginia Tech, I just moved out
+                    from university dormitory and I’m looking for an apartment
+                    with an individual bedroom and bathroom in each bedroom so
+                    that there is better privacy compared with my life in-campus
+                    dormitory.
+                  </li>
+                </div>
+              </div>
+
+              <div class="profile-box">
+                My Personality
+                <div id="basic-info" class="tag-box">
+                  <TagExample1 />
+                  <TagExample2 />
+                  <TagExample3 />
+                </div>
+              </div>
+
+              <div class="profile-box">
+                I hope my roommate is
+                <div id="apartment-info" class="tag-box">
+                  <TagExample4 />
+                  <TagExample5 />
+                  <TagExample6 />
+                </div>
+              </div>
+
+              <div class="profile-box">
+                I hope my apartment is
+                <div id="roommate-info" class="tag-box">
+                  <TagExample7 />
+                  <TagExample8 />
+                  <TagExample9 />
+                </div>
+              </div>
+
+              <button
+                type="edit"
+                class="btn btn-success btn-default center"
+                id="edit-button"
+                onClick={this.edit}
+              >
+                <Nav.Link href="/profileedit" id="edit-link">
+                  Edit
+                </Nav.Link>
+              </button>
             </div>
           </div>
-
-          <div class="profile-box">
-            My Personality
-            <div id="basic-info" class="tag-box">
-              <TagExample1 />
-              <TagExample2 />
-              <TagExample3 />
-            </div>
-          </div>
-
-          <div class="profile-box">
-            I hope my roommate is
-            <div id="apartment-info" class="tag-box">
-              <TagExample4 />
-              <TagExample5 />
-              <TagExample6 />
-            </div>
-          </div>
-
-          <div class="profile-box">
-            I hope my apartment is
-            <div id="roommate-info" class="tag-box">
-              <TagExample7 />
-              <TagExample8 />
-              <TagExample9 />
-            </div>
-          </div>
-
-          <button
-            type="edit"
-            class="btn btn-success btn-default center"
-            id="edit-button"
-            onClick={this.edit}
-          >
-            <Nav.Link href="/profileedit" id="edit-link">
-              Edit
-            </Nav.Link>
-          </button>
-        </div>
-      </div>
+        )}
+      </Container>
     );
   }
 }
