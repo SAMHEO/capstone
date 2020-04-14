@@ -84,7 +84,7 @@ class Profile extends Component {
   render() {
     const { isLoading } = this.state;
     return (
-      <Container className="text-center mt-4 mb-4">
+      <Container className="text-center mt-5">
         {isLoading ? (
           <Spinner animation="grow" />
         ) : (

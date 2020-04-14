@@ -44,7 +44,7 @@ export default class Home extends Component {
     super(props);
     this.state = {
       apartmentList: [],
-      userList: []
+      userList: [],
     };
   }
 
@@ -55,24 +55,23 @@ export default class Home extends Component {
       })
       .then((json) => {
         //console.log(json);
-        this.setState({ apartmentList: json});
+        this.setState({ apartmentList: json });
         //console.log(this.state.apartmentList[0].name);
       });
-
   }
   callApi2() {
     fetch("api/homeUser")
-    .then((res) => {
-      return res.json();
-    })
-    .then((json) => {
-      //console.log(json);
-      this.setState({ userList: json});
-      //console.log(this.state.apartmentList[0].name);
-    });
+      .then((res) => {
+        return res.json();
+      })
+      .then((json) => {
+        //console.log(json);
+        this.setState({ userList: json });
+        //console.log(this.state.apartmentList[0].name);
+      });
   }
   //loads intial apartment data when home page opens
-  componentDidMount(){
+  componentDidMount() {
     this.callApi1();
     this.callApi2();
   }
@@ -80,7 +79,7 @@ export default class Home extends Component {
   render() {
     return (
       <div>
-        <Container>
+        <Container className="mt-5">
           <Row className="row justify-content-center">
             <div>
               <div id="logo">
@@ -91,22 +90,22 @@ export default class Home extends Component {
 
           <Row>
             {this.state.apartmentList.map((apt, index) => (
-            <Col>
-            <temp>
-
-            <div class="card">
-              <img src="terraceview.jpeg" class="card-img-top" alt="postUserImage" />
-              <div class="card-body">
-                <h5 class="card-title">{apt.name}</h5>
-                <p class="card-text">
-                </p>
-              </div>
-            </div>
-              
-            </temp>
-            </Col>
-            )
-          )};
+              <Col>
+                <temp>
+                  <div class="card">
+                    <img
+                      src="terraceview.jpeg"
+                      class="card-img-top"
+                      alt="postUserImage"
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title">{apt.name}</h5>
+                      <p class="card-text"></p>
+                    </div>
+                  </div>
+                </temp>
+              </Col>
+            ))}
           </Row>
         </Container>
         <hr />
@@ -119,22 +118,24 @@ export default class Home extends Component {
             </div>
           </Row>
           <Row>
-          {this.state.userList.map((user, index) => (
-            <Col>
-
-            <div class="card">
-              <img src="avatar.png" class="card-img-top" alt="postUserImage" />
-              <div class="card-body">
-                <h5 class="card-title">{user.name}</h5>
-                <p class="card-text">
-                  {tempUser2Des} {tempUser2Time}
-                </p>
-              </div>
-            </div>
-              
-            </Col>
-            )
-          )};
+            {this.state.userList.map((user, index) => (
+              <Col>
+                <div class="card">
+                  <img
+                    src="avatar.png"
+                    class="card-img-top"
+                    alt="postUserImage"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">{user.name}</h5>
+                    <p class="card-text">
+                      {tempUser2Des} {tempUser2Time}
+                    </p>
+                  </div>
+                </div>
+              </Col>
+            ))}
+            ;
           </Row>
         </Container>
         <hr />

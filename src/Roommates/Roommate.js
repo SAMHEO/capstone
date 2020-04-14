@@ -28,7 +28,7 @@ class Roommate extends Component {
   }
   render() {
     return (
-      <Container className="text-center mt-4 mb-4">
+      <Container className="text-center mt-5">
         {this.state.isLoading ? (
           <Spinner animation="grow" />
         ) : (

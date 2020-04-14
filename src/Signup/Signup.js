@@ -3,7 +3,6 @@ import { Nav } from "react-bootstrap";
 import "./Signup.css";
 
 class Signup extends Component {
-
   //connecting to db
   constructor(props) {
     super(props);
@@ -20,9 +19,9 @@ class Signup extends Component {
   handlePasswordChange = (e) => {
     this.setState({ password: e.target.value });
   };
-  handelRePasswordChange = (e) =>{
+  handelRePasswordChange = (e) => {
     this.setState({ repassword: e.target.value });
-  }
+  };
 
   signup = (e) => {
     e.preventDefault();
@@ -49,18 +48,17 @@ class Signup extends Component {
               password: json.password,
             });
             this.props.history.push("/");
-          }else {
+          } else {
             alert("The emails is already signed up");
           }
         });
-    }
-    else{
-      alert("Password does not match")
+    } else {
+      alert("Password does not match");
     }
   };
   render() {
     return (
-      <div style={{ justifyContent: "center", padding: 30 }}>
+      <div className="mt-5" style={{ justifyContent: "center", padding: 30 }}>
         <div style={{ clear: "both", margin: "25px" }} align="center">
           <h2>Sign Up Page</h2>
         </div>
@@ -101,7 +99,7 @@ class Signup extends Component {
             <span class="glyphicon glyphicon-off"></span> Sign Up{" "}
           </button>
         </div>
-        <div class="center" style={{ width: "30%", minWidth: "265px"}}>
+        <div class="center" style={{ width: "30%", minWidth: "265px" }}>
           <Nav.Link href="/Login">Already have an account? Login</Nav.Link>
         </div>
       </div>

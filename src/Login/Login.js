@@ -54,7 +54,7 @@ class Login extends Component {
 
   render() {
     return (
-      <Container className="align-middle">
+      <Container className="mt-5">
         {/* <Row>
           <Col lg="8"> */}
         <div style={{ justifyContent: "center", padding: 30 }}>
