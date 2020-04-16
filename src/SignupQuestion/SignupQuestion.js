@@ -30,12 +30,12 @@ function RenderImportantTag() {
 function RenderSecondaryTag() {
   return (
     <div>
-    <button id="important-1" className="clickableTag" onClick={handleTagClick}>{secondaryTags[0]}</button>
-    <button id="important-1" className="clickableTag" onClick={handleTagClick}>{secondaryTags[1]}</button>
-    <button id="important-1" className="clickableTag" onClick={handleTagClick}>{secondaryTags[2]}</button>
-    <button id="important-1" className="clickableTag" onClick={handleTagClick}>{secondaryTags[3]}</button>
-    <button id="important-1" className="clickableTag" onClick={handleTagClick}>{secondaryTags[4]}</button>
-    <button id="important-1" className="clickableTag" onClick={handleTagClick}>{secondaryTags[5]}</button>
+    <button id="secondary-1" className="clickableTag" onClick={handleTagClick}>{secondaryTags[0]}</button>
+    <button id="secondary-2" className="clickableTag" onClick={handleTagClick}>{secondaryTags[1]}</button>
+    <button id="secondary-3" className="clickableTag" onClick={handleTagClick}>{secondaryTags[2]}</button>
+    <button id="secondary-4" className="clickableTag" onClick={handleTagClick}>{secondaryTags[3]}</button>
+    <button id="secondary-5" className="clickableTag" onClick={handleTagClick}>{secondaryTags[4]}</button>
+    <button id="secondary-6" className="clickableTag" onClick={handleTagClick}>{secondaryTags[5]}</button>
     </div>
   );
 }
@@ -43,19 +43,19 @@ function RenderSecondaryTag() {
 function RenderHobbyTag() {
   return (
     <div>
-    <button id="important-1" className="clickableTag" onClick={handleTagClick}>{hobbies[0]}</button>
-    <button id="important-1" className="clickableTag" onClick={handleTagClick}>{hobbies[1]}</button>
-    <button id="important-1" className="clickableTag" onClick={handleTagClick}>{hobbies[2]}</button>
-    <button id="important-1" className="clickableTag" onClick={handleTagClick}>{hobbies[3]}</button>
-    <button id="important-1" className="clickableTag" onClick={handleTagClick}>{hobbies[4]}</button>
-    <button id="important-1" className="clickableTag" onClick={handleTagClick}>{hobbies[5]}</button>
-    <button id="important-1" className="clickableTag" onClick={handleTagClick}>{hobbies[6]}</button>
-    <button id="important-1" className="clickableTag" onClick={handleTagClick}>{hobbies[7]}</button>
-    <button id="important-1" className="clickableTag" onClick={handleTagClick}>{hobbies[8]}</button>
-    <button id="important-1" className="clickableTag" onClick={handleTagClick}>{hobbies[9]}</button>
-    <button id="important-1" className="clickableTag" onClick={handleTagClick}>{hobbies[10]}</button>
-    <button id="important-1" className="clickableTag" onClick={handleTagClick}>{hobbies[11]}</button>
-    <button id="important-1" className="clickableTag" onClick={handleTagClick}>{hobbies[12]}</button>
+    <button id="hobby-1" className="clickableTag" onClick={handleTagClick}>{hobbies[0]}</button>
+    <button id="hobby-2" className="clickableTag" onClick={handleTagClick}>{hobbies[1]}</button>
+    <button id="hobby-3" className="clickableTag" onClick={handleTagClick}>{hobbies[2]}</button>
+    <button id="hobby-4" className="clickableTag" onClick={handleTagClick}>{hobbies[3]}</button>
+    <button id="hobby-5" className="clickableTag" onClick={handleTagClick}>{hobbies[4]}</button>
+    <button id="hobby-6" className="clickableTag" onClick={handleTagClick}>{hobbies[5]}</button>
+    <button id="hobby-7" className="clickableTag" onClick={handleTagClick}>{hobbies[6]}</button>
+    <button id="hobby-8" className="clickableTag" onClick={handleTagClick}>{hobbies[7]}</button>
+    <button id="hobby-9" className="clickableTag" onClick={handleTagClick}>{hobbies[8]}</button>
+    <button id="hobby-10" className="clickableTag" onClick={handleTagClick}>{hobbies[9]}</button>
+    <button id="hobby-11" className="clickableTag" onClick={handleTagClick}>{hobbies[10]}</button>
+    <button id="hobby-12" className="clickableTag" onClick={handleTagClick}>{hobbies[11]}</button>
+    <button id="hobby-13" className="clickableTag" onClick={handleTagClick}>{hobbies[12]}</button>
     </div>
   );
 }
