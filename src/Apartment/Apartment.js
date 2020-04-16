@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import {Map, GoogleApiWrapper, Marker} from 'google-maps-react';
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./Apartment.css";
+
 
 // var tempApt1Name = "Edge";
 // var tempApt1Time = "April 4, 2020, 22:37";
@@ -95,7 +97,12 @@ class Apartment extends Component {
   };
 
   render() {
+    const mapStyle = {
+      width: '100%',
+      height: '100%',
+    };
     return (
+      
       <div className="mt-5">
         <Row>
           <div style={{ justifyContent: "center", padding: 30 }}>
@@ -185,6 +192,12 @@ class Apartment extends Component {
           </Col>
           <Col xs={6} md={4} lg={6}>
             <p>Map View Placeholder</p>
+            <Map
+              google={this.props.google}
+              zoom={8}
+              style={mapStyle}
+              initialCenter={{lat: 40.73, lng: -73.93}}
+            />
           </Col>
         </Row>
       </div>
@@ -193,3 +206,4 @@ class Apartment extends Component {
 }
 
 export default Apartment;
+
