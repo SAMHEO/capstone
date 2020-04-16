@@ -60,7 +60,7 @@ class Signup extends Component {
     return (
       <div className="mt-5" style={{ justifyContent: "center", padding: 30 }}>
         <div style={{ clear: "both", margin: "25px" }} align="center">
-          <h2>Sign Up Page</h2>
+          <h2>Sign Up</h2>
         </div>
         <div class="form-group" align="center">
           <input

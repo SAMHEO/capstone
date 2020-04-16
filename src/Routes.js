@@ -10,6 +10,7 @@ import Profile from "./Profile/Profile";
 import ProfileEdit from "./ProfileEdit/ProfileEdit"
 import Login from "./Login/Login";
 import Signup from "./Signup/Signup";
+import SignupQuestion from "./SignupQuestion/SignupQuestion"
 import Forget from "./Forget/Forget";
 
 export default class Routes extends Component {
@@ -25,6 +26,7 @@ export default class Routes extends Component {
           <Route path="/profileedit" component={ProfileEdit} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
+          <Route path="/signupquestion" component={SignupQuestion} />
           <Route path="/forget" component={Forget} />
         </Switch>
       </Router>
