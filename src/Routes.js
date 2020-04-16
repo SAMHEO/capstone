@@ -7,10 +7,10 @@ import Roommate from "./Roommates/Roommate";
 import About from "./About/About";
 import history from "./history";
 import Profile from "./Profile/Profile";
-import ProfileEdit from "./ProfileEdit/ProfileEdit"
-import Login from "./Login/Login";
+import ProfileEdit from "./ProfileEdit/ProfileEdit";
+import Login from "./Login/LoginContainer";
 import Signup from "./Signup/Signup";
-import SignupQuestion from "./SignupQuestion/SignupQuestion"
+import SignupQuestion from "./SignupQuestion/SignupQuestion";
 import Forget from "./Forget/Forget";
 
 export default class Routes extends Component {

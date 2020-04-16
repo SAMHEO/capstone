@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { Nav, Container } from "react-bootstrap";
 import "./Login.css";
+import { withRouter } from "react-router-dom";
 
 class Login extends Component {
   constructor(props) {
     super(props);
-    // this.handleEmailChange = this.handleEmailChange.bind(this);
-    // this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.state = {
       id: null,
       email: "",
@@ -45,6 +44,9 @@ class Login extends Component {
             email: json.email,
             isLogin: json.success,
           });
+          // console.log(this.props);
+          window.sessionStorage.setItem("email", this.state.email);
+          this.props.onLogin();
           this.props.history.push("/");
         } else {
           alert("Check your email or password");
@@ -134,4 +136,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);
