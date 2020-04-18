@@ -97,7 +97,7 @@ class Apartment extends Component {
   render() {
     return (
       <div className="mt-5">
-        <Row>
+        <Row className="sticky-top">
           <div style={{ justifyContent: "center", padding: 30 }}>
             <div class="input-group mb-3" id="input-group1">
               <div class="input-group-prepend">
@@ -164,6 +164,9 @@ class Apartment extends Component {
           </div>
         </Row>
         <Row>
+          <Col xs={6} md={4} lg={6}>
+            <p>Map View Placeholder</p>
+          </Col>
           <Col xs={12} md={8} lg={6}>
             <div class="apartmentPostsArea">
               {this.state.apartmentList.map((apt, index) => (
@@ -182,9 +185,6 @@ class Apartment extends Component {
                 </div>
               ))}
             </div>
-          </Col>
-          <Col xs={6} md={4} lg={6}>
-            <p>Map View Placeholder</p>
           </Col>
         </Row>
       </div>
