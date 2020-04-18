@@ -32,8 +32,9 @@
   float: left;
   display: inline-flex;
   width: max-content;
-  background-color: #4CAF50;
+  background-color: #469ef0;
   border: solid;
+  border-color: #469ef0;
   color: white;
   padding: 12px 15px;
   text-align: center;

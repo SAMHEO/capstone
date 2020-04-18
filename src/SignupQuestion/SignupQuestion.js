@@ -71,20 +71,69 @@ class SignupQuestion extends Component {
           <div style={{ clear: "both", margin: "25px" }} align="center">
             <h2>Please do some introduction about you</h2>
           </div>
+          <div class="center-label">Basic information</div>
+          <div class="basic-information">
+            
+            <div class="input-group mb-3" id="name-input-box">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Name </span>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                aria-label="Your Name"                  
+              ></input>
+            </div>
+            <div class="input-group mb-3" id="gender-input-box">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="Gender">
+                  Gender
+                </label>
+              </div>
+              <select
+                class="custom-gender"
+                id="gender"
+              >
+                <option selected>Prefer not answer</option>
+                <option value="0">Male</option>
+                <option value="1">Female</option>
+              </select>
+            </div>
+            <div class="input-group mb-3" id="age-input-box">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Age </span>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                aria-label="Your Age"                  
+              ></input>
+            </div>
+          </div>
+          <div class="profile-box">
+            <div class="center-label">Why you choose Home Finder and What you want to find throw this website?</div>
+                <textarea
+                    type="text"
+                    id="basic-description"
+                    placeholder="Please tell us some..."
+                    required
+                    autofocus
+                ></textarea>
+            </div>
           <div class="form-group" align="center">
-            Check all these basic informaation tags that properly describe about you.
+            <div class="center-label">Check all these basic information tags that properly describe about you.</div>
             <div id="important-info" class="tag-box">
               <RenderImportantTag />
             </div>
           </div>
           <div class="form-group" align="center">
-            Check all these advanced information tags that properly describe about you.
+            <div class="center-label">Check all these advanced information tags that properly describe about you.</div>
             <div id="secondary-info" class="tag-box">
               <RenderSecondaryTag />
             </div>
           </div>
           <div class="form-group" align="center">
-            Check all these hobby informaation tags that properly describe about you.
+            <div class="center-label">Check all these hobby informaation tags that properly describe about you.</div>
             <div id="hobby-info" class="tag-box">
               <RenderHobbyTag />
             </div>

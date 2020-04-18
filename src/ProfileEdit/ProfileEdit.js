@@ -98,7 +98,7 @@ var BriefIndroduction = "Male, 22\nUndergraduate student at Virginia Tech\nAs a 
   
     render() {
       return (
-        <div id="profile-page" style={{  }}>
+        <div id="profile-edit-page">
           <div>
             <div class="center">
                 <img
@@ -122,30 +122,28 @@ var BriefIndroduction = "Male, 22\nUndergraduate student at Virginia Tech\nAs a 
                     autofocus
                 ></textarea>
             </div>
-  
+            
             <div class="profile-box">
               My Personality
-              <div id="basic-info" class="tag-box">
+              <div id="basic-info" class="tag-edit-box">
                 <TagExample1 />
                 <TagExample2 />
                 <TagExample3 />
                 <AddNewPersonalityTag />
               </div>
             </div>
-  
             <div class="profile-box">
               I hope my roommate is 
-              <div id="apartment-info" class="tag-box">
+              <div id="apartment-info" class="tag-edit-box">
                 <TagExample4 />
                 <TagExample5 />
                 <TagExample6 />
                 <AddNewApartmentTag />
               </div>
             </div>
-  
             <div class="profile-box">
               I hope my apartment is 
-              <div id="roommate-info" class="tag-box">
+              <div id="roommate-info" class="tag-edit-box">
                 <TagExample7 />
                 <TagExample8 />
                 <TagExample9 />

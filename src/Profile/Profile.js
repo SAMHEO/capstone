@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { Spinner, Nav, Container } from "react-bootstrap";
+import Image from "react-bootstrap/Image";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import "./Profile.css";
 
 function TagExample1() {
@@ -88,23 +91,30 @@ class Profile extends Component {
         {isLoading ? (
           <Spinner animation="grow" />
         ) : (
-          <div id="profile-page" style={{}}>
-            <div>
-              <div class="center">
-                <img
+          <div id="profile-page">
+            <div id="profile-main-container">
+              <div class="center" id="photo-container">
+                <Image
                   src={this.state.image}
                   className="d-block center"
                   alt="..."
                   id="user-photo"
+                  roundedCircle
                 />
               </div>
               <div></div>
-              <div class="profile-box">
+              <div class="profile-box" id="profile-basic">
+                <h2>{this.state.name}</h2>
+                <p> {this.state.sex}</p>
                 <p>
-                  {this.state.name} {this.state.age} {this.state.sex}
+                  Age: {this.state.age}
                 </p>
-                <p>Looking for Rent under {this.state.rent}</p>
-                <div class="preofile-box" id="basic-info">
+              </div>
+              <Row>
+              <Col xs={12} md={8} lg={6} id="profile-col-1">
+                
+                <div class="profile-box" id="basic-info">
+                  <li>Looking for Rent under {this.state.rent}</li>
                   <li>Undergraduate student at Virginia Tech</li>
                   <li>
                     {this.state.description}
@@ -115,35 +125,37 @@ class Profile extends Component {
                     dormitory.
                   </li>
                 </div>
-              </div>
-
-              <div class="profile-box">
-                My Personality
-                <div id="basic-info" class="tag-box">
-                  <TagExample1 />
-                  <TagExample2 />
-                  <TagExample3 />
+              </Col>
+              
+              <Col xs={6} md={4} lg={6} id="profile-col-2">
+                <div class="profile-box">
+                  <div id="basic-info" class="profile-tag-box">
+                    <h4 class="profile-box-title">My Personality</h4>
+                    <TagExample1 />
+                    <TagExample2 />
+                    <TagExample3 />
+                  </div>
                 </div>
-              </div>
 
-              <div class="profile-box">
-                I hope my roommate is
-                <div id="apartment-info" class="tag-box">
-                  <TagExample4 />
-                  <TagExample5 />
-                  <TagExample6 />
+                <div class="profile-box">
+                  <div id="apartment-info" class="profile-tag-box">
+                    <h4 class="profile-box-title">I hope my roommate is</h4>
+                    <TagExample4 />
+                    <TagExample5 />
+                    <TagExample6 />
+                  </div>
                 </div>
-              </div>
 
-              <div class="profile-box">
-                I hope my apartment is
-                <div id="roommate-info" class="tag-box">
-                  <TagExample7 />
-                  <TagExample8 />
-                  <TagExample9 />
+                <div class="profile-box">
+                  <div id="roommate-info" class="profile-tag-box">
+                    <h4 class="profile-box-title">I hope my apartment is</h4>
+                    <TagExample7 />
+                    <TagExample8 />
+                    <TagExample9 />
+                  </div>
                 </div>
-              </div>
-
+              </Col>
+              </Row>
               <button
                 type="edit"
                 class="btn btn-success btn-default center"

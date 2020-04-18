@@ -9,6 +9,27 @@
     position: relative;
 }
 
+#apartment-search {
+    position: fixed;
+    left: 20px;
+    top: 40px;
+    z-index:1;
+    background-color: white;
+}
+
+#apartment-canvas {
+    position: relative;
+    top: 110px;
+    left: 10px;
+    z-index:0;
+}
+
+#map-canvas {
+    position: fixed;
+    top: 150px;
+    right: 50px;
+}
+
 .apartmentPostsArea {
     width: 100%;
     display: block;

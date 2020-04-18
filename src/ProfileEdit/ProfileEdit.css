@@ -10,6 +10,29 @@
     color: white;
 }
 
+#profile-edit-page {
+    width: 60%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+.tag-edit-box {
+    width: 100%;
+    border-style: groove;
+    border-color: #AAAAAA;
+    border-radius: 50px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    overflow: auto;
+}
+
 #change-photo {
     display: flex;
     margin-left: auto;
@@ -18,25 +41,16 @@
 
 #basic-information {
     display: flex;
-    width: 80%;
+    width: 100%;
     min-height: 5em;
     overflow: auto;
+    margin-bottom: 20px;
 }
 
 .profile-box {
-    align: left;
-    margin: 10px;
-}
-
-.tag-box {
-    border-style: groove;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 30px;
-    padding-right: 30px;
-    overflow: auto;
+    display: contents;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .delete {
@@ -44,21 +58,14 @@
     color: black;
     width: 22px;
     height: 22px;
-    padding: 0px;
+    padding-bottom: 22px;
+    padding-right: 10px;
+    padding-left: 3px;
     margin-left: 5px;
+
     border: groove;
     display: inline;
     border-radius: 20px;
-}
-
-.tag {
-    border-style: groove;
-    border-color: grey;
-    border-radius: 5px;
-    width: max-content;
-    padding: 3px;
-    margin-right: 5px;
-    float: left;
 }
 
 .new-tag {
