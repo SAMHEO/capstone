@@ -97,7 +97,7 @@ class Apartment extends Component {
   render() {
     return (
       <div className="mt-5">
-        <Row className="sticky-top">
+        <Row id="apartment-search" className="sticky-top">
           <div style={{ justifyContent: "center", padding: 30 }}>
             <div class="input-group mb-3" id="input-group1">
               <div class="input-group-prepend">
@@ -163,10 +163,7 @@ class Apartment extends Component {
             </div>
           </div>
         </Row>
-        <Row>
-          <Col xs={6} md={4} lg={6}>
-            <p>Map View Placeholder</p>
-          </Col>
+        <Row id="apartment-canvas">
           <Col xs={12} md={8} lg={6}>
             <div class="apartmentPostsArea">
               {this.state.apartmentList.map((apt, index) => (
@@ -185,6 +182,19 @@ class Apartment extends Component {
                 </div>
               ))}
             </div>
+          </Col>
+          <Col xs={6} md={4} lg={6}>
+            <p id="map-canvas">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3176.177673270392!2d-80.42827748475189!3d37.24349177985963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x884d95643a782885%3A0xc102eb0373bf89c9!2s500%20Hunt%20Club%20Rd%2C%20Blacksburg%2C%20VA%2024060!5e0!3m2!1szh-CN!2sus!4v1587028720939!5m2!1szh-CN!2sus"
+                width="800"
+                height="800"
+                frameborder="0"
+                allowfullscreen=""
+                aria-hidden="false"
+                tabindex="0"
+              ></iframe>
+            </p>
           </Col>
         </Row>
       </div>

@@ -4,6 +4,45 @@
     margin-right: auto;
 }
 
+.center-label {
+    display: block;
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: larger;
+}
+
+#basic-description {
+    display: flex;
+    width: 50%;
+    min-height: 8em;
+    overflow: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+.basic-information {
+    display: flex;
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#name-input-box {
+    max-width: 310px;
+}
+
+#gender-input-box {
+    max-width: 242px;
+}
+
+#age-input-box {
+    max-width: 200px;
+}
+
 .tag-box {
     border-style: groove;
     border-color: #AAAAAA;
@@ -20,9 +59,10 @@
 
 .clickableTag {
     float: left;
-    background-color: #4CAF50;
+    border-color: #cceeff;
+    background-color: white;
     border: solid;
-    color: white;
+    color: #469ef0;
     padding: 12px 15px;
     text-align: center;
     text-decoration: none;
@@ -35,9 +75,9 @@
 
 .clickableTagChecked {
     float: left;
-    background-color: #4C9950;
+    background-color: #469ef0;
     border: double;
-    border-color: #4C7750;
+    border-color: #469ef0;
     color: white;
     padding: 12px 15px;
     text-align: center;
