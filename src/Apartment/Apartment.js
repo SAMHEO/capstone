@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-
-import Container from "react-bootstrap/Container";
+import InputGroup from "react-bootstrap/InputGroup";
+import DropdownButton from "react-bootstrap/DropdownButton";
+import Dropdown from "react-bootstrap/Dropdown";
+import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./Apartment.css";
@@ -100,11 +102,6 @@ class Apartment extends Component {
         <Row id="apartment-search" className="sticky-top">
           <div className="search-bar-content">
             <div class="input-group" id="input-group1">
-              <div class="input-group-prepend">
-                <label class="input-group-text" for="Sort">
-                  Preferences
-                </label>
-              </div>
               <select
                 class="custom-select"
                 id="inputGroupSelect01"
@@ -119,7 +116,6 @@ class Apartment extends Component {
             <div class="input-group" id="input-group2">
               <div class="input-group-prepend">
                 <span class="input-group-text">Maximum amount </span>
-                <span class="input-group-text">0.00</span>
               </div>
               <input
                 type="text"
