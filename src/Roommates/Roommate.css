@@ -45,3 +45,8 @@
   cursor: pointer;
   border-radius: 20px;
 }
+
+.roommate-wrapper {
+  margin-top: 5rem;
+  max-height: 600px;
+}

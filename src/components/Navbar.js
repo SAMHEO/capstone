@@ -35,11 +35,11 @@ class Navigation extends Component {
                 Roommates
               </Nav.Link>
             </Nav.Item>
-            <Nav.Item class="link-item">
+            {/* <Nav.Item class="link-item">
               <Nav.Link eventKey="4" href="/about">
                 About
               </Nav.Link>
-            </Nav.Item>
+            </Nav.Item> */}
             {logged ? (
               <Navbar.Collapse>
                 <Nav.Item class="link-item">

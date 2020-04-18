@@ -88,87 +88,88 @@ class Profile extends Component {
     const { isLoading } = this.state;
     return (
       <Container className="text-center mt-5">
-        {isLoading ? (
-          <Spinner animation="grow" />
-        ) : (
-          <div id="profile-page">
-            <div id="profile-main-container">
-              <div class="center" id="photo-container">
-                <Image
-                  src={this.state.image}
-                  className="d-block center"
-                  alt="..."
-                  id="user-photo"
-                  roundedCircle
-                />
-              </div>
-              <div></div>
-              <div class="profile-box" id="profile-basic">
-                <h2>{this.state.name}</h2>
-                <p> {this.state.sex}</p>
-                <p>
-                  Age: {this.state.age}
-                </p>
-              </div>
-              <Row>
-              <Col xs={12} md={8} lg={6} id="profile-col-1">
-                
-                <div class="profile-box" id="basic-info">
-                  <li>Looking for Rent under {this.state.rent}</li>
-                  <li>Undergraduate student at Virginia Tech</li>
-                  <li>
-                    {this.state.description}
-                    As a sophomore student at Virginia Tech, I just moved out
-                    from university dormitory and I’m looking for an apartment
-                    with an individual bedroom and bathroom in each bedroom so
-                    that there is better privacy compared with my life in-campus
-                    dormitory.
-                  </li>
+        <div className="profile-wrapper">
+          {isLoading ? (
+            <Spinner animation="grow" />
+          ) : (
+            <div id="profile-page">
+              <div id="profile-main-container">
+                <div class="center" id="photo-container">
+                  <Image
+                    src={this.state.image}
+                    className="d-block center"
+                    alt="..."
+                    id="user-photo"
+                    roundedCircle
+                  />
                 </div>
-              </Col>
-              
-              <Col xs={6} md={4} lg={6} id="profile-col-2">
-                <div class="profile-box">
-                  <div id="basic-info" class="profile-tag-box">
-                    <h4 class="profile-box-title">My Personality</h4>
-                    <TagExample1 />
-                    <TagExample2 />
-                    <TagExample3 />
-                  </div>
+                <div></div>
+                <div class="profile-box" id="profile-basic">
+                  <h2>{this.state.name}</h2>
+                  <p> {this.state.sex}</p>
+                  <p>Age: {this.state.age}</p>
                 </div>
+                <Row>
+                  <Col xs={12} md={8} lg={6} id="profile-col-1">
+                    <div class="profile-box" id="basic-info">
+                      <li>Looking for Rent under {this.state.rent}</li>
+                      <li>Undergraduate student at Virginia Tech</li>
+                      <li>
+                        {this.state.description}
+                        As a sophomore student at Virginia Tech, I just moved
+                        out from university dormitory and I’m looking for an
+                        apartment with an individual bedroom and bathroom in
+                        each bedroom so that there is better privacy compared
+                        with my life in-campus dormitory.
+                      </li>
+                    </div>
+                  </Col>
 
-                <div class="profile-box">
-                  <div id="apartment-info" class="profile-tag-box">
-                    <h4 class="profile-box-title">I hope my roommate is</h4>
-                    <TagExample4 />
-                    <TagExample5 />
-                    <TagExample6 />
-                  </div>
-                </div>
+                  <Col xs={6} md={4} lg={6} id="profile-col-2">
+                    <div class="profile-box">
+                      <div id="basic-info" class="profile-tag-box">
+                        <h4 class="profile-box-title">My Personality</h4>
+                        <TagExample1 />
+                        <TagExample2 />
+                        <TagExample3 />
+                      </div>
+                    </div>
 
-                <div class="profile-box">
-                  <div id="roommate-info" class="profile-tag-box">
-                    <h4 class="profile-box-title">I hope my apartment is</h4>
-                    <TagExample7 />
-                    <TagExample8 />
-                    <TagExample9 />
-                  </div>
-                </div>
-              </Col>
-              </Row>
-              <button
-                type="edit"
-                class="btn btn-success btn-default center"
-                id="edit-button"
-                onClick={this.edit}
-              >
-                <Nav.Link href="/profileedit" id="edit-link">
-                  Edit
-                </Nav.Link>
-              </button>
+                    <div class="profile-box">
+                      <div id="apartment-info" class="profile-tag-box">
+                        <h4 class="profile-box-title">I hope my roommate is</h4>
+                        <TagExample4 />
+                        <TagExample5 />
+                        <TagExample6 />
+                      </div>
+                    </div>
+
+                    <div class="profile-box">
+                      <div id="roommate-info" class="profile-tag-box">
+                        <h4 class="profile-box-title">
+                          I hope my apartment is
+                        </h4>
+                        <TagExample7 />
+                        <TagExample8 />
+                        <TagExample9 />
+                      </div>
+                    </div>
+                  </Col>
+                </Row>
+                <button
+                  type="edit"
+                  class="btn btn-success btn-default center"
+                  id="edit-button"
+                  onClick={this.edit}
+                >
+                  <Nav.Link href="/profileedit" id="edit-link">
+                    Edit
+                  </Nav.Link>
+                </button>
+              </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </Container>
     );
   }
