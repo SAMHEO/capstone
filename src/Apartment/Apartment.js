@@ -98,8 +98,8 @@ class Apartment extends Component {
     return (
       <div className="mt-5">
         <Row id="apartment-search" className="sticky-top">
-          <div style={{ justifyContent: "center", padding: 30 }}>
-            <div class="input-group mb-3" id="input-group1">
+          <div className="search-bar-content">
+            <div class="input-group" id="input-group1">
               <div class="input-group-prepend">
                 <label class="input-group-text" for="Sort">
                   Preferences
@@ -116,7 +116,7 @@ class Apartment extends Component {
               </select>
             </div>
 
-            <div class="input-group mb-3" id="input-group2">
+            <div class="input-group" id="input-group2">
               <div class="input-group-prepend">
                 <span class="input-group-text">Maximum amount </span>
                 <span class="input-group-text">0.00</span>
@@ -129,7 +129,7 @@ class Apartment extends Component {
               ></input>
             </div>
 
-            <div class="input-group mb-3" id="input-group3">
+            <div class="input-group" id="input-group3">
               <div class="input-group-prepend">
                 <label class="input-group-text" for="Beds">
                   Preferences
@@ -149,54 +149,53 @@ class Apartment extends Component {
                 <option value="4">4 +</option>
               </select>
             </div>
-
-            <div>
-              <button
-                type="submit"
-                class="btn btn-success btn-default center"
-                id="search-button"
-                onClick={this.search}
-                align="right"
-              >
-                <span class="glyphicon glyphicon-off"></span> Search{" "}
-              </button>
-            </div>
+            <button
+              type="submit"
+              class="btn center"
+              id="search-button"
+              onClick={this.search}
+              align="right"
+            >
+              Search
+            </button>
           </div>
         </Row>
-        <Row id="apartment-canvas">
-          <Col xs={12} md={8} lg={6}>
-            <div class="apartmentPostsArea">
-              {this.state.apartmentList.map((apt, index) => (
-                <div class="card" key={index}>
-                  <div className="row">
-                    <img src="edge.jpg" class="col-sm-6" alt="ExampleImage" />
-                    <div class="col-sm-6">
-                      <h5 class="card-title">{apt.name}</h5>
-                      <p class="card-text">
-                        <p>Price: ${apt.rent}</p>
-                        <p>Location: {apt.address}</p>
-                        <p>Rate: {apt.rate}</p>
-                      </p>
+        <div id="apartment-wrapper">
+          <div className="apartment-canvas">
+            <Col xs={12} md={8} lg={6}>
+              <div class="apartmentPostsArea">
+                {this.state.apartmentList.map((apt, index) => (
+                  <div class="card" key={index}>
+                    <div className="row">
+                      <img src="edge.jpg" class="col-sm-6" alt="ExampleImage" />
+                      <div class="col-sm-6">
+                        <h5 class="card-title">{apt.name}</h5>
+                        <p class="card-text">
+                          <p>Price: ${apt.rent}</p>
+                          <p>Location: {apt.address}</p>
+                          <p>Rate: {apt.rate}</p>
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
-            </div>
-          </Col>
-          <Col xs={6} md={4} lg={6}>
-            <p id="map-canvas">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3176.177673270392!2d-80.42827748475189!3d37.24349177985963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x884d95643a782885%3A0xc102eb0373bf89c9!2s500%20Hunt%20Club%20Rd%2C%20Blacksburg%2C%20VA%2024060!5e0!3m2!1szh-CN!2sus!4v1587028720939!5m2!1szh-CN!2sus"
-                width="800"
-                height="800"
-                frameborder="0"
-                allowfullscreen=""
-                aria-hidden="false"
-                tabindex="0"
-              ></iframe>
-            </p>
-          </Col>
-        </Row>
+                ))}
+              </div>
+            </Col>
+            <Col xs={0} md={4} lg={6}>
+              <div id="map-canvas">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3176.177673270392!2d-80.42827748475189!3d37.24349177985963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x884d95643a782885%3A0xc102eb0373bf89c9!2s500%20Hunt%20Club%20Rd%2C%20Blacksburg%2C%20VA%2024060!5e0!3m2!1szh-CN!2sus!4v1587028720939!5m2!1szh-CN!2sus"
+                  width="100%"
+                  height="100%"
+                  frameborder="0"
+                  allowfullscreen=""
+                  aria-hidden="false"
+                  tabindex="0"
+                ></iframe>
+              </div>
+            </Col>
+          </div>
+        </div>
       </div>
     );
   }

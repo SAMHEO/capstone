@@ -10,47 +10,40 @@
 }
 
 #apartment-search {
-    position: fixed;
-    left: 20px;
-    top: 40px;
-    z-index:1;
-    background-color: white;
+  width: 100%;
+  margin: 0;
+  top: 55px;
+  border-bottom: 1px solid #d9d9d9;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  background-color: white;
 }
 
-#apartment-canvas {
-    position: relative;
-    top: 110px;
-    left: 10px;
-    z-index:0;
+.search-bar-content {
+  display: flex;
+  width: 100%;
 }
 
+#apartment-wrapper {
+}
+.apartment-canvas {
+  display: flex;
+  position: relative;
+  width: 100%;
+  padding: 5px;
+  left: auto;
+  z-index: 0;
+}
 #map-canvas {
-    position: fixed;
-    top: 150px;
-    right: 50px;
+  position: sticky;
+  top: 95px;
+  height: 600px;
 }
 
 .apartmentPostsArea {
   width: 100%;
   display: block;
   float: left;
-}
-
-.input-group {
-  float: left;
-  margin-right: 5px;
-}
-
-#input-group1 {
-  width: 20%;
-}
-
-#input-group2 {
-  width: 50%;
-}
-
-#input-group3 {
-  width: 20%;
+  top: 100px;
 }
 
 #apartmentLogo {
@@ -58,9 +51,4 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-}
-
-.sticky-top {
-  background-color: #ffffff;
-  top: 6%;
 }
