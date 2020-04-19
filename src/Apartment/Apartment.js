@@ -1,22 +1,15 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
-=======
-// import InputGroup from "react-bootstrap/InputGroup";
-// import DropdownButton from "react-bootstrap/DropdownButton";
-// import Dropdown from "react-bootstrap/Dropdown";
-// import Form from "react-bootstrap/Form";
->>>>>>> e2dcc31e09183e36802181a18b9e730efdb56e0c
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./Apartment.css";
-import {GoogleApiWrapper, Map, Marker} from 'google-maps-react';
+import { GoogleApiWrapper, Map, Marker } from "google-maps-react";
 const API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
 
 class Apartment extends Component {
   constructor(props) {
     super(props);
     // this.handleEmailChange = this.handleEmailChange.bind(this);
-    // this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    // this.handlePasswordChange = this.handlePasswordChange.bind(this)z;
     this.state = {
       sort: "",
       maxPrice: "",
@@ -24,7 +17,7 @@ class Apartment extends Component {
       nameOfAPT: "",
       priceOFAPT: 0,
       apartmentList: [],
-      apartmentAddressList:[],
+      apartmentAddressList: [],
     };
   }
 
@@ -60,16 +53,13 @@ class Apartment extends Component {
         //console.log(json);
         this.setState({ apartmentAddressList: json });
         console.log(this.state.apartmentAddressList[0].address);
-        
       });
   }
   componentDidMount() {
-    
     //console.log("bye "+ API_KEY);
     this.callApi1();
     this.callApi2();
   }
-
 
   search = (e) => {
     e.preventDefault();
@@ -103,11 +93,10 @@ class Apartment extends Component {
   };
 
   render() {
-
     const mapStyles = {
-      width: '100%',
-      height: '100%',
-   };
+      width: "100%",
+      height: "100%",
+    };
     return (
       <div className="mt-5">
         <Row id="apartment-search" className="sticky-top">
@@ -212,9 +201,9 @@ class Apartment extends Component {
                 google={this.props.google}
                 zoom={8}
                 style={mapStyles}
-                initialCenter={{ lat: 37.2296, lng: -80.41394}}
+                initialCenter={{ lat: 37.2296, lng: -80.41394 }}
               >
-                <Marker position={{lat: 37.2296, lng: -80.41394}} />
+                <Marker position={{ lat: 37.2296, lng: -80.41394 }} />
               </Map>
             </Col>
           </div>
@@ -226,5 +215,5 @@ class Apartment extends Component {
 
 // export default Apartment;
 export default GoogleApiWrapper({
-  apiKey: API_KEY
-})(Apartment)
+  apiKey: API_KEY,
+})(Apartment);
