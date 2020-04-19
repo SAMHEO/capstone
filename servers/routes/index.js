@@ -41,11 +41,26 @@ router.post("/user", (req, res) => {
   );
 });
 
+
+//getting apartment from db
 router.get("/getApts", function (req, res) {
   db.query("SELECT * FROM apartments", (err, rows) => {
     if (!err) {
       res.send(rows);
       //console.log(rows)
+    } else {
+      console.log(`query error: ${err}`);
+      res.send(err);
+    }
+  });
+});
+
+//getting apartment address from db
+router.get("/getAddress", function (req, res) {
+  db.query("SELECT name, address FROM apartments", (err, rows) => {
+    if (!err) {
+      res.send(rows);
+      
     } else {
       console.log(`query error: ${err}`);
       res.send(err);
