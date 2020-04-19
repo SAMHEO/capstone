@@ -3,9 +3,6 @@ import "./Navbar.css";
 import { Navbar, Nav } from "react-bootstrap";
 import { withRouter } from "react-router-dom";
 class Navigation extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     const { logged, onLogout } = this.props;
     return (
@@ -20,17 +17,17 @@ class Navigation extends Component {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse>
           <Nav className="navbar-nav ml-auto" id="nav-bar-container">
-            <Nav.Item class="link-item">
+            <Nav.Item className="link-item">
               <Nav.Link eventKey="1" href="/">
                 Home
               </Nav.Link>
             </Nav.Item>
-            <Nav.Item class="link-item">
+            <Nav.Item className="link-item">
               <Nav.Link eventKey="2" href="/apartment">
                 Apartment
               </Nav.Link>
             </Nav.Item>
-            <Nav.Item class="link-item">
+            <Nav.Item className="link-item">
               <Nav.Link eventKey="3" href="/roommate">
                 Roommates
               </Nav.Link>
@@ -42,19 +39,19 @@ class Navigation extends Component {
             </Nav.Item> */}
             {logged ? (
               <Navbar.Collapse>
-                <Nav.Item class="link-item">
+                <Nav.Item className="link-item">
                   <Nav.Link eventKey="5" href="/profile">
                     Profile
                   </Nav.Link>
                 </Nav.Item>
-                <Nav.Item class="link-item">
+                <Nav.Item className="link-item">
                   <Nav.Link eventKey="6" href="/" onClick={onLogout}>
                     Log out
                   </Nav.Link>
                 </Nav.Item>
               </Navbar.Collapse>
             ) : (
-              <Nav.Item class="link-item">
+              <Nav.Item className="link-item">
                 <Nav.Link eventKey="6" href="/login">
                   Log in
                 </Nav.Link>
