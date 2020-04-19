@@ -1,22 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../dbconnection");
+const account = require("./account");
 ("use strict");
 
-router.get("/", (req, res) => res.json({ username: "bryan~~~" }));
-router.get("/group", (req, res) => res.json({ username: "dev group. bryan" }));
-
-// DB query example
-router.get("/getData", (req, res) => {
-  db.query("select * from apartments", (err, rows) => {
-    if (!err) {
-      res.send(rows);
-    } else {
-      console.log(`query error: ${err}`);
-      res.send(err);
-    }
-  });
-});
+router.use("/account", account);
 
 router.get("/users", (req, res) => {
   db.query(`Select * from clients`, (err, rows) => {
@@ -142,52 +130,6 @@ router.post("/search", function (req, res) {
       }
     }
   );
-});
-
-router.post("/signup", function (req, res) {
-  var email = req.body.email;
-  var password = req.body.password;
-  var repassword = req.body.repassword;
-  if (email == "euno@vt.edu") {
-    res.json({
-      id: 2,
-      email: email,
-      password: password,
-      success: true,
-    });
-  } else {
-    res.json({
-      success: false,
-    });
-  }
-});
-
-router.post("/login", function (req, res) {
-  var email = req.body.email;
-  var password = req.body.password;
-
-  if (email == "admin@vt.edu" && password == "1") {
-    // res.send("success");
-    res.json({
-      id: 1,
-      email: email,
-      isLogin: true,
-      success: true,
-    });
-  } else {
-    res.json({
-      success: false,
-    });
-  }
-});
-
-// Signup api example
-router.get("/signup", (req, res) => res.json({ example: "example" }));
-router.post("/signup", function (req, res) {
-  var userID = req.body.id;
-  var userPW = req.body.pw;
-
-  res.send("id: " + userID + "pw :" + userPW);
 });
 
 module.exports = router;

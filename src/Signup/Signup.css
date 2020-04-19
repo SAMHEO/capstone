@@ -1,19 +1,27 @@
+.signup-wrapper {
+  padding: 30px;
+}
 .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .signup-box {
-    margin: 10px;
-    width: 30%;
-    min-width: 300px;
+  margin: 10px;
+  width: 30%;
+  min-width: 300px;
 }
 
 #Signup-button {
-    width: 30%;
-    margin: 20px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  width: 30%;
+  margin: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.signup-form {
+  width: 40%;
+  min-width: 240px;
 }

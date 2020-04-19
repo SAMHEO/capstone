@@ -1,19 +1,23 @@
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+.login-wrapper {
+  padding: 30px;
 }
-
-.login-box {
-    margin: 10px;
-    width: 30%;
-    min-width: 240px;
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  min-width: 240px;
 }
 
 #login-button {
-    width: 30%;
-    margin: 20px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  width: 30%;
+  margin: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.login-form {
+  width: 40%;
+  min-width: 240px;
 }

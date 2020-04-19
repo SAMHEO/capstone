@@ -16,8 +16,6 @@ class About extends Component {
   }
 
   render() {
-    const { username } = this.state;
-
     return (
       <div className="mt-5" style={{ justifyContent: "center", padding: 30 }}>
         <div style={{ clear: "both" }} align="center">
