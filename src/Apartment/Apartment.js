@@ -240,5 +240,5 @@ class Apartment extends Component {
 
 // export default Apartment;
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyAzkfeOop2V656XTO9odjcvClucGnkIZFY'
+  apiKey: ''
 })(Apartment)
