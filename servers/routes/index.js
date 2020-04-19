@@ -28,15 +28,18 @@ router.get("/users", (req, res) => {
     }
   });
 });
+
+//getting information of user for profile page
 router.post("/user", (req, res) => {
   db.query(
-    `select * from clients where name = "${req.body.name}"`,
+    `select * from clients where firstName = "${req.body.name}"`,
     (err, rows) => {
       if (!err) {
         age = rows[0].birthday;
         sex = rows[0].sex;
         phone = rows[0].phone;
         rent = rows[0].ideal_rent;
+        occupation = rows[0].occupation;
         image = rows[0].image ? "user.jpg" : "avatar.png";
         res.json({
           age: age,
@@ -44,6 +47,7 @@ router.post("/user", (req, res) => {
           phone: phone,
           rent: rent,
           image: image,
+          occupation: occupation,
         });
       } else {
         console.log(`query error: ${err}`);
@@ -80,6 +84,7 @@ router.get("/getAddress", function (req, res) {
   });
 });
 
+//getting apartment list for home page
 router.get("/homeApt", function (req, res) {
   db.query(
     `SELECT * FROM roommate_finder.apartments ORDER BY rate DESC LIMIT 3`,
@@ -94,6 +99,7 @@ router.get("/homeApt", function (req, res) {
     }
   );
 });
+//getting three random users for home page
 router.get("/homeUser", function (req, res) {
   db.query(
     `SELECT * FROM roommate_finder.clients ORDER BY RAND() LIMIT 3`,

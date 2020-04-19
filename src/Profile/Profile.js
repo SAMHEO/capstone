@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Spinner, Nav, Container } from "react-bootstrap";
+import { Spinner, Nav, Container} from "react-bootstrap";
 import Image from "react-bootstrap/Image";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -47,6 +47,7 @@ class Profile extends Component {
       id: 4,
       name: "John",
       age: 0,
+      occupation: "",
       sex: "",
       phone: "",
       rent: 0,
@@ -77,6 +78,7 @@ class Profile extends Component {
           age: getAgeFromBirthdate(body.age),
           sex: body.sex.toUpperCase(),
           phone: body.phone,
+          occupation: body.occupation,
           rent: body.rent,
           image: body.image,
           isLoading: false,
@@ -88,6 +90,76 @@ class Profile extends Component {
     const { isLoading } = this.state;
     return (
       <Container className="text-center mt-5">
+        <div className = "profile-canvas">
+          <Col xs={12} md={8} lg={4}>
+            left side
+            <div class="center" id="photo-container">
+              <Image
+                src={this.state.image}
+                className="d-block center"
+                alt="..."
+                id="user-photo"
+                roundedCircle
+              />
+            </div>
+            <div class="profile-box" id="profile-basic">
+              <h2>{this.state.name}</h2>
+              <p> {this.state.sex}</p>
+              <p>Age: {this.state.age}</p>
+            </div>
+            <Col xs={12} md={8} lg={12} id="profile-col-3">
+              <div class="profile-box" id="basic-info">
+                <li>
+                  {this.state.occupation}
+                </li>
+                <li>Looking for Rent under {this.state.rent}</li>
+              </div>
+            </Col>
+          </Col>
+          <Col xs={0} md={4} lg={9}>
+            right side
+            <div class="profile-box">
+              <div id="basic-info" class="profile-tag-box">
+                <h4 class="profile-box-title">Short description</h4>
+                As a sophomore student at Virginia Tech, I just moved
+              out from university dormitory and I’m looking for an
+              apartment with an individual bedroom and bathroom in
+              each bedroom so that there is better privacy compared
+              with my life in-campus dormitory.
+              </div>
+            </div>
+            
+            <div class="profile-box">
+              <div id="basic-info" class="profile-tag-box">
+                <h4 class="profile-box-title">My Personality</h4>
+                <TagExample1 />
+                <TagExample2 />
+                <TagExample3 />
+              </div>
+            </div>
+
+            <div class="profile-box">
+              <div id="apartment-info" class="profile-tag-box">
+                <h4 class="profile-box-title">I hope my roommate is</h4>
+                <TagExample4 />
+                <TagExample5 />
+                <TagExample6 />
+              </div>
+            </div>
+
+            <div class="profile-box">
+              <div id="roommate-info" class="profile-tag-box">
+                <h4 class="profile-box-title">
+                  I hope my apartment is
+                </h4>
+                <TagExample7 />
+                <TagExample8 />
+                <TagExample9 />
+              </div>
+            </div>
+          </Col>
+          </div>
+{/*        
         <div className="profile-wrapper">
           {isLoading ? (
             <Spinner animation="grow" />
@@ -169,7 +241,7 @@ class Profile extends Component {
               </div>
             </div>
           )}
-        </div>
+        </div> */}
       </Container>
     );
   }
