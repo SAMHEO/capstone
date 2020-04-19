@@ -72,7 +72,7 @@ router.get("/getAddress", function (req, res) {
   db.query("SELECT name, address FROM apartments", (err, rows) => {
     if (!err) {
       res.send(rows);
-      console.log(`apartment address list: rows`);
+      
     } else {
       console.log(`query error: ${err}`);
       res.send(err);

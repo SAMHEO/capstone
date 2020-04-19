@@ -1,34 +1,13 @@
-import React, { Component, useState  } from "react";
-import InputGroup from "react-bootstrap/InputGroup";
-import DropdownButton from "react-bootstrap/DropdownButton";
-import Dropdown from "react-bootstrap/Dropdown";
-import Form from "react-bootstrap/Form";
+import React, { Component } from "react";
+// import InputGroup from "react-bootstrap/InputGroup";
+// import DropdownButton from "react-bootstrap/DropdownButton";
+// import Dropdown from "react-bootstrap/Dropdown";
+// import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./Apartment.css";
 import {GoogleApiWrapper, Map, Marker} from 'google-maps-react';
-
-
-// var tempApt1Name = "Edge";
-// var tempApt1Time = "April 4, 2020, 22:37";
-// function ApartmentPostExample1() {
-//   return (
-//     <div class="card ">
-//       <div className="row">
-//         <img src="edge.jpg" class="col-sm-6" alt="ExampleImage" />
-//         <div class="col-sm-6">
-//           <h5 class="card-title">{tempApt1Name}</h5>
-//           <p class="card-text">
-//             <p>500 Hunt Club Rd.</p>
-//             <p>$480 / Month</p>
-//             <p>3 bedrooms apartment for rent</p>
-//             {tempApt1Time}
-//           </p>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
+const API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
 
 class Apartment extends Component {
   constructor(props) {
@@ -77,10 +56,13 @@ class Apartment extends Component {
       .then((json) => {
         //console.log(json);
         this.setState({ apartmentAddressList: json });
-        console.log(this.state.apartmentAddressList[0].name);
+        console.log(this.state.apartmentAddressList[0].address);
+        
       });
   }
   componentDidMount() {
+    
+    //console.log("bye "+ API_KEY);
     this.callApi1();
     this.callApi2();
   }
@@ -118,6 +100,7 @@ class Apartment extends Component {
   };
 
   render() {
+
     const mapStyles = {
       width: '100%',
       height: '100%',
@@ -240,5 +223,5 @@ class Apartment extends Component {
 
 // export default Apartment;
 export default GoogleApiWrapper({
-  apiKey: ''
+  apiKey: API_KEY
 })(Apartment)
