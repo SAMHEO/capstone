@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState  } from "react";
 import InputGroup from "react-bootstrap/InputGroup";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
@@ -6,6 +6,8 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./Apartment.css";
+import {GoogleApiWrapper, Map, Marker} from 'google-maps-react';
+
 
 // var tempApt1Name = "Edge";
 // var tempApt1Time = "April 4, 2020, 22:37";
@@ -40,6 +42,7 @@ class Apartment extends Component {
       nameOfAPT: "",
       priceOFAPT: 0,
       apartmentList: [],
+      apartmentAddressList:[],
     };
   }
 
@@ -53,7 +56,7 @@ class Apartment extends Component {
     this.setState({ numBeds: e.target.value });
   };
 
-  componentDidMount() {
+  callApi1() {
     fetch("api/getApts")
       .then((res) => {
         return res.json();
@@ -64,6 +67,24 @@ class Apartment extends Component {
         //console.log("hello", this.state);
       });
   }
+
+  //getting the address
+  callApi2() {
+    fetch("api/getAddress")
+      .then((res) => {
+        return res.json();
+      })
+      .then((json) => {
+        //console.log(json);
+        this.setState({ apartmentAddressList: json });
+        console.log(this.state.apartmentAddressList[0].name);
+      });
+  }
+  componentDidMount() {
+    this.callApi1();
+    this.callApi2();
+  }
+
 
   search = (e) => {
     e.preventDefault();
@@ -97,6 +118,10 @@ class Apartment extends Component {
   };
 
   render() {
+    const mapStyles = {
+      width: '100%',
+      height: '100%',
+   };
     return (
       <div className="mt-5">
         <Row id="apartment-search" className="sticky-top">
@@ -178,7 +203,7 @@ class Apartment extends Component {
               </div>
             </Col>
             <Col xs={0} md={4} lg={6}>
-              <div id="map-canvas">
+              {/* <div id="map-canvas">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3176.177673270392!2d-80.42827748475189!3d37.24349177985963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x884d95643a782885%3A0xc102eb0373bf89c9!2s500%20Hunt%20Club%20Rd%2C%20Blacksburg%2C%20VA%2024060!5e0!3m2!1szh-CN!2sus!4v1587028720939!5m2!1szh-CN!2sus"
                   width="100%"
@@ -188,7 +213,23 @@ class Apartment extends Component {
                   aria-hidden="false"
                   tabindex="0"
                 ></iframe>
-              </div>
+              </div> */}
+              {/* <Map
+                google={this.props.google}
+                zoom={8}
+                style={mapStyles}
+                initialCenter={{ lat: 37.2296, lng: -80.41394}}
+              />
+              <Marker position={{ lat: 37.2296, lng: -80.41394}} />
+              </Map> */}
+              <Map
+                google={this.props.google}
+                zoom={8}
+                style={mapStyles}
+                initialCenter={{ lat: 37.2296, lng: -80.41394}}
+              >
+                <Marker position={{lat: 37.2296, lng: -80.41394}} />
+              </Map>
             </Col>
           </div>
         </div>
@@ -197,4 +238,7 @@ class Apartment extends Component {
   }
 }
 
-export default Apartment;
+// export default Apartment;
+export default GoogleApiWrapper({
+  apiKey: 'AIzaSyAzkfeOop2V656XTO9odjcvClucGnkIZFY'
+})(Apartment)
