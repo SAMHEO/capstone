@@ -14,7 +14,7 @@ let secondaryTags = [
 let hobbies = [
   "Art",
   "Basketball",
-  "Baaseball",
+  "Baseball",
   "Pop Music",
   "Rock Music",
   "Classic Music",
@@ -36,37 +36,39 @@ function handleTagClick(event) {
   }
 }
 
+function handleImageClick(event) {
+  //alert(event.target.className);
+  console.log(document.getElementById(event.target.id).src)
+
+  if (document.getElementById(event.target.id).src == "http://localhost:3000/tag.png") 
+  {
+      document.getElementById(event.target.id).src = "http://localhost:3000/tag-checked.png";
+  }
+  else
+  {
+      document.getElementById(event.target.id).src = "http://localhost:3000/tag.png";
+  }
+}
+
 function RenderImportantTag() {
   return (
     <div>
-      <button
-        id="important-1"
-        className="clickableTag"
-        onClick={handleTagClick}
-      >
-        {importantTags[0]}
-      </button>
-      <button
-        id="important-1"
-        className="clickableTag"
-        onClick={handleTagClick}
-      >
-        {importantTags[1]}
-      </button>
-      <button
-        id="important-1"
-        className="clickableTag"
-        onClick={handleTagClick}
-      >
-        {importantTags[2]}
-      </button>
-      <button
-        id="important-1"
-        className="clickableTag"
-        onClick={handleTagClick}
-      >
-        {importantTags[3]}
-      </button>
+      <div class="tag-container">
+        <img id="important-1" src="tag.png" class="tag-background" onClick={handleImageClick}></img>
+        <div class="tag-text"> {importantTags[0]} </div>
+      </div>
+      <div class="tag-container">
+        <img id="important-2" src="tag.png" class="tag-background" onClick={handleImageClick}></img>
+        <div class="tag-text"> {importantTags[1]} </div>
+      </div>
+      <div class="tag-container">
+        <img id="important-3" src="tag.png" class="tag-background" onClick={handleImageClick}></img>
+        <div class="tag-text"> {importantTags[2]} </div>
+      </div>
+      <div class="tag-container">
+        <img id="important-4" src="tag.png" class="tag-background" onClick={handleImageClick}></img>
+        <div class="tag-text"> {importantTags[3]} </div>
+      </div>
     </div>
   );
 }
@@ -74,48 +76,30 @@ function RenderImportantTag() {
 function RenderSecondaryTag() {
   return (
     <div>
-      <button
-        id="secondary-1"
-        className="clickableTag"
-        onClick={handleTagClick}
-      >
-        {secondaryTags[0]}
-      </button>
-      <button
-        id="secondary-2"
-        className="clickableTag"
-        onClick={handleTagClick}
-      >
-        {secondaryTags[1]}
-      </button>
-      <button
-        id="secondary-3"
-        className="clickableTag"
-        onClick={handleTagClick}
-      >
-        {secondaryTags[2]}
-      </button>
-      <button
-        id="secondary-4"
-        className="clickableTag"
-        onClick={handleTagClick}
-      >
-        {secondaryTags[3]}
-      </button>
-      <button
-        id="secondary-5"
-        className="clickableTag"
-        onClick={handleTagClick}
-      >
-        {secondaryTags[4]}
-      </button>
-      <button
-        id="secondary-6"
-        className="clickableTag"
-        onClick={handleTagClick}
-      >
-        {secondaryTags[5]}
-      </button>
+      <div class="tag-container">
+        <img id="secondary-1" src="tag.png" class="tag-background" onClick={handleImageClick}></img>
+        <div class="tag-text"> {secondaryTags[0]} </div>
+      </div>
+      <div class="tag-container">
+        <img id="secondary-2" src="tag.png" class="tag-background" onClick={handleImageClick}></img>
+        <div class="tag-text"> {secondaryTags[1]} </div>
+      </div>
+      <div class="tag-container">
+        <img id="secondary-3" src="tag.png" class="tag-background" onClick={handleImageClick}></img>
+        <div class="tag-text"> {secondaryTags[2]} </div>
+      </div>
+      <div class="tag-container">
+        <img id="secondary-4" src="tag.png" class="tag-background" onClick={handleImageClick}></img>
+        <div class="tag-text"> {secondaryTags[3]} </div>
+      </div>
+      <div class="tag-container">
+        <img id="secondary-5" src="tag.png" class="tag-background" onClick={handleImageClick}></img>
+        <div class="tag-text"> {secondaryTags[4]} </div>
+      </div>
+      <div class="tag-container">
+        <img id="secondary-6" src="tag.png" class="tag-background" onClick={handleImageClick}></img>
+        <div class="tag-text"> {secondaryTags[5]} </div>
+      </div>
     </div>
   );
 }
@@ -123,45 +107,59 @@ function RenderSecondaryTag() {
 function RenderHobbyTag() {
   return (
     <div>
-      <button id="hobby-1" className="clickableTag" onClick={handleTagClick}>
-        {hobbies[0]}
-      </button>
-      <button id="hobby-2" className="clickableTag" onClick={handleTagClick}>
-        {hobbies[1]}
-      </button>
-      <button id="hobby-3" className="clickableTag" onClick={handleTagClick}>
-        {hobbies[2]}
-      </button>
-      <button id="hobby-4" className="clickableTag" onClick={handleTagClick}>
-        {hobbies[3]}
-      </button>
-      <button id="hobby-5" className="clickableTag" onClick={handleTagClick}>
-        {hobbies[4]}
-      </button>
-      <button id="hobby-6" className="clickableTag" onClick={handleTagClick}>
-        {hobbies[5]}
-      </button>
-      <button id="hobby-7" className="clickableTag" onClick={handleTagClick}>
-        {hobbies[6]}
-      </button>
-      <button id="hobby-8" className="clickableTag" onClick={handleTagClick}>
-        {hobbies[7]}
-      </button>
-      <button id="hobby-9" className="clickableTag" onClick={handleTagClick}>
-        {hobbies[8]}
-      </button>
-      <button id="hobby-10" className="clickableTag" onClick={handleTagClick}>
-        {hobbies[9]}
-      </button>
-      <button id="hobby-11" className="clickableTag" onClick={handleTagClick}>
-        {hobbies[10]}
-      </button>
-      <button id="hobby-12" className="clickableTag" onClick={handleTagClick}>
-        {hobbies[11]}
-      </button>
-      <button id="hobby-13" className="clickableTag" onClick={handleTagClick}>
-        {hobbies[12]}
-      </button>
+      <div class="tag-container">
+        <img id="hobby-1" src="tag.png" class="tag-background" onClick={handleImageClick}></img>
+        <div class="tag-text"> {hobbies[0]} </div>
+      </div>
+      <div class="tag-container">
+        <img id="hobby-2" src="tag.png" class="tag-background" onClick={handleImageClick}></img>
+        <div class="tag-text"> {hobbies[1]} </div>
+      </div>
+      <div class="tag-container">
+        <img id="hobby-3" src="tag.png" class="tag-background" onClick={handleImageClick}></img>
+        <div class="tag-text"> {hobbies[2]} </div>
+      </div>
+      <div class="tag-container">
+        <img id="hobby-4" src="tag.png" class="tag-background" onClick={handleImageClick}></img>
+        <div class="tag-text"> {hobbies[3]} </div>
+      </div>
+      <div class="tag-container">
+        <img id="hobby-5" src="tag.png" class="tag-background" onClick={handleImageClick}></img>
+        <div class="tag-text"> {hobbies[4]} </div>
+      </div>
+      <div class="tag-container">
+        <img id="hobby-6" src="tag.png" class="tag-background" onClick={handleImageClick}></img>
+        <div class="tag-text"> {hobbies[5]} </div>
+      </div>
+      <div class="tag-container">
+        <img id="hobby-7" src="tag.png" class="tag-background" onClick={handleImageClick}></img>
+        <div class="tag-text"> {hobbies[6]} </div>
+      </div>
+      <div class="tag-container">
+        <img id="hobby-8" src="tag.png" class="tag-background" onClick={handleImageClick}></img>
+        <div class="tag-text"> {hobbies[7]} </div>
+      </div>
+      <div class="tag-container">
+        <img id="hobby-9" src="tag.png" class="tag-background" onClick={handleImageClick}></img>
+        <div class="tag-text"> {hobbies[8]} </div>
+      </div>
+      <div class="tag-container">
+        <img id="hobby-10" src="tag.png" class="tag-background" onClick={handleImageClick}></img>
+        <div class="tag-text"> {hobbies[9]} </div>
+      </div>
+      <div class="tag-container">
+        <img id="hobby-11" src="tag.png" class="tag-background" onClick={handleImageClick}></img>
+        <div class="tag-text"> {hobbies[10]} </div>
+      </div>
+      <div class="tag-container">
+        <img id="hobby-12" src="tag.png" class="tag-background" onClick={handleImageClick}></img>
+        <div class="tag-text"> {hobbies[11]} </div>
+      </div>
+      <div class="tag-container">
+        <img id="hobby-13" src="tag.png" class="tag-background" onClick={handleImageClick}></img>
+        <div class="tag-text"> {hobbies[12]} </div>
+      </div>
+
     </div>
   );
 }
@@ -172,11 +170,17 @@ class SignupQuestion extends Component {
   render() {
     return (
       <div className="mt-5" style={{ justifyContent: "center", padding: 30 }}>
+        <div align="center">
+          <img
+            src="logo.png"
+            id="main-logo-loginpage"
+          />
+        </div>
         <div style={{ clear: "both", margin: "25px" }} align="center">
           <h2>Please do some introduction about you</h2>
         </div>
         <div class="center-label">Basic information</div>
-        <div class="basic-information">
+        <div class="basic-information" id="basic-information-inputs-bar">
           <div class="input-group mb-3" id="name-input-box">
             <div class="input-group-prepend">
               <span class="input-group-text">Name </span>
@@ -211,7 +215,7 @@ class SignupQuestion extends Component {
           </div>
         </div>
         <div class="profile-box">
-          <div class="center-label">
+          <div class="center-label instruct-label">
             Why you choose Home Finder and What you want to find throw this
             website?
           </div>
@@ -224,7 +228,7 @@ class SignupQuestion extends Component {
           ></textarea>
         </div>
         <div class="form-group" align="center">
-          <div class="center-label">
+          <div class="center-label instruct-label">
             Check all these basic information tags that properly describe about
             you.
           </div>
@@ -233,7 +237,7 @@ class SignupQuestion extends Component {
           </div>
         </div>
         <div class="form-group" align="center">
-          <div class="center-label">
+          <div class="center-label instruct-label">
             Check all these advanced information tags that properly describe
             about you.
           </div>
@@ -242,7 +246,7 @@ class SignupQuestion extends Component {
           </div>
         </div>
         <div class="form-group" align="center">
-          <div class="center-label">
+          <div class="center-label instruct-label">
             Check all these hobby informaation tags that properly describe about
             you.
           </div>

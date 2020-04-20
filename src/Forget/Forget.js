@@ -5,13 +5,12 @@ class Forget extends Component {
   render() {
     return (
       <div style={{ justifyContent: "center", padding: 30 }}>
-        <img
-          src="ExampleImage.png"
-          alt="ExampleImage"
-          align="center"
-          class="center"
-          style={{ width: "100px" }}
-        ></img>
+        <div align="center">
+            <img
+              src="logo.png"
+              id="main-logo-loginpage"
+            />
+          </div>
         <div style={{ clear: "both", margin: "25px" }} align="center">
           <h2>Forget Password</h2>
         </div>

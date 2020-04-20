@@ -158,7 +158,7 @@ class Apartment extends Component {
         </Row>
         <div id="apartment-wrapper">
           <div className="apartment-canvas">
-            <Col xs={12} md={8} lg={6}>
+            <Col xs={12} md={8} lg={6} >
               <div class="apartmentPostsArea">
                 {this.state.apartmentList.map((apt, index) => (
                   <div class="card" key={index}>
@@ -177,7 +177,7 @@ class Apartment extends Component {
                 ))}
               </div>
             </Col>
-            <Col xs={0} md={4} lg={6}>
+            <Col xs={0} md={4} lg={6} id="map-canvas">
               {/* <div id="map-canvas">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3176.177673270392!2d-80.42827748475189!3d37.24349177985963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x884d95643a782885%3A0xc102eb0373bf89c9!2s500%20Hunt%20Club%20Rd%2C%20Blacksburg%2C%20VA%2024060!5e0!3m2!1szh-CN!2sus!4v1587028720939!5m2!1szh-CN!2sus"

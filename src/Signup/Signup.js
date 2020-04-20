@@ -90,6 +90,12 @@ class Signup extends Component {
   render() {
     return (
       <Container className="mt-5">
+        <div align="center">
+          <img
+            src="logo.png"
+            id="main-logo-loginpage"
+          />
+        </div>
         <div align="center" className="signup-wrapper">
           <div style={{ clear: "both", margin: "25px" }} align="center">
             <h2>Sign Up</h2>

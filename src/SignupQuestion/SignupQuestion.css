@@ -33,15 +33,37 @@
 
 #name-input-box {
     max-width: 310px;
+    margin-right: 20px;
 }
 
 #gender-input-box {
-    max-width: 242px;
+    max-width: 342px;
 }
 
 #age-input-box {
     max-width: 200px;
 }
+
+.tag-container {
+    float: left;
+    width: 250px;
+    display: flex;
+    margin-right: 2px;
+}
+.tag-background {
+    width: 250px;
+    height: 70px;
+}
+.tag-text {
+    position: absolute;
+    margin-top: 15px;
+    margin-left: 100px;
+    width: 150px;
+    font-size: medium;
+    color:#247ee4;
+}
+
+
 
 .tag-box {
     border-style: groove;
@@ -88,3 +110,23 @@
     cursor: pointer;
     border-radius: 20px;
 }
+
+#Tag-Submit-button {
+    width: 200px;
+}
+
+@media only screen and (max-width: 800px) {
+    #basic-information-inputs-bar {
+        display: block;
+        width: 100%;
+    }
+
+    .instruct-label {
+        width: auto;
+    }
+
+    .tag-box {
+        width: 85%;
+    }
+    
+  }

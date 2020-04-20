@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Spinner, Carousel, Container } from "react-bootstrap";
+import { Spinner, Carousel, Container, Nav } from "react-bootstrap";
 import Image from "react-bootstrap/Image";
+import { withRouter } from "react-router-dom";
 import "./Roommate.css";
 
 //This should be load from each user list.
@@ -25,6 +26,30 @@ function RenderTag() {
         </div>
         <div class="theTag" id="tag-4">
           {tags[3]}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+//
+//Change this with "display:none" if the user already finished the signup questions.
+//
+function PromptBox() {
+  return (
+    <div class="modal" id="prompt-box" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header" style={{display:"block"}}>
+            <img
+                      src="logo.png"
+                      id="main-logo-roommatepage-modal"
+                    />
+            <h4><span class="glyphicon glyphicon-th-list"></span><span> Please Complete Basic Information Questionnaire</span></h4>
+          </div>
+          <div id="modal-buttons" class="modal-footer">
+          <Nav.Link href="/signupquestion"><button id = 'go-signup-question' class="btn btn-default center"><span class="glyphicon glyphicon-off"></span> → Let's Go! </button></Nav.Link>
+          </div>
         </div>
       </div>
     </div>
@@ -57,6 +82,12 @@ class Roommate extends Component {
   render() {
     return (
       <Container className="text-center">
+        <div align="center">
+          <img
+            src="logo.png"
+            id="main-logo-roommatepage"
+          />
+        </div>
         <div className="roommate-wrapper">
           {this.state.isLoading ? (
             <Spinner animation="grow" />
@@ -82,6 +113,8 @@ class Roommate extends Component {
             </Carousel>
           )}
         </div>
+        {/* Change this with "display:none" if the user already finished the signup questions. */}
+        <PromptBox />
       </Container>
     );
   }

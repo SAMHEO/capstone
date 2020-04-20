@@ -13,7 +13,11 @@ class Navigation extends Component {
         bg="primary"
         variant="dark" /*fixed="top"*/
       >
-        <Navbar.Brand href="/">Home Finder</Navbar.Brand>
+        <Navbar.Brand href="/"><img
+                      src="logo.png"
+                      id="main-logo"
+                      alt="Home"
+                    /></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse>
           <Nav className="navbar-nav ml-auto" id="nav-bar-container">

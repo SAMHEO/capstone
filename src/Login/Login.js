@@ -60,6 +60,12 @@ class Login extends Component {
     return (
       <Container id="login-container" className="mt-5">
         <div align="center" className="login-wrapper">
+          <div align="center">
+            <img
+              src="logo.png"
+              id="main-logo-loginpage"
+            />
+          </div>
           <div style={{ clear: "both", margin: "25px" }} align="center">
             <h2>Login</h2>
           </div>
