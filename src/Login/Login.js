@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Nav, Container } from "react-bootstrap";
 import "./Login.css";
+import Col from "react-bootstrap/Col";
 import { withRouter } from "react-router-dom";
 
 class Login extends Component {
@@ -59,7 +60,55 @@ class Login extends Component {
   render() {
     return (
       <Container id="login-container" className="mt-5">
-        <div align="center" className="login-wrapper">
+        <div className = "login-canvas">
+          <Col xs={12} md={8} lg={4}>
+            <div align="center">
+                <img
+                  src="logo.png"
+                  id="main-logo-loginpage"
+                />
+              </div>
+          
+          </Col>
+          <Col xs={0} md={4} lg={12}>
+            <div style={{ clear: "both", margin: "25px" }} align="center">
+              <h2>Login</h2>
+            </div>
+            <form onSubmit={this.login} className="login-form">
+              <input
+                type="email"
+                className="form-control"
+                onChange={this.handleEmailChange}
+                id="username-input-box"
+                placeholder="Email Adddress"
+                required
+                autoFocus
+              />
+              <br />
+              <input
+                type="password"
+                className="form-control"
+                onChange={this.handlePasswordChange}
+                id="password-input-box"
+                placeholder="Password"
+                required
+              />
+              <br />
+              <button
+                type="submit"
+                className="btn btn-success center"
+                id="login-button"
+              >
+                Login
+              </button>
+            </form>
+            <div className="center">
+              <Nav.Link href="/signup">Don't have an account? Sign Up</Nav.Link>
+              <Nav.Link href="/forget">Forget your password?</Nav.Link>
+            </div>
+          </Col>
+        </div>
+        {/* <div align="center" className="login-wrapper">
           <div align="center">
             <img
               src="logo.png"
@@ -89,15 +138,6 @@ class Login extends Component {
               required
             />
             <br />
-            {/* <div align="left" className="text-center">
-              <input
-                type="checkbox"
-                className="form-check-input"
-                value="0"
-                id="remember-me"
-              />
-              Remember Me
-            </div> */}
             <button
               type="submit"
               className="btn btn-success center"
@@ -110,18 +150,8 @@ class Login extends Component {
             <Nav.Link href="/signup">Don't have an account? Sign Up</Nav.Link>
             <Nav.Link href="/forget">Forget your password?</Nav.Link>
           </div>
-        </div>
-        {/* </Col>
-          <Col className="align-middle">
-            <div>
-              <img
-                src="ExampleImage.png"
-                className="d-block w-100 "
-                alt="..."
-              />
-            </div>
-          </Col>
-        </Row> */}
+        </div> */}
+
       </Container>
     );
   }

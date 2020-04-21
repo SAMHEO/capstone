@@ -8,9 +8,18 @@
   width: 50%;
   min-width: 240px;
 }
+.login-canvas {
+  display: flex;
+  position: relative;
+  width: 100%;
+  margin-top: 150px;
+  padding: 5px;
+  left: auto;
+  z-index: 0;
+}
 
 #main-logo-loginpage {
-  width: 600px;
+  width: 350px;
   margin-top: 70px;
   margin-bottom: 30px;
   margin-left: auto;
@@ -27,5 +36,6 @@
 
 .login-form {
   width: 40%;
+  margin-left: 250px;
   min-width: 240px;
 }
