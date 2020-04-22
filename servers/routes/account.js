@@ -1,12 +1,20 @@
+require("dotenv").config();
 const express = require("express");
 const router = express.Router();
 const db = require("../dbconnection");
 ("use strict");
+const crypto = require("crypto");
+
+function hash(password) {
+  return crypto
+    .createHmac("sha256", process.env.SECRET_KEY)
+    .update(password)
+    .digest("hex");
+}
 
 router.post("/login", function (req, res) {
   var email = req.body.email;
-  var password = req.body.password;
-
+  var password = hash(req.body.password);
   if (email && password) {
     db.query(
       `SELECT * from clients where email = "${email}" and password = "${password}"`,
@@ -47,18 +55,19 @@ router.post("/signup", function (req, res) {
     });
   }
 
-  console.log(req.body.email);
   db.query(
     `SELECT * FROM clients where email = "${req.body.email}"`,
     (err, rows) => {
       if (err) throw err;
       if (rows.length == 0) {
         var today = new Date();
+        hashed_pw = hash(req.body.password);
+
         var users = {
           firstName: req.body.firstName,
           lastName: req.body.lastName,
           email: req.body.email,
-          password: req.body.password,
+          password: hashed_pw,
           created: today,
           modified: today,
         };

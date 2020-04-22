@@ -48,7 +48,9 @@
 
 #prompt-box {
   display: block;
-  top: 200px;
+  margin-top: 75px;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 200;
 }
 
 #main-logo-roommatepage {

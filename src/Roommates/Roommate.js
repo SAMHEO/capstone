@@ -40,15 +40,19 @@ function PromptBox() {
     <div class="modal" id="prompt-box" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="modal-header" style={{display:"block"}}>
-            <img
-                      src="logo.png"
-                      id="main-logo-roommatepage-modal"
-                    />
-            <h4><span class="glyphicon glyphicon-th-list"></span><span> Please Complete Basic Information Questionnaire</span></h4>
+          <div class="modal-header" style={{ display: "block" }}>
+            <img src="logo.png" id="main-logo-roommatepage-modal" />
+            <h4>
+              <span class="glyphicon glyphicon-th-list"></span>
+              <span> Please Complete Basic Information Questionnaire</span>
+            </h4>
           </div>
           <div id="modal-buttons" class="modal-footer">
-          <Nav.Link href="/signupquestion"><button id = 'go-signup-question' class="btn btn-default center"><span class="glyphicon glyphicon-off"></span> → Let's Go! </button></Nav.Link>
+            <Nav.Link href="/signupquestion">
+              <button id="go-signup-question" class="btn btn-default center">
+                <span class="glyphicon glyphicon-off"></span> → Let's Go!{" "}
+              </button>
+            </Nav.Link>
           </div>
         </div>
       </div>
@@ -82,12 +86,6 @@ class Roommate extends Component {
   render() {
     return (
       <Container className="text-center">
-        <div align="center">
-          <img
-            src="logo.png"
-            id="main-logo-roommatepage"
-          />
-        </div>
         <div className="roommate-wrapper">
           {this.state.isLoading ? (
             <Spinner animation="grow" />
@@ -112,9 +110,9 @@ class Roommate extends Component {
               ))}
             </Carousel>
           )}
+          <PromptBox />
         </div>
         {/* Change this with "display:none" if the user already finished the signup questions. */}
-        <PromptBox />
       </Container>
     );
   }

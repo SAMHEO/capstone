@@ -60,18 +60,9 @@ class Login extends Component {
   render() {
     return (
       <Container id="login-container" className="mt-5">
-        <div className = "login-canvas">
-          <Col xs={12} md={8} lg={4}>
-            <div align="center">
-                <img
-                  src="logo.png"
-                  id="main-logo-loginpage"
-                />
-              </div>
-          
-          </Col>
-          <Col xs={0} md={4} lg={12}>
-            <div style={{ clear: "both", margin: "25px" }} align="center">
+        <div className="login-canvas">
+          <Col sm={12} lg={6} align="center">
+            <div>
               <h2>Login</h2>
             </div>
             <form onSubmit={this.login} className="login-form">
@@ -93,7 +84,6 @@ class Login extends Component {
                 placeholder="Password"
                 required
               />
-              <br />
               <button
                 type="submit"
                 className="btn btn-success center"
@@ -103,20 +93,25 @@ class Login extends Component {
               </button>
             </form>
             <div className="center">
-              <Nav.Link href="/signup">Don't have an account? Sign Up</Nav.Link>
+              <Nav.Link href="/signup">Register</Nav.Link>
               <Nav.Link href="/forget">Forget your password?</Nav.Link>
+            </div>
+          </Col>
+          <Col sm={0} lg={6} className="login-image ">
+            <div align="center">
+              <img src="logo.png" id="main-logo-loginpage" />
             </div>
           </Col>
         </div>
         {/* <div align="center" className="login-wrapper">
           <div align="center">
-            <img
-              src="logo.png"
-              id="main-logo-loginpage"
-            />
+          <img
+          src="logo.png"
+          id="main-logo-loginpage"
+          />
           </div>
           <div style={{ clear: "both", margin: "25px" }} align="center">
-            <h2>Login</h2>
+          <h2>Login</h2>
           </div>
           <form onSubmit={this.login} className="login-form">
             <input
@@ -151,7 +146,6 @@ class Login extends Component {
             <Nav.Link href="/forget">Forget your password?</Nav.Link>
           </div>
         </div> */}
-
       </Container>
     );
   }
