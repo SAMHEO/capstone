@@ -1,0 +1,20 @@
+#apartment-detail-main {
+    margin: 100px;
+}
+
+.apartment-detail-info {
+    font-size: x-large;
+    margin-bottom: 5px;
+    display: flex;
+}
+
+.apartment-detail-page-spacer {
+    margin-bottom: 20px;
+}
+
+.apartment-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+}

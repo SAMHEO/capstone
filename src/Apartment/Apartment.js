@@ -3,6 +3,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./Apartment.css";
 import { GoogleApiWrapper, Map, Marker } from "google-maps-react";
+import { Navbar, Nav } from "react-bootstrap";
+import { withRouter } from "react-router-dom";
 const API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
 
 class Apartment extends Component {
@@ -170,6 +172,8 @@ class Apartment extends Component {
                           <p>Price: ${apt.rent}</p>
                           <p>Location: {apt.address}</p>
                           <p>Rate: {apt.rate}</p>
+                          {/* To get each apartment's link from database */}
+                          <Nav.Link href="/apartmentdetail?q=terraceview" style={{marginLeft: "-17px"}}> Detail </Nav.Link>
                         </p>
                       </div>
                     </div>

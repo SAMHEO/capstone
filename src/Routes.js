@@ -12,6 +12,7 @@ import Login from "./Login/LoginContainer";
 import Signup from "./Signup/Signup";
 import SignupQuestion from "./SignupQuestion/SignupQuestion";
 import Forget from "./Forget/Forget";
+import ApartmentDetail from "./ApartmentDetail/ApartmentDetail";
 
 export default class Routes extends Component {
   render() {
@@ -28,6 +29,7 @@ export default class Routes extends Component {
           <Route path="/signup" component={Signup} />
           <Route path="/signupquestion" component={SignupQuestion} />
           <Route path="/forget" component={Forget} />
+          <Route path="/apartmentdetail" component={ApartmentDetail} />
         </Switch>
       </Router>
     );
