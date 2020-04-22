@@ -3,10 +3,10 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import ReactStars from "react-stars";
 import Image from "react-bootstrap/Image";
-import { Spinner, Carousel, Container, Nav } from "react-bootstrap";
+import { Carousel, Nav } from "react-bootstrap";
 import "./ApartmentDetail.css";
-import { GoogleApiWrapper, Map, Marker } from "google-maps-react";
-const API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
+// import { GoogleApiWrapper, Map, Marker } from "google-maps-react";
+// const API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
 
 const ratingChanged = (newRating) => {
   //To do some to calculate the average and write into the database.

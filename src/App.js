@@ -27,11 +27,13 @@ class App extends Component {
   };
 
   componentDidMount() {
-    const email = window.sessionStorage.getItem("email");
-    if (email) {
-      this.onLogin();
-    } else {
-      this.onLogout();
+    if (sessionStorage.getItem("userinfo") != null) {
+      const email = JSON.parse(window.sessionStorage.getItem("userinfo")).email;
+      if (email) {
+        this.onLogin();
+      } else {
+        this.onLogout();
+      }
     }
   }
   render() {

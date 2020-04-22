@@ -13,11 +13,9 @@ class Navigation extends Component {
         bg="primary"
         variant="dark" /*fixed="top"*/
       >
-        <Navbar.Brand href="/"><img
-                      src="logo.png"
-                      id="main-logo"
-                      alt="Home"
-                    /></Navbar.Brand>
+        <Navbar.Brand href="/">
+          <img src="logo.png" id="main-logo" alt="Home" />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse>
           <Nav className="navbar-nav ml-auto" id="nav-bar-container">
@@ -45,7 +43,7 @@ class Navigation extends Component {
               <Navbar.Collapse>
                 <Nav.Item className="link-item">
                   <Nav.Link eventKey="5" href="/profile">
-                    Profile
+                    {JSON.parse(sessionStorage.getItem("userinfo")).name}
                   </Nav.Link>
                 </Nav.Item>
                 <Nav.Item className="link-item">

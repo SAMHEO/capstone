@@ -6,11 +6,8 @@ class Forget extends Component {
     return (
       <div style={{ justifyContent: "center", padding: 30 }}>
         <div align="center">
-            <img
-              src="logo.png"
-              id="main-logo-loginpage"
-            />
-          </div>
+          <img src="logo.png" id="main-logo-loginpage" alt="logo" />
+        </div>
         <div style={{ clear: "both", margin: "25px" }} align="center">
           <h2>Forget Password</h2>
         </div>

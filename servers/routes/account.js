@@ -22,6 +22,7 @@ router.post("/login", function (req, res) {
         if (err) throw err;
         if (rows.length > 0) {
           res.json({
+            name: rows[0].firstName,
             email: email,
             success: true,
           });
@@ -109,6 +110,7 @@ router.post("/user", (req, res) => {
         sex = rows[0].sex;
         phone = rows[0].phone;
         rent = rows[0].ideal_rent;
+        desc = rows[0].description;
         occupation = rows[0].occupation;
         image = rows[0].image ? "user.jpg" : "avatar.png";
         res.json({
@@ -119,6 +121,7 @@ router.post("/user", (req, res) => {
           sex: sex,
           phone: phone,
           rent: rent,
+          description: desc,
           image: image,
           occupation: occupation,
         });

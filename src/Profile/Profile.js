@@ -6,7 +6,7 @@ import Image from "react-bootstrap/Image";
 import "./Profile.css";
 
 function TagTemplate(tag) {
-  return <div class="tag">{tag.name}</div>;
+  return <div className="tag">{tag.name}</div>;
 }
 
 function getAgeFromBirthdate(birthdate) {
@@ -31,9 +31,12 @@ class Profile extends Component {
   }
 
   componentDidMount() {
+    const userInfo = JSON.parse(window.sessionStorage.getItem("userinfo"));
     const fetch_info = {
       method: "POST",
-      body: JSON.stringify({ email: window.sessionStorage.getItem("email") }),
+      body: JSON.stringify({
+        email: userInfo.email,
+      }),
       headers: {
         "Content-Type": "application/json",
       },
@@ -60,7 +63,7 @@ class Profile extends Component {
             <div className="profile-canvas">
               <Col xs={12} md={8} lg={4}>
                 left side
-                <div class="center" id="photo-container">
+                <div className="center" id="photo-container">
                   <Image
                     src={user.image}
                     className="d-block center"
@@ -69,7 +72,7 @@ class Profile extends Component {
                     roundedCircle
                   />
                 </div>
-                <div class="profile-box" id="profile-basic">
+                <div className="profile-box" id="profile-basic">
                   <h2>
                     {this.capitalize(`${user.firstname}`)}{" "}
                     {this.capitalize(`${user.lastname}`)}
@@ -78,8 +81,8 @@ class Profile extends Component {
                   <p>Age: {getAgeFromBirthdate(user.age)}</p>
                 </div>
                 <Col xs={12} md={8} lg={12} id="profile-col-3">
-                  <div class="profile-box" id="basic-info">
-                    {`${user.occupation}` > 0 ? (
+                  <div className="profile-box" id="basic-info">
+                    {`${user.occupation}` == null ? (
                       <div />
                     ) : (
                       <li>{`${user.occupation}`.toUpperCase()}</li>
@@ -90,35 +93,33 @@ class Profile extends Component {
               </Col>
               <Col xs={0} md={4} lg={9}>
                 right side
-                <div class="profile-box">
-                  <div id="basic-info" class="profile-tag-box">
-                    <h4 class="profile-box-title">Short description</h4>
-                    As a sophomore student at Virginia Tech, I just moved out
-                    from university dormitory and I’m looking for an apartment
-                    with an individual bedroom and bathroom in each bedroom so
-                    that there is better privacy compared with my life in-campus
-                    dormitory.
+                <div className="profile-box">
+                  <div id="basic-info" className="profile-tag-box">
+                    <h4 className="profile-box-title">Short description</h4>
+                    {user.description}
                   </div>
                 </div>
-                <div class="profile-box">
-                  <div id="basic-info" class="profile-tag-box">
-                    <h4 class="profile-box-title">My Personality</h4>
+                <div className="profile-box">
+                  <div id="basic-info" className="profile-tag-box">
+                    <h4 className="profile-box-title">My Personality</h4>
                     <TagTemplate name="Introvert" />
                     <TagTemplate name="Quiet" />
                     <TagTemplate name="Dislike Party" />
                   </div>
                 </div>
-                <div class="profile-box">
-                  <div id="apartment-info" class="profile-tag-box">
-                    <h4 class="profile-box-title">I hope my roommate is</h4>
+                <div className="profile-box">
+                  <div id="apartment-info" className="profile-tag-box">
+                    <h4 className="profile-box-title">I hope my roommate is</h4>
                     <TagTemplate name="Easygoing" />
                     <TagTemplate name="Has no Pet" />
                     <TagTemplate name="Has a vehicle" />
                   </div>
                 </div>
-                <div class="profile-box">
-                  <div id="roommate-info" class="profile-tag-box">
-                    <h4 class="profile-box-title">I hope my apartment is</h4>
+                <div className="profile-box">
+                  <div id="roommate-info" className="profile-tag-box">
+                    <h4 className="profile-box-title">
+                      I hope my apartment is
+                    </h4>
                     <TagTemplate name="Individual Bedroom" />
                     <TagTemplate name="Individual Bathroom" />
                     <TagTemplate name="Near Bus Station" />

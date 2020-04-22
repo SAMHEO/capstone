@@ -34,21 +34,25 @@ class Login extends Component {
     };
     fetch("api/account/login", login_info)
       .then((res) => {
-        console.log(res);
         return res.json();
       })
       .then((json) => {
-        console.log(json);
         if (json.success === true) {
-          alert("Logged in");
           window.localStorage.setItem("userInfo", JSON.stringify(json));
           this.setState({
             id: json.idx,
             email: json.email,
+            name: json.name,
             isLogin: json.success,
           });
           // console.log(this.props);
-          window.sessionStorage.setItem("email", this.state.email);
+          window.sessionStorage.setItem(
+            "userinfo",
+            JSON.stringify({
+              email: this.state.email,
+              name: this.state.name,
+            })
+          );
           this.props.onLogin();
           this.props.history.push("/");
         } else {
@@ -99,7 +103,7 @@ class Login extends Component {
           </Col>
           <Col sm={0} lg={6} className="login-image ">
             <div align="center">
-              <img src="logo.png" id="main-logo-loginpage" />
+              <img src="logo.png" id="main-logo-loginpage" alt="logo" />
             </div>
           </Col>
         </div>

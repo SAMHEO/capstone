@@ -90,20 +90,18 @@ export default class Home extends Component {
 
           <Row>
             {this.state.apartmentList.map((apt, index) => (
-              <Col>
-                <temp>
-                  <div class="card">
-                    <img
-                      src="terraceview.jpeg"
-                      class="card-img-top"
-                      alt="postUserImage"
-                    />
-                    <div class="card-body">
-                      <h5 class="card-title">{apt.name}</h5>
-                      <p class="card-text"></p>
-                    </div>
+              <Col key={index}>
+                <div className="card">
+                  <img
+                    src="terraceview.jpeg"
+                    className="card-img-top"
+                    alt="postUserImage"
+                  />
+                  <div className="card-body">
+                    <h5 className="card-title">{apt.name}</h5>
+                    <p className="card-text"></p>
                   </div>
-                </temp>
+                </div>
               </Col>
             ))}
           </Row>
@@ -119,16 +117,16 @@ export default class Home extends Component {
           </Row>
           <Row>
             {this.state.userList.map((user, index) => (
-              <Col>
-                <div class="card">
+              <Col key={index}>
+                <div className="card">
                   <img
                     src="avatar.png"
-                    class="card-img-top"
+                    className="card-img-top"
                     alt="postUserImage"
                   />
-                  <div class="card-body">
-                    <h5 class="card-title">{user.name}</h5>
-                    <p class="card-text">
+                  <div className="card-body">
+                    <h5 className="card-title">{user.name}</h5>
+                    <p className="card-text">
                       {tempUser2Des} {tempUser2Time}
                     </p>
                   </div>

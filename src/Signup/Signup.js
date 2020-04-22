@@ -91,10 +91,7 @@ class Signup extends Component {
     return (
       <Container className="mt-5">
         <div align="center">
-          <img
-            src="logo.png"
-            id="main-logo-loginpage"
-          />
+          <img src="logo.png" id="main-logo-loginpage" alt="logo" />
         </div>
         <div align="center" className="signup-wrapper">
           <div style={{ clear: "both", margin: "25px" }} align="center">

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Spinner, Carousel, Container, Nav } from "react-bootstrap";
 import Image from "react-bootstrap/Image";
-import { withRouter } from "react-router-dom";
 import "./Roommate.css";
 
 //This should be load from each user list.
@@ -15,16 +14,16 @@ function RenderTag() {
       <div className="d-block w-50 center">{description}</div>
       <h4>I am: </h4>
       <div className="infoTagBox">
-        <div class="theTag" id="tag-1">
+        <div className="theTag" id="tag-1">
           {tags[0]}
         </div>
-        <div class="theTag" id="tag-2">
+        <div className="theTag" id="tag-2">
           {tags[1]}
         </div>
-        <div class="theTag" id="tag-3">
+        <div className="theTag" id="tag-3">
           {tags[2]}
         </div>
-        <div class="theTag" id="tag-4">
+        <div className="theTag" id="tag-4">
           {tags[3]}
         </div>
       </div>
@@ -37,20 +36,23 @@ function RenderTag() {
 //
 function PromptBox() {
   return (
-    <div class="modal" id="prompt-box" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header" style={{ display: "block" }}>
-            <img src="logo.png" id="main-logo-roommatepage-modal" />
+    <div className="modal" id="prompt-box" role="dialog">
+      <div className="modal-dialog">
+        <div className="modal-content">
+          <div className="modal-header" style={{ display: "block" }}>
+            <img src="logo.png" id="main-logo-roommatepage-modal" alt="logo" />
             <h4>
-              <span class="glyphicon glyphicon-th-list"></span>
+              <span className="glyphicon glyphicon-th-list"></span>
               <span> Please Complete Basic Information Questionnaire</span>
             </h4>
           </div>
-          <div id="modal-buttons" class="modal-footer">
+          <div id="modal-buttons" className="modal-footer">
             <Nav.Link href="/signupquestion">
-              <button id="go-signup-question" class="btn btn-default center">
-                <span class="glyphicon glyphicon-off"></span> → Let's Go!{" "}
+              <button
+                id="go-signup-question"
+                className="btn btn-default center"
+              >
+                <span className="glyphicon glyphicon-off"></span> → Let's Go!{" "}
               </button>
             </Nav.Link>
           </div>
@@ -75,12 +77,10 @@ class Roommate extends Component {
         return res.json();
       })
       .then((users) => {
-        console.log(users);
         this.setState({
           userList: users,
           isLoading: false,
         });
-        console.log(this.state);
       });
   }
   render() {
@@ -105,7 +105,7 @@ class Roommate extends Component {
                     <p>{user.phone}</p>
                     <RenderTag />
                   </Carousel.Caption>
-                  <div class="spacer"></div>
+                  <div className="spacer"></div>
                 </Carousel.Item>
               ))}
             </Carousel>
