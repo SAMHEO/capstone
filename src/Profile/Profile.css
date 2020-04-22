@@ -1,104 +1,106 @@
+.profile-wrapper {
+  margin-top: 100px;
+}
 
 #photo-container {
-    padding-top: 25px;
-
+  padding-top: 25px;
 }
 
 .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #profile-page {
-    display: "flex";
-    width: 80%;
-    padding: 30;
-    margin-left: auto;
-    margin-right: auto;
+  display: "flex";
+  width: 80%;
+  padding: 30;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #profile-basic {
-    text-align: center;
+  text-align: center;
 }
 
 .profile-canvas {
-    display: flex;
-    position: relative;
-    width: 100%;
-    padding: 5px;
-    left: auto;
-    z-index: 0;
+  display: flex;
+  position: relative;
+  width: 100%;
+  padding: 5px;
+  left: auto;
+  z-index: 0;
 }
 
 #user-photo {
-    width: 250px;
-    margin-top: 15px;
-    margin-bottom: 15px;
+  width: 250px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 #profile-main-container {
-    width: 100%;
+  width: 100%;
 }
 
 .profile-box {
-    text-align: left;
-    margin: 10px;
+  text-align: left;
+  margin: 10px;
 }
 
 #profile-col-1 {
-    display: inline-grid;
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: 50%;
-    max-width: 100%;
+  display: inline-grid;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 50%;
+  max-width: 100%;
 }
 
 #profile-col-2 {
-    display: inline-grid;
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: 50%;
-    max-width: 50%;
+  display: inline-grid;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 50%;
+  max-width: 50%;
 }
 
 .profile-tag-box {
-    border-radius: 15px;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 30px;
-    padding-right: 30px;
-    overflow: auto;
-    background-color: white;
-    min-width: 100%;
+  border-radius: 15px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  overflow: auto;
+  background-color: white;
+  min-width: 100%;
 }
 
 .profile-box-title {
-    position: relative;
-    left: 0px;
-    top: 0px;
-    width: max-content;
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: max-content;
 }
 
 #edit-button {
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #007bff;
-    margin-top: 10px;
-    margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #007bff;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 #edit-link {
-    color: white;
+  color: white;
 }
 
 .tag {
-    border-radius: 20px;
-    color: #4394e6;
-    width: max-content;
-    padding: 3px;
-    margin-right: 5px;
-    float: left;
+  border-radius: 20px;
+  color: #4394e6;
+  width: max-content;
+  padding: 3px;
+  margin-right: 5px;
+  float: left;
 }

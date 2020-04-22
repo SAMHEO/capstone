@@ -137,6 +137,12 @@ function AddNewRoommateTag() {
 }
 
 class ProfileEdit extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: null,
+    };
+  }
   changePhoto = (e) => {
     //TODO the backend change photo function
   };

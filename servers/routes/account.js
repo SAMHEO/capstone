@@ -96,4 +96,38 @@ router.post("/signup", function (req, res) {
   );
 });
 
+//getting information of user for profile page
+router.post("/user", (req, res) => {
+  db.query(
+    `select * from clients where email = "${req.body.email}"`,
+    (err, rows) => {
+      if (!err) {
+        (firstname = rows[0].firstName),
+          (lastname = rows[0].lastName),
+          (email = rows[0].email),
+          (age = rows[0].birthday);
+        sex = rows[0].sex;
+        phone = rows[0].phone;
+        rent = rows[0].ideal_rent;
+        occupation = rows[0].occupation;
+        image = rows[0].image ? "user.jpg" : "avatar.png";
+        res.json({
+          firstname: firstname,
+          lastname: lastname,
+          email: email,
+          age: age,
+          sex: sex,
+          phone: phone,
+          rent: rent,
+          image: image,
+          occupation: occupation,
+        });
+      } else {
+        console.log(`query error: ${err}`);
+        res.send(err);
+      }
+    }
+  );
+});
+
 module.exports = router;

@@ -17,35 +17,6 @@ router.get("/users", (req, res) => {
   });
 });
 
-//getting information of user for profile page
-router.post("/user", (req, res) => {
-  db.query(
-    `select * from clients where firstName = "${req.body.name}"`,
-    (err, rows) => {
-      if (!err) {
-        age = rows[0].birthday;
-        sex = rows[0].sex;
-        phone = rows[0].phone;
-        rent = rows[0].ideal_rent;
-        occupation = rows[0].occupation;
-        image = rows[0].image ? "user.jpg" : "avatar.png";
-        res.json({
-          age: age,
-          sex: sex,
-          phone: phone,
-          rent: rent,
-          image: image,
-          occupation: occupation,
-        });
-      } else {
-        console.log(`query error: ${err}`);
-        res.send(err);
-      }
-    }
-  );
-});
-
-
 //getting apartment from db
 router.get("/getApts", function (req, res) {
   db.query("SELECT * FROM apartments", (err, rows) => {
@@ -64,7 +35,6 @@ router.get("/getAddress", function (req, res) {
   db.query("SELECT name, address FROM apartments", (err, rows) => {
     if (!err) {
       res.send(rows);
-      
     } else {
       console.log(`query error: ${err}`);
       res.send(err);
