@@ -26,6 +26,10 @@ class Profile extends Component {
   }
   edit = (e) => {};
 
+  capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
   componentDidMount() {
     const fetch_info = {
       method: "POST",
@@ -66,13 +70,20 @@ class Profile extends Component {
                   />
                 </div>
                 <div class="profile-box" id="profile-basic">
-                  <h2>{user.firstname}</h2>
-                  <p> {user.sex}</p>
+                  <h2>
+                    {this.capitalize(`${user.firstname}`)}{" "}
+                    {this.capitalize(`${user.lastname}`)}
+                  </h2>
+                  <p> {`${user.sex}`.toUpperCase()}</p>
                   <p>Age: {getAgeFromBirthdate(user.age)}</p>
                 </div>
                 <Col xs={12} md={8} lg={12} id="profile-col-3">
                   <div class="profile-box" id="basic-info">
-                    <li>{user.occupation}</li>
+                    {`${user.occupation}` > 0 ? (
+                      <div />
+                    ) : (
+                      <li>{`${user.occupation}`.toUpperCase()}</li>
+                    )}
                     <li>Looking for Rent under {user.rent}</li>
                   </div>
                 </Col>
