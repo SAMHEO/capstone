@@ -5,8 +5,8 @@ import ReactStars from "react-stars";
 import Image from "react-bootstrap/Image";
 import { Carousel, Nav } from "react-bootstrap";
 import "./ApartmentDetail.css";
-// import { GoogleApiWrapper, Map, Marker } from "google-maps-react";
-// const API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
+import { GoogleApiWrapper, Map, Marker } from "google-maps-react";
+const API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
 
 const ratingChanged = (newRating) => {
   //To do some to calculate the average and write into the database.
@@ -16,6 +16,10 @@ const ratingChanged = (newRating) => {
 
 class ApartmentDetail extends Component {
   render() {
+    const mapStyles = {
+      width: "100%",
+      height: "100%",
+    };
     return (
       <div id="apartment-detail-main">
         <Nav.Link href="/apartment" style={{ marginLeft: "-40px" }}>
@@ -117,15 +121,16 @@ class ApartmentDetail extends Component {
                 413 Hunt Club Rd, Blacksburg, VA 24060
               </h4>
             </div>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3176.1976420628057!2d-80.42722274903016!3d37.24301795024808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x884d956428ac6aed%3A0x3f5d409de35b8a38!2sTerrace%20View%20Apartments!5e0!3m2!1sen!2sus!4v1587527682952!5m2!1sen!2sus"
-              width="800"
-              height="700"
-              frameborder="0"
-              allowfullscreen=""
-              aria-hidden="false"
-              tabindex="0"
-            ></iframe>
+            <Col xs={0} md={4} lg={6} id="map-canvas">
+              <Map
+                google={this.props.google}
+                zoom={8}
+                style={mapStyles}
+                initialCenter={{ lat: 37.2296, lng: -80.41394 }}
+              >
+                <Marker position={{ lat: 37.2296, lng: -80.41394 }} />
+              </Map>
+            </Col>
           </Col>
         </Row>
       </div>
@@ -133,4 +138,7 @@ class ApartmentDetail extends Component {
   }
 }
 
-export default ApartmentDetail;
+export default GoogleApiWrapper({
+  apiKey: API_KEY,
+})(ApartmentDetail);
+// export default ApartmentDetail;

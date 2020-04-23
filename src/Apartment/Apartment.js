@@ -16,6 +16,7 @@ class Apartment extends Component {
       maxPrice: "",
       numBeds: "",
       nameOfAPT: "",
+      numRate: "",
       priceOFAPT: 0,
       apartmentList: [],
       apartmentAddressList: [],
@@ -31,6 +32,9 @@ class Apartment extends Component {
   handleNumBeds = (e) => {
     this.setState({ numBeds: e.target.value });
   };
+  handleRate = (e) => {
+    this.setState({numRate: e.target.value})
+  }
 
   callApi1() {
     fetch("api/getApts")
@@ -146,6 +150,28 @@ class Apartment extends Component {
                 <option value="4">4 +</option>
               </select>
             </div>
+
+            <div class="input-group" id="input-group3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="Beds">
+                  Rating
+                </label>
+              </div>
+              <select
+                class="custom-select"
+                id="inputGroupSelect02"
+                onChange={this.handleRate}
+                numRate={this.value}
+              >
+                <option selected>Rate</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
             <button
               type="submit"
               class="btn center"
@@ -187,25 +213,6 @@ class Apartment extends Component {
               </div>
             </Col>
             <Col xs={0} md={4} lg={6} id="map-canvas">
-              {/* <div id="map-canvas">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3176.177673270392!2d-80.42827748475189!3d37.24349177985963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x884d95643a782885%3A0xc102eb0373bf89c9!2s500%20Hunt%20Club%20Rd%2C%20Blacksburg%2C%20VA%2024060!5e0!3m2!1szh-CN!2sus!4v1587028720939!5m2!1szh-CN!2sus"
-                  width="100%"
-                  height="100%"
-                  frameborder="0"
-                  allowfullscreen=""
-                  aria-hidden="false"
-                  tabindex="0"
-                ></iframe>
-              </div> */}
-              {/* <Map
-                google={this.props.google}
-                zoom={8}
-                style={mapStyles}
-                initialCenter={{ lat: 37.2296, lng: -80.41394}}
-              />
-              <Marker position={{ lat: 37.2296, lng: -80.41394}} />
-              </Map> */}
               <Map
                 google={this.props.google}
                 zoom={8}
