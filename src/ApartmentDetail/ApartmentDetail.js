@@ -15,6 +15,7 @@ const ratingChanged = (newRating) => {
 };
 
 class ApartmentDetail extends Component {
+
   render() {
     const mapStyles = {
       width: "100%",

@@ -17,6 +17,7 @@ class Apartment extends Component {
       numBeds: "",
       nameOfAPT: "",
       numRate: "",
+      numBath: "",
       priceOFAPT: 0,
       apartmentList: [],
       apartmentAddressList: [],
@@ -34,6 +35,9 @@ class Apartment extends Component {
   };
   handleRate = (e) => {
     this.setState({numRate: e.target.value})
+  }
+  handleBath = (e) => {
+    this.setState({numBath: e.target.value})
   }
 
   callApi1() {
@@ -106,7 +110,7 @@ class Apartment extends Component {
       <div className="mt-5">
         <Row id="apartment-search" className="sticky-top">
           <div className="search-bar-content">
-            <div class="input-group" id="input-group1">
+            {/* <div class="input-group" id="input-group1">
               <select
                 class="custom-select"
                 id="inputGroupSelect01"
@@ -116,7 +120,7 @@ class Apartment extends Component {
                 <option value="1">Price(Low to High)</option>
                 <option value="2">Price(Hight to Low)</option>
               </select>
-            </div>
+            </div> */}
 
             <div class="input-group" id="input-group2">
               <div class="input-group-prepend">
@@ -172,6 +176,28 @@ class Apartment extends Component {
                 <option value="5">5</option>
               </select>
             </div>
+
+            <div class="input-group" id="input-group3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="Beds">
+                  Baths
+                </label>
+              </div>
+              <select
+                class="custom-select"
+                id="inputGroupSelect02"
+                onChange={this.handleBath}
+                numBath={this.value}
+              >
+                <option selected>Baths</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="1.5">1.5</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+            </div>
             <button
               type="submit"
               class="btn center"
@@ -199,8 +225,9 @@ class Apartment extends Component {
                           <p>Rate: {apt.rate}</p>
                           {/* To get each apartment's link from database */}
                           <Nav.Link
-                            href="/apartmentdetail?q=terraceview"
+                            href= {`/apartmentdetail?q=${apt.shortName}`}
                             style={{ marginLeft: "-17px" }}
+                            component={apt.shortName}
                           >
                             {" "}
                             Detail{" "}

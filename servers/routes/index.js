@@ -79,11 +79,12 @@ router.post("/search", function (req, res) {
   var maxPrice = req.body.maxPrice;
   var numBed = req.body.numBeds;
   var numRate = req.body.numRate;
+  var numBath = req.body.numBath;
   // const fs = require("fs");
 
   console.log(maxPrice);
   db.query(
-    `SELECT name, rent, rate, num_room,address from roommate_finder.apartments where rent <= ${maxPrice} AND num_room = ${numBed} AND rate = ${numRate}`,
+    `SELECT name, rent, rate,bath, num_room,address from roommate_finder.apartments where rent <= ${maxPrice} AND num_room = ${numBed} AND rate = ${numRate} And bath = ${numBath}`,
     (err, rows) => {
       if (rows != 0) {
         //console.log(rows[0]);
