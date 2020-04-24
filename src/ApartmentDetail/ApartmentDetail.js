@@ -14,8 +14,34 @@ const ratingChanged = (newRating) => {
   console.log(newRating);
 };
 
-class ApartmentDetail extends Component {
 
+class ApartmentDetail extends Component {
+  // constructor(props) {
+  //   super(props);
+  //   // this.handleEmailChange = this.handleEmailChange.bind(this);
+  //   // this.handlePasswordChange = this.handlePasswordChange.bind(this)z;
+  //   this.state = {
+  //     aptDetail: [],
+  //   };
+  // }
+  // componentDidMount(){
+  //   fetch(
+  //     `http://localhost:3000/apartmentdetail?q=${this.props.match.params.id}`,
+  //   {method: "get",
+  // headers:{
+  //   Authorization: window.localStorage.JsonWebToken
+  //   }
+  //   }
+  // )
+  // .then(res => res.json())
+  // .then(res =>{
+  //   this.setState({
+  
+  //   })
+  // })
+  
+  // }
+  
   render() {
     const mapStyles = {
       width: "100%",

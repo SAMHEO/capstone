@@ -18,6 +18,7 @@ class Apartment extends Component {
       nameOfAPT: "",
       numRate: "",
       numBath: "",
+      nameAptDetail : "",
       priceOFAPT: 0,
       apartmentList: [],
       apartmentAddressList: [],
@@ -38,6 +39,9 @@ class Apartment extends Component {
   }
   handleBath = (e) => {
     this.setState({numBath: e.target.value})
+  }
+  handleApartDetail = (e) => {
+    this.setState({nameAptDetail: e.target.value})
   }
 
   callApi1() {
@@ -224,6 +228,8 @@ class Apartment extends Component {
                           <p>Location: {apt.address}</p>
                           <p>Rate: {apt.rate}</p>
                           {/* To get each apartment's link from database */}
+                          {/* onChange={this.handleApartDetail}
+                          nameAptDetail={apt.shortName} */}
                           <Nav.Link
                             href= {`/apartmentdetail?q=${apt.shortName}`}
                             style={{ marginLeft: "-17px" }}
