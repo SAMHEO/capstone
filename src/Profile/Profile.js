@@ -48,12 +48,35 @@ class Profile extends Component {
       .then((body) => {
         this.setState({
           user: body,
+        });
+        this.getTags();
+      });
+  }
+
+  getTags() {
+    const fetch_info = {
+      method: "POST",
+      body: JSON.stringify({
+        id: this.state.user.id,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    fetch("api/account/getTags", fetch_info)
+      .then((res) => {
+        return res.json();
+      })
+      .then((body) => {
+        this.setState({
+          userTags: body,
           isLoading: false,
         });
+        console.log(this.state);
       });
   }
   render() {
-    const { isLoading, user } = this.state;
+    const { isLoading, user, userTags } = this.state;
     return (
       <Container className="text-center mt-5">
         <div className="profile-wrapper">
@@ -102,17 +125,17 @@ class Profile extends Component {
                 <div className="profile-box">
                   <div id="basic-info" className="profile-tag-box">
                     <h4 className="profile-box-title">My Personality</h4>
-                    <TagTemplate name="Introvert" />
-                    <TagTemplate name="Quiet" />
-                    <TagTemplate name="Dislike Party" />
+                    {userTags.criticalTags.map((tag, index) => (
+                      <TagTemplate name={`${tag}`} key={index} />
+                    ))}
                   </div>
                 </div>
                 <div className="profile-box">
                   <div id="apartment-info" className="profile-tag-box">
                     <h4 className="profile-box-title">I hope my roommate is</h4>
-                    <TagTemplate name="Easygoing" />
-                    <TagTemplate name="Has no Pet" />
-                    <TagTemplate name="Has a vehicle" />
+                    {userTags.hobbyTags.map((tag, index) => (
+                      <TagTemplate name={`${tag}`} key={index} />
+                    ))}
                   </div>
                 </div>
                 <div className="profile-box">
@@ -120,9 +143,9 @@ class Profile extends Component {
                     <h4 className="profile-box-title">
                       I hope my apartment is
                     </h4>
-                    <TagTemplate name="Individual Bedroom" />
-                    <TagTemplate name="Individual Bathroom" />
-                    <TagTemplate name="Near Bus Station" />
+                    {userTags.secondaryTags.map((tag, index) => (
+                      <TagTemplate name={`${tag}`} key={index} />
+                    ))}
                   </div>
                 </div>
               </Col>

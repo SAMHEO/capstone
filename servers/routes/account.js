@@ -103,7 +103,8 @@ router.post("/user", (req, res) => {
     `select * from clients where email = "${req.body.email}"`,
     (err, rows) => {
       if (!err) {
-        (firstname = rows[0].firstName),
+        (clientId = rows[0].client_id),
+          (firstname = rows[0].firstName),
           (lastname = rows[0].lastName),
           (email = rows[0].email),
           (age = rows[0].birthday);
@@ -114,6 +115,7 @@ router.post("/user", (req, res) => {
         occupation = rows[0].occupation;
         image = rows[0].image ? "user.jpg" : "avatar.png";
         res.json({
+          id: clientId,
           firstname: firstname,
           lastname: lastname,
           email: email,
@@ -124,6 +126,24 @@ router.post("/user", (req, res) => {
           description: desc,
           image: image,
           occupation: occupation,
+        });
+      } else {
+        console.log(`query error: ${err}`);
+        res.send(err);
+      }
+    }
+  );
+});
+
+router.post("/getTags", (req, res) => {
+  db.query(
+    `select * from requests_for_critical where client_id = "${req.body.id}"`,
+    (err, rows) => {
+      if (!err) {
+        res.json({
+          criticalTags: ["has_pet", "smokes"],
+          hobbyTags: [],
+          secondaryTags: [],
         });
       } else {
         console.log(`query error: ${err}`);

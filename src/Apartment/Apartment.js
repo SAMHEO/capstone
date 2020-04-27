@@ -18,7 +18,7 @@ class Apartment extends Component {
       nameOfAPT: "",
       numRate: "",
       numBath: "",
-      nameAptDetail : "",
+      nameAptDetail: "",
       priceOFAPT: 0,
       apartmentList: [],
       apartmentAddressList: [],
@@ -35,14 +35,14 @@ class Apartment extends Component {
     this.setState({ numBeds: e.target.value });
   };
   handleRate = (e) => {
-    this.setState({numRate: e.target.value})
-  }
+    this.setState({ numRate: e.target.value });
+  };
   handleBath = (e) => {
-    this.setState({numBath: e.target.value})
-  }
+    this.setState({ numBath: e.target.value });
+  };
   handleApartDetail = (e) => {
-    this.setState({nameAptDetail: e.target.value})
-  }
+    this.setState({ nameAptDetail: e.target.value });
+  };
 
   callApi1() {
     fetch("api/getApts")
@@ -231,7 +231,7 @@ class Apartment extends Component {
                           {/* onChange={this.handleApartDetail}
                           nameAptDetail={apt.shortName} */}
                           <Nav.Link
-                            href= {`/apartmentdetail?q=${apt.shortName}`}
+                            href={`/apartmentdetail?q=${apt.shortName}`}
                             style={{ marginLeft: "-17px" }}
                             component={apt.shortName}
                           >
