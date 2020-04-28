@@ -104,4 +104,49 @@ router.post("/search", function (req, res) {
   );
 });
 
+router.get("/criticaltags", function (req, res) {
+  db.query(`SELECT * FROM critical_tags`, (err, rows) => {
+    if (!err) {
+      const result = [];
+      for (r in rows) {
+        tag = { id: rows[r].tag_id, name: rows[r].name, checked: false };
+        result.push(tag);
+      }
+      res.json(result);
+    } else {
+      console.log(`query error: ${err}`);
+      res.send(err);
+    }
+  });
+});
+router.get("/secondarytags", function (req, res) {
+  db.query(`SELECT * FROM secondary_tags`, (err, rows) => {
+    if (!err) {
+      const result = [];
+      for (r in rows) {
+        tag = { id: rows[r].tag_id, name: rows[r].name, checked: false };
+        result.push(tag);
+      }
+      res.json(result);
+    } else {
+      console.log(`query error: ${err}`);
+      res.send(err);
+    }
+  });
+});
+router.get("/hobbies", function (req, res) {
+  db.query(`SELECT * FROM hobbies`, (err, rows) => {
+    if (!err) {
+      const result = [];
+      for (r in rows) {
+        tag = { id: rows[r].tag_id, name: rows[r].name, checked: false };
+        result.push(tag);
+      }
+      res.json(result);
+    } else {
+      console.log(`query error: ${err}`);
+      res.send(err);
+    }
+  });
+});
 module.exports = router;

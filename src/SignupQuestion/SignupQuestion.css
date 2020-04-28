@@ -1,132 +1,145 @@
 .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .center-label {
-    display: block;
-    width: max-content;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    font-size: larger;
+  display: block;
+  width: max-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: larger;
 }
 
 #basic-description {
-    display: flex;
-    width: 50%;
-    min-height: 8em;
-    overflow: auto;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 20px;
+  display: flex;
+  width: 50%;
+  min-height: 8em;
+  overflow: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
 }
 
 .basic-information {
-    display: flex;
-    width: max-content;
-    margin-left: auto;
-    margin-right: auto;
+  display: flex;
+  width: max-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #name-input-box {
-    max-width: 310px;
-    margin-right: 20px;
+  max-width: 310px;
+  margin-right: 20px;
 }
 
 #gender-input-box {
-    max-width: 342px;
+  max-width: 342px;
 }
 
 #age-input-box {
-    max-width: 200px;
+  max-width: 200px;
 }
 
 .tag-container {
-    float: left;
-    width: 250px;
-    display: flex;
-    margin-right: 2px;
+  float: left;
+  width: 250px;
+  display: flex;
+  margin-right: 2px;
 }
 .tag-background {
-    width: 250px;
-    height: 70px;
+  width: 250px;
+  height: 70px;
 }
 .tag-text {
-    position: absolute;
-    margin-top: 15px;
-    margin-left: 100px;
-    width: 150px;
-    font-size: medium;
-    color:#247ee4;
+  position: absolute;
+  margin-top: 15px;
+  margin-left: 100px;
+  width: 150px;
+  font-size: medium;
+  color: #247ee4;
 }
 
-
-
 .tag-box {
-    border-style: groove;
-    border-color: #AAAAAA;
-    border-radius: 50px;
-    width: 50%;
-    margin-top: 10px;
-    margin-bottom: 50px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 30px;
-    padding-right: 30px;
-    overflow: auto;
+  border-style: groove;
+  border-color: #aaaaaa;
+  border-radius: 50px;
+  width: 50%;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  overflow: auto;
 }
 
 .clickableTag {
-    float: left;
-    border-color: #cceeff;
-    background-color: white;
-    border: solid;
-    color: #469ef0;
-    padding: 12px 15px;
-    text-align: center;
-    text-decoration: none;
-    display: flex;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 20px;
+  float: left;
+  border-color: #cceeff;
+  background-color: white;
+  border: solid;
+  color: #469ef0;
+  padding: 12px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 20px;
 }
 
 .clickableTagChecked {
-    float: left;
-    background-color: #469ef0;
-    border: double;
-    border-color: #469ef0;
-    color: white;
-    padding: 12px 15px;
-    text-align: center;
-    text-decoration: none;
-    display: flex;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 20px;
+  float: left;
+  background-color: #469ef0;
+  border: double;
+  border-color: #469ef0;
+  color: white;
+  padding: 12px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 20px;
 }
 
 #Tag-Submit-button {
-    width: 200px;
+  width: 200px;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] + label {
+  display: inline-block;
+  cursor: pointer;
+  line-height: 22px;
+  padding-left: 22px;
+  background: url("/tag.png") left/22px no-repeat;
+}
+
+input[type="checkbox"]:checked + label {
+  background-image: url("/tag-checked.png");
 }
 
 @media only screen and (max-width: 800px) {
-    #basic-information-inputs-bar {
-        display: block;
-        width: 100%;
-    }
-
-    .instruct-label {
-        width: auto;
-    }
-
-    .tag-box {
-        width: 85%;
-    }
-    
+  #basic-information-inputs-bar {
+    display: block;
+    width: 100%;
   }
+
+  .instruct-label {
+    width: auto;
+  }
+
+  .tag-box {
+    width: 85%;
+  }
+}
