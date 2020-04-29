@@ -17,34 +17,62 @@ const ratingChanged = (newRating) => {
 
 
 class ApartmentDetail extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   // this.handleEmailChange = this.handleEmailChange.bind(this);
-  //   // this.handlePasswordChange = this.handlePasswordChange.bind(this)z;
-  //   this.state = {
-  //     aptDetail: [],
-  //   };
-  // }
-  // componentDidMount(){
-  //   fetch(
-  //     `http://localhost:3000/apartmentdetail?q=${this.props.match.params.id}`,
-  //   {method: "get",
-  // headers:{
-  //   Authorization: window.localStorage.JsonWebToken
-  //   }
-  //   }
-  // )
-  // .then(res => res.json())
-  // .then(res =>{
-  //   this.setState({
-  
-  //   })
-  // })
-  
-  // }
-  componentDidMount() {
-    console.log(this.props.location.search) // "?filter=top&origin=im"
+  constructor(props) {
+    super(props);
+    this.state = {
+      aptshortname: this.props.match.params.name,
+      aptName: "",
+      aptRent: "",
+      aptRoom: "",
+      aptRate: "",
+      aptAddress: "",
+      aptWebsite: "",
+      aptDescription: "",
+      aptDetail: [],
+    };
   }
+  handledetail = (e) => {
+    this.setState({ aptshortname: e.target.value });
+  };
+
+  componentDidMount() {
+
+    console.log(this.state);
+
+    // e.preventDefault();
+    const detail_info = {
+      method: "POST",
+      //make the body to the name of the apartment for now
+      body: JSON.stringify(this.state),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    fetch("/api/aptdetail", detail_info)
+      .then((res) =>{
+        return res.json();
+      })
+    .then((json) => {
+      console.log(json);
+      if (json.success === true) {
+        console.log(json.aptRate);
+        window.localStorage.setItem("userInfo", JSON.stringify(json));
+        this.setState({
+          aptName: json.aptName,
+          aptRent: json.aptRent,
+          aptRoom: json.aptRoom,
+          aptAddress: json.aptAddress,
+          aptRate: json.aptRate,
+          aptWebsite: json.aptWebsite,
+          aptDescription: json.aptDescription
+        });
+        //this.props.history.push("/apartmentdetail");
+      } else {
+        alert("Could not find any");
+      }
+    });
+
+  };
   
   render() {
     const mapStyles = {
@@ -61,7 +89,7 @@ class ApartmentDetail extends Component {
           《 Back to Apartment Page{" "}
         </Nav.Link>
         <Row>
-          <h1>{this.props.match.params.shortName}</h1>
+          <h1>{this.state.aptName}</h1>
         </Row>
         <Row>
           <Col xs={12} md={8} lg={6}>
@@ -70,7 +98,7 @@ class ApartmentDetail extends Component {
                 <div style={{ marginRight: "10px" }}>Home Finder Rate: </div>
                 <ReactStars
                   count={5}
-                  value={3}
+                  value={parseInt(this.state.aptRate)}
                   size={24}
                   edit={false}
                   color2={"#ffd700"}
@@ -78,25 +106,22 @@ class ApartmentDetail extends Component {
               </li>
 
               {/* These information load from database */}
-              <li class="apartment-detail-info">Rent: $600 / Month</li>
-              <li class="apartment-detail-info">Number of Rooms: 1</li>
+              <li class="apartment-detail-info">Rent: ${this.state.aptRent} / Month</li>
+              <li class="apartment-detail-info">Number of Rooms: {this.state.aptRoom} </li>
               <li class="apartment-detail-info">
                 Introduction:{" "}
                 <div>
-                  "Terrace View Apartments luxury apartments for rent in
-                  Blacksburg, VA offers a variety of floor plans that fits your
-                  style! At Terrace View Apartments, we focus on what's really
-                  important - YOU!"
+                  {this.state.aptDescription}
                 </div>
               </li>
               <li class="apartment-detail-info">
                 Website:{" "}
                 <Nav.Link
-                  href="https://www.terraceviewapartments.com/"
+                  href={this.state.aptWebsite}
                   style={{ padding: "0em 1em" }}
                 >
                   {" "}
-                  TerraceView{" "}
+                  {this.state.aptName}{" "}
                 </Nav.Link>
               </li>
               <div class="apartment-detail-page-spacer" />
@@ -152,7 +177,7 @@ class ApartmentDetail extends Component {
                 style={{ float: "left", margin: "5px" }}
               />
               <h4 style={{ paddingTop: "10px" }}>
-                413 Hunt Club Rd, Blacksburg, VA 24060
+                {this.state.aptAddress}
               </h4>
             </div>
             <Col xs={0} md={4} lg={6} id="map-canvas">
