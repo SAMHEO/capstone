@@ -96,6 +96,7 @@ export default class Home extends Component {
                   <img
                     src={`${apt.shortName}` + ".jpeg"}
                     className="card-img-top"
+                    height = "200"
                     alt="postUserImage"
                   />
                   <div className="card-body">
