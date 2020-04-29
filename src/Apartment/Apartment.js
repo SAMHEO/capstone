@@ -217,7 +217,7 @@ class Apartment extends Component {
           <div className="apartment-canvas">
             <Col xs={12} md={8} lg={6}>
               <div class="apartmentPostsArea">
-                {this.state.apartmentList.map((apt, index) => (
+               {this.state.apartmentList.map((apt, index) => (
                   <div class="card" key={index}>
                     <div className="row">
                       <img src="edge.jpg" class="col-sm-6" alt="ExampleImage" />
@@ -227,11 +227,9 @@ class Apartment extends Component {
                           <p>Price: ${apt.rent}</p>
                           <p>Location: {apt.address}</p>
                           <p>Rate: {apt.rate}</p>
-                          {/* To get each apartment's link from database */}
-                          {/* onChange={this.handleApartDetail}
-                          nameAptDetail={apt.shortName} */}
+                          
                           <Nav.Link
-                            href={`/apartmentdetail?q:${apt.shortName}`}
+                            href={`/apartmentdetail/${apt.name}`}
                             style={{ marginLeft: "-17px" }}
                             component={apt.shortName}
                           >

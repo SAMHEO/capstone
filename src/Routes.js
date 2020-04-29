@@ -29,7 +29,7 @@ export default class Routes extends Component {
           <Route path="/signup" component={Signup} />
           <Route path="/signupquestion" component={SignupQuestion} />
           <Route path="/forget" component={Forget} />
-          <Route path="/apartmentdetail" component={ApartmentDetail} />
+          <Route path="/apartmentdetail/:name" component={ApartmentDetail} />
         </Switch>
       </Router>
     );

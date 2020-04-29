@@ -83,13 +83,49 @@ router.post("/search", function (req, res) {
   // const fs = require("fs");
 
   console.log(maxPrice);
+  console.log(numBed);
+  console.log(numRate);
+  console.log(numBath);
   db.query(
-    `SELECT name, rent, rate,bath, num_room,address from roommate_finder.apartments where rent <= ${maxPrice} AND num_room = ${numBed} AND rate = ${numRate} And bath => ${numBath}`,
+    `SELECT name, rent, rate,bath, num_room,address from roommate_finder.apartments where rent <= ${maxPrice} AND num_room = ${numBed} AND rate >= ${numRate} And bath = ${numBath}`,
     (err, rows) => {
       if (rows != 0) {
+        console.log(rows);
         //console.log(rows[0]);
         res.json({
           aptList: rows,
+          // nameOfAPT: rows[0].name,
+          // price: rows[0].average_rent,
+          success: true,
+        });
+      } else {
+        console.log(`query error: ${err}`);
+        res.json({
+          success: false,
+        });
+      }
+    }
+  );
+});
+
+//getting apartment detail
+router.post("/aptdetail", function(req,res) {
+  // console.log("hello apt detail");
+  var shortN = req.body.aptshortname;
+  // console.log("ddd"+ shortN);
+  db.query(
+    `SELECT * FROM roommate_finder.apartments where name = "${shortN}"`,
+    (err, rows) => {
+      if (!err) {
+        console.log(rows[0]);
+        res.json({
+          aptName: rows[0].name,
+          aptRent: rows[0].rent,
+          aptRoom: rows[0].num_room,
+          aptAddress: rows[0].address,
+          aptRate: rows[0].rate,
+          aptWebsite: rows[0].website,
+          aptDescription: rows[0].description,
           // nameOfAPT: rows[0].name,
           // price: rows[0].average_rent,
           success: true,
