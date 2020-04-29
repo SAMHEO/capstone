@@ -129,9 +129,8 @@ class SignupQuestion extends Component {
     const { isLoading } = this.state;
 
     const renderCrit = this.state.critical.map((key, index) => (
-      <div className="tag-container">
+      <div className="tag-container" key={index}>
         <input
-          key={index}
           name={key.name}
           value={index}
           id={`chkbox-${key.name}`}
@@ -139,13 +138,12 @@ class SignupQuestion extends Component {
           checked={key.checked}
           onChange={this.onCheckedEvt}
         />
-        <label for={`chkbox-${key.name}`}>{key.name}</label>
+        <label htmlFor={`chkbox-${key.name}`}>{key.name}</label>
       </div>
     ));
     const renderSec = this.state.secondary.map((key, index) => (
-      <div className="tag-container">
+      <div className="tag-container" key={index}>
         <input
-          key={index}
           name={key.name}
           value={index}
           id={`chkbox-${key.name}`}
@@ -153,13 +151,12 @@ class SignupQuestion extends Component {
           checked={key.checked}
           onChange={this.onCheckedEvt2}
         />
-        <label for={`chkbox-${key.name}`}>{key.name}</label>
+        <label htmlFor={`chkbox-${key.name}`}>{key.name}</label>
       </div>
     ));
     const renderHobbies = this.state.hobbies.map((key, index) => (
-      <div className="tag-container">
+      <div className="tag-container" key={index}>
         <input
-          key={index}
           name={key.name}
           value={index}
           id={`chkbox-${key.name}`}
@@ -167,7 +164,7 @@ class SignupQuestion extends Component {
           checked={key.checked}
           onChange={this.onCheckedEvt3}
         />
-        <label for={`chkbox-${key.name}`}>{key.name}</label>
+        <label htmlFor={`chkbox-${key.name}`}>{key.name}</label>
       </div>
     ));
     return (
