@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./Home.css";
+import ReactStars from "react-stars";
 
 //This is an example of user. Whieh will be used to connect with the database api
 // var tempUser1Name = "user1";
@@ -93,13 +94,20 @@ export default class Home extends Component {
               <Col key={index}>
                 <div className="card">
                   <img
-                    src="terraceview.jpeg"
+                    src={`${apt.shortName}` + ".jpeg"}
                     className="card-img-top"
                     alt="postUserImage"
                   />
                   <div className="card-body">
                     <h5 className="card-title">{apt.name}</h5>
-                    <p className="card-text"></p>
+                    <p className="card-text">{apt.description}</p>
+                    <ReactStars
+                      count={5}
+                      value={parseInt(apt.rate)}
+                      size={24}
+                      edit={false}
+                      color2={"#ffd700"}
+                    />
                   </div>
                 </div>
               </Col>
