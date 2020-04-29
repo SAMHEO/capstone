@@ -39,10 +39,12 @@ class Login extends Component {
       .then((json) => {
         if (json.success === true) {
           window.localStorage.setItem("userInfo", JSON.stringify(json));
+          console.log(json);
           this.setState({
             id: json.id,
             email: json.email,
             name: json.name,
+            selected_tags: json.selected_tags,
             isLogin: json.success,
           });
           // console.log(this.props);
@@ -53,6 +55,10 @@ class Login extends Component {
               email: this.state.email,
               name: this.state.name,
             })
+          );
+          window.sessionStorage.setItem(
+            "selected_tags",
+            this.state.selected_tags
           );
           this.props.onLogin();
           this.props.history.push("/");

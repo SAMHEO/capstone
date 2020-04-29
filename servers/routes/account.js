@@ -25,6 +25,7 @@ router.post("/login", function (req, res) {
             id: rows[0].client_id,
             name: rows[0].firstName,
             email: email,
+            selected_tags: rows[0].selected_tags === 0 ? false : true,
             success: true,
           });
         } else {

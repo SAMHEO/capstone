@@ -6,7 +6,7 @@ const account = require("./account");
 
 router.use("/account", account);
 
-router.get("/users", (req, res) => {
+router.get("/matchedusers", (req, res) => {
   db.query(`Select * from clients`, (err, rows) => {
     if (!err) {
       res.send(rows);
@@ -109,7 +109,7 @@ router.post("/search", function (req, res) {
 });
 
 //getting apartment detail
-router.post("/aptdetail", function(req,res) {
+router.post("/aptdetail", function (req, res) {
   // console.log("hello apt detail");
   var shortN = req.body.aptshortname;
   // console.log("ddd"+ shortN);
@@ -253,6 +253,9 @@ router.post("/temp", function (req, res) {
       );
     }
   }
-  res.json({ response: "OK" });
+
+  var query2 = `UPDATE clients SET selected_tags = "1" WHERE client_id = "${req.body.id}";`;
+  db.query(query2);
+  res.json({ selected_tags: true, response: "OK" });
 });
 module.exports = router;
