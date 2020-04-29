@@ -109,7 +109,12 @@ router.get("/criticaltags", function (req, res) {
     if (!err) {
       const result = [];
       for (r in rows) {
-        tag = { id: rows[r].tag_id, name: rows[r].name, checked: false };
+        tag = {
+          id: rows[r].tag_id,
+          name: rows[r].name,
+          checked: false,
+          image: "tag.png",
+        };
         result.push(tag);
       }
       res.json(result);
@@ -124,7 +129,12 @@ router.get("/secondarytags", function (req, res) {
     if (!err) {
       const result = [];
       for (r in rows) {
-        tag = { id: rows[r].tag_id, name: rows[r].name, checked: false };
+        tag = {
+          id: rows[r].tag_id,
+          name: rows[r].name,
+          checked: false,
+          image: "tag.png",
+        };
         result.push(tag);
       }
       res.json(result);
@@ -148,5 +158,65 @@ router.get("/hobbies", function (req, res) {
       res.send(err);
     }
   });
+});
+
+router.post("/temp", function (req, res) {
+  var critical = req.body.critical;
+  var secondary = req.body.secondary;
+  var hobbies = req.body.hobbies;
+
+  var query = `UPDATE clients SET birthday = "${req.body.birthdate}", sex= "${req.body.gender}" WHERE (client_id = "${req.body.id}");`;
+
+  db.query(query, (err) => {
+    if (err) {
+      console.log(`query error: ${err}`);
+      res.send(err);
+    }
+  });
+
+  for (i in critical) {
+    if (critical[i].checked == true) {
+      console.log(critical[i]);
+      db.query(
+        `
+      INSERT INTO requests_for_critical (client_id, tag_id) VALUES (${req.body.id}, ${critical[i].id});`,
+        (err, rows) => {
+          if (err) {
+            console.log(`query error: ${err}`);
+            res.send(err);
+          }
+        }
+      );
+    }
+  }
+  for (i in secondary) {
+    if (secondary[i].checked == true) {
+      db.query(
+        `
+      INSERT INTO requests_for_secondary (client_id, tag_id) VALUES (${req.body.id}, ${secondary[i].id});`,
+        (err, rows) => {
+          if (err) {
+            console.log(`query error: ${err}`);
+            res.send(err);
+          }
+        }
+      );
+    }
+  }
+  for (i in hobbies) {
+    if (hobbies[i].checked == true) {
+      db.query(
+        `
+      INSERT INTO requests_for_hobby (client_id, tag_id) VALUES (${req.body.id}, ${hobbies[i].id});`,
+        (err, rows) => {
+          if (err) {
+            console.log(`query error: ${err}`);
+            res.send(err);
+          }
+        }
+      );
+    }
+  }
+  res.json({ response: "OK" });
 });
 module.exports = router;

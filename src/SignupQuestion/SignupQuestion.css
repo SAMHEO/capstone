@@ -118,11 +118,11 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"] + label {
-  display: inline-block;
+  /* display: inline-block; */
   cursor: pointer;
-  line-height: 22px;
-  padding-left: 22px;
-  background: url("/tag.png") left/22px no-repeat;
+  line-height: 40px;
+  padding-left: 50px;
+  background: url("/tag.png") left/50px no-repeat;
 }
 
 input[type="checkbox"]:checked + label {

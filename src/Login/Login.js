@@ -40,7 +40,7 @@ class Login extends Component {
         if (json.success === true) {
           window.localStorage.setItem("userInfo", JSON.stringify(json));
           this.setState({
-            id: json.idx,
+            id: json.id,
             email: json.email,
             name: json.name,
             isLogin: json.success,
@@ -49,6 +49,7 @@ class Login extends Component {
           window.sessionStorage.setItem(
             "userinfo",
             JSON.stringify({
+              id: this.state.id,
               email: this.state.email,
               name: this.state.name,
             })

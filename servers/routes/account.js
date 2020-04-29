@@ -22,6 +22,7 @@ router.post("/login", function (req, res) {
         if (err) throw err;
         if (rows.length > 0) {
           res.json({
+            id: rows[0].client_id,
             name: rows[0].firstName,
             email: email,
             success: true,
