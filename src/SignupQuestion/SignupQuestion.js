@@ -2,28 +2,12 @@ import React, { Component } from "react";
 import Spinner from "react-bootstrap/Spinner";
 import "./SignupQuestion.css";
 
-function handleImageClick(event) {
-  //alert(event.target.className);
-  console.log(document.getElementById(event.target.id).src);
-
-  if (
-    document.getElementById(event.target.id).src ===
-    "http://localhost:3000/tag.png"
-  ) {
-    document.getElementById(event.target.id).src =
-      "http://localhost:3000/tag-checked.png";
-  } else {
-    document.getElementById(event.target.id).src =
-      "http://localhost:3000/tag.png";
-  }
-}
-
 class SignupQuestion extends Component {
   constructor(props) {
     super(props);
     this.state = {
       name: "",
-      age: "",
+      birthdate: "",
       gender: "none",
       description: "",
       critical: [],
@@ -33,30 +17,59 @@ class SignupQuestion extends Component {
     };
   }
 
+  onCheckedEvt = (e) => {
+    const { checked } = e.target;
+    this.setState({
+      critical: this.state.critical.map((key, index) => ({
+        id: index + 1,
+        name: key.name,
+        checked: index === parseInt(e.target.value) ? checked : key.checked,
+      })),
+    });
+  };
+  onCheckedEvt2 = (e) => {
+    const { checked } = e.target;
+    this.setState({
+      secondary: this.state.secondary.map((key, index) => ({
+        id: index + 1,
+        name: key.name,
+        checked: index === parseInt(e.target.value) ? checked : key.checked,
+      })),
+    });
+  };
+  onCheckedEvt3 = (e) => {
+    const { checked } = e.target;
+    this.setState({
+      hobbies: this.state.hobbies.map((key, index) => ({
+        id: index + 1,
+        name: key.name,
+        checked: index === parseInt(e.target.value) ? checked : key.checked,
+      })),
+    });
+  };
+
   handleChange = (e) => {
     const target = e.target;
-    const value = target.name === "isGoing" ? target.checked : target.value;
+    const value = target.name === "checked" ? target.checked : target.value;
     const name = target.name;
     this.setState({ [name]: value });
   };
 
-  submit = (e) => {
-    console.log(this.state);
-    e.preventDefault();
-  };
-
-  handleInputChange(event) {
-    const target = event.target;
-    const value = target.name === "isGoing" ? target.checked : target.value;
-    const name = target.name;
-
-    this.setState({
-      [name]: value,
-    });
-  }
-
   componentDidMount() {
+    if (sessionStorage.getItem("userinfo") != null) {
+      const userInfo = JSON.parse(window.sessionStorage.getItem("userinfo"));
+      const clientId = userInfo.id;
+      const email = userInfo.email;
+      if (email) {
+        this.setState({ id: clientId, email: email });
+      }
+    } else {
+      alert("please log in first");
+      this.props.history.push("/login");
+    }
+    console.log(this.props);
     this.getTags();
+    console.log(this.state);
   }
 
   getTags() {
@@ -93,6 +106,25 @@ class SignupQuestion extends Component {
       });
   }
 
+  submit = (e) => {
+    console.log(this.state);
+    const fetch_info = {
+      method: "POST",
+      body: JSON.stringify(this.state),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    fetch("api/temp", fetch_info)
+      .then((res) => {
+        return res.json();
+      })
+      .then((body) => {
+        console.log(body);
+        // this.props.history.push("/roommate");
+      });
+    e.preventDefault();
+  };
   render() {
     const { isLoading } = this.state;
 
@@ -100,36 +132,42 @@ class SignupQuestion extends Component {
       <div className="tag-container">
         <input
           key={index}
-          id="is-subscription"
+          name={key.name}
+          value={index}
+          id={`chkbox-${key.name}`}
           type="checkbox"
           checked={key.checked}
-          // onChange={this.handleInputChange}
+          onChange={this.onCheckedEvt}
         />
-        <label for="is-subscription">{key.name}</label>
+        <label for={`chkbox-${key.name}`}>{key.name}</label>
       </div>
     ));
     const renderSec = this.state.secondary.map((key, index) => (
       <div className="tag-container">
         <input
           key={index}
-          id="is-subscription"
+          name={key.name}
+          value={index}
+          id={`chkbox-${key.name}`}
           type="checkbox"
           checked={key.checked}
-          // onChange={this.handleInputChange}
+          onChange={this.onCheckedEvt2}
         />
-        <label for="is-subscription">{key.name}</label>
+        <label for={`chkbox-${key.name}`}>{key.name}</label>
       </div>
     ));
     const renderHobbies = this.state.hobbies.map((key, index) => (
       <div className="tag-container">
         <input
           key={index}
-          id="is-subscription"
+          name={key.name}
+          value={index}
+          id={`chkbox-${key.name}`}
           type="checkbox"
           checked={key.checked}
-          // onChange={this.handleInputChange}
+          onChange={this.onCheckedEvt3}
         />
-        <label for="is-subscription">{key.name}</label>
+        <label for={`chkbox-${key.name}`}>{key.name}</label>
       </div>
     ));
     return (
@@ -150,19 +188,6 @@ class SignupQuestion extends Component {
                 className="basic-information"
                 id="basic-information-inputs-bar"
               >
-                <div className="input-group mb-3" id="name-input-box">
-                  <div className="input-group-prepend">
-                    <span className="input-group-text">Name </span>
-                  </div>
-                  <input
-                    name="name"
-                    type="text"
-                    className="form-control"
-                    value={this.state.name}
-                    onChange={this.handleChange}
-                    autoFocus
-                  />
-                </div>
                 <div className="input-group mb-3" id="gender-input-box">
                   <div className="input-group-prepend">
                     <label className="input-group-text">Gender</label>
@@ -173,8 +198,9 @@ class SignupQuestion extends Component {
                     id="gender"
                     value={this.state.gender}
                     onChange={this.handleChange}
+                    // required
                   >
-                    <option value="none">Prefer not answer</option>
+                    <option value="none">Prefer not to answer</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                   </select>
@@ -184,12 +210,13 @@ class SignupQuestion extends Component {
                     <span className="input-group-text">Age </span>
                   </div>
                   <input
-                    name="age"
-                    type="text"
+                    name="birthdate"
+                    type="date"
                     className="form-control"
-                    value={this.state.age}
+                    value={this.state.birthdate}
                     onChange={this.handleChange}
-                  ></input>
+                    // required
+                  />
                 </div>
               </div>
 
