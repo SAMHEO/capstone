@@ -231,7 +231,7 @@ class Apartment extends Component {
                           {/* onChange={this.handleApartDetail}
                           nameAptDetail={apt.shortName} */}
                           <Nav.Link
-                            href={`/apartmentdetail?q=${apt.shortName}`}
+                            href={`/apartmentdetail?q:${apt.shortName}`}
                             style={{ marginLeft: "-17px" }}
                             component={apt.shortName}
                           >

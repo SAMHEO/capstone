@@ -8,6 +8,7 @@ import "./ApartmentDetail.css";
 import { GoogleApiWrapper, Map, Marker } from "google-maps-react";
 const API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
 
+
 const ratingChanged = (newRating) => {
   //To do some to calculate the average and write into the database.
   //WARNING: Only login can rate apartment.
@@ -41,12 +42,18 @@ class ApartmentDetail extends Component {
   // })
   
   // }
+  componentDidMount() {
+    console.log(this.props.location.search) // "?filter=top&origin=im"
+  }
   
   render() {
     const mapStyles = {
       width: "100%",
       height: "100%",
     };
+    // let url = this.props.location.search;
+    // let params = this.props.match.params.q
+    // console.log(params);
     return (
       <div id="apartment-detail-main">
         <Nav.Link href="/apartment" style={{ marginLeft: "-40px" }}>
@@ -54,7 +61,7 @@ class ApartmentDetail extends Component {
           《 Back to Apartment Page{" "}
         </Nav.Link>
         <Row>
-          <h1>Terrace View Apartment</h1>
+          <h1>{this.props.match.params.shortName}</h1>
         </Row>
         <Row>
           <Col xs={12} md={8} lg={6}>
