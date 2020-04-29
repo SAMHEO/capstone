@@ -220,7 +220,7 @@ class Apartment extends Component {
                {this.state.apartmentList.map((apt, index) => (
                   <div class="card" key={index}>
                     <div className="row">
-                      <img src="edge.jpg" class="col-sm-6" alt="ExampleImage" />
+                      <img src={`${apt.shortName}` + ".jpeg"} class="col-sm-6" alt="ExampleImage" />
                       <div class="col-sm-6">
                         <h5 class="card-title">{apt.name}</h5>
                         <p class="card-text">
