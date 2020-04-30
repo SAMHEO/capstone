@@ -18,6 +18,7 @@ class SignupQuestion extends Component {
   }
 
   onCheckedEvt = (e) => {
+    console.log("clicked", e.target);
     const { checked } = e.target;
     this.setState({
       critical: this.state.critical.map((key, index) => ({
@@ -137,7 +138,9 @@ class SignupQuestion extends Component {
           checked={key.checked}
           onChange={this.onCheckedEvt}
         />
-        <label htmlFor={`chkbox-${key.name}`}>{key.name}</label>
+        <div className="tag">
+          <label htmlFor={`chkbox-${key.name}`}>{key.name}</label>
+        </div>
       </div>
     ));
     const renderSec = this.state.secondary.map((key, index) => (
@@ -150,7 +153,9 @@ class SignupQuestion extends Component {
           checked={key.checked}
           onChange={this.onCheckedEvt2}
         />
-        <label htmlFor={`chkbox-${key.name}`}>{key.name}</label>
+        <div className="tag">
+          <label htmlFor={`chkbox-${key.name}`}>{key.name}</label>
+        </div>
       </div>
     ));
     const renderHobbies = this.state.hobbies.map((key, index) => (
@@ -163,7 +168,9 @@ class SignupQuestion extends Component {
           checked={key.checked}
           onChange={this.onCheckedEvt3}
         />
-        <label htmlFor={`chkbox-${key.name}`}>{key.name}</label>
+        <div className="tag">
+          <label htmlFor={`chkbox-${key.name}`}>{key.name}</label>
+        </div>
       </div>
     ));
     return (
