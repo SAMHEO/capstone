@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
+import ListGroup from "react-bootstrap/ListGroup";
 import Spinner from "react-bootstrap/Spinner";
 import Image from "react-bootstrap/Image";
 import "./Profile.css";
@@ -21,6 +22,9 @@ class Profile extends Component {
     super(props);
     this.state = {
       user: null,
+      userCritical: [],
+      userSecondary: [],
+      userHobbies: [],
       isLoading: true,
     };
   }
@@ -31,6 +35,7 @@ class Profile extends Component {
   }
 
   componentDidMount() {
+    console.log(this.state);
     const userInfo = JSON.parse(window.sessionStorage.getItem("userinfo"));
     const fetch_info = {
       method: "POST",
@@ -54,7 +59,7 @@ class Profile extends Component {
   }
 
   getTags() {
-    const fetch_info = {
+    const info = {
       method: "POST",
       body: JSON.stringify({
         id: this.state.user.id,
@@ -63,20 +68,47 @@ class Profile extends Component {
         "Content-Type": "application/json",
       },
     };
-    fetch("api/account/getTags", fetch_info)
+    fetch("api/account/usercritical", info)
       .then((res) => {
         return res.json();
       })
       .then((body) => {
         this.setState({
-          userTags: body,
-          isLoading: false,
+          userCritical: body,
         });
-        console.log(this.state);
-      });
+      })
+      .then(
+        fetch("api/account/usersecondary", info)
+          .then((res) => {
+            return res.json();
+          })
+          .then((body) => {
+            this.setState({
+              userSecondary: body,
+            });
+          })
+      )
+      .then(
+        fetch("api/account/userhobbies", info)
+          .then((res) => {
+            return res.json();
+          })
+          .then((body) => {
+            this.setState({
+              userHobbies: body,
+              isLoading: false,
+            });
+          })
+      );
   }
   render() {
-    const { isLoading, user, userTags } = this.state;
+    const {
+      isLoading,
+      user,
+      userCritical,
+      userSecondary,
+      userHobbies,
+    } = this.state;
     return (
       <Container className="text-center mt-5">
         <div className="profile-wrapper">
@@ -85,7 +117,6 @@ class Profile extends Component {
           ) : (
             <div className="profile-canvas">
               <Col xs={12} md={8} lg={4}>
-                left side
                 <div className="center" id="photo-container">
                   <Image
                     src={user.image}
@@ -100,140 +131,73 @@ class Profile extends Component {
                     {this.capitalize(`${user.firstname}`)}{" "}
                     {this.capitalize(`${user.lastname}`)}
                   </h2>
-                  <p> {`${user.sex}`.toUpperCase()}</p>
+                  <p>
+                    {user.sex === "none" ? "N/A" : `${user.sex}`.toUpperCase()}
+                  </p>
                   <p>Age: {getAgeFromBirthdate(user.age)}</p>
                 </div>
-                <Col xs={12} md={8} lg={12} id="profile-col-3">
-                  <div className="profile-box" id="basic-info">
+                <ListGroup variant="flush">
+                  <ListGroup.Item>
                     {`${user.occupation}` == null ? (
                       <div />
                     ) : (
-                      <li>{`${user.occupation}`.toUpperCase()}</li>
+                      `${user.occupation}`.toUpperCase()
                     )}
-                    <li>Looking for Rent under {user.rent}</li>
-                  </div>
-                </Col>
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    Looking for Rent under {user.rent}
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    <a href="/profileedit">Edit</a>
+                  </ListGroup.Item>
+                </ListGroup>
               </Col>
               <Col xs={0} md={4} lg={9}>
-                right side
-                <div className="profile-box">
-                  <div id="basic-info" className="profile-tag-box">
-                    <h4 className="profile-box-title">Short description</h4>
-                    {user.description}
-                  </div>
-                </div>
-                <div className="profile-box">
-                  <div id="basic-info" className="profile-tag-box">
-                    <h4 className="profile-box-title">My Personality</h4>
-                    {userTags.criticalTags.map((tag, index) => (
-                      <TagTemplate name={`${tag}`} key={index} />
-                    ))}
-                  </div>
-                </div>
-                <div className="profile-box">
-                  <div id="apartment-info" className="profile-tag-box">
-                    <h4 className="profile-box-title">I hope my roommate is</h4>
-                    {userTags.hobbyTags.map((tag, index) => (
-                      <TagTemplate name={`${tag}`} key={index} />
-                    ))}
-                  </div>
-                </div>
-                <div className="profile-box">
-                  <div id="roommate-info" className="profile-tag-box">
-                    <h4 className="profile-box-title">
-                      I hope my apartment is
-                    </h4>
-                    {userTags.secondaryTags.map((tag, index) => (
-                      <TagTemplate name={`${tag}`} key={index} />
-                    ))}
-                  </div>
-                </div>
+                <ListGroup variant="flush">
+                  <ListGroup.Item>
+                    <div className="profile-box">
+                      <div id="basic-info" className="profile-tag-box">
+                        <h4 className="profile-box-title">Short description</h4>
+                        {user.description}
+                      </div>
+                    </div>
+                  </ListGroup.Item>
+
+                  <ListGroup.Item>
+                    <div className="profile-box">
+                      <div id="basic-info" className="profile-tag-box">
+                        <h4 className="profile-box-title">Important</h4>
+                        {userCritical.map((tag, index) => (
+                          <TagTemplate name={`${tag.name}`} key={index} />
+                        ))}
+                      </div>
+                    </div>
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    <div className="profile-box">
+                      <div id="apartment-info" className="profile-tag-box">
+                        <h4 className="profile-box-title">Considerable</h4>
+                        {userSecondary.map((tag, index) => (
+                          <TagTemplate name={`${tag.name}`} key={index} />
+                        ))}
+                      </div>
+                    </div>
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    <div className="profile-box">
+                      <div id="roommate-info" className="profile-tag-box">
+                        <h4 className="profile-box-title">Hobbies</h4>
+                        {userHobbies.map((tag, index) => (
+                          <TagTemplate name={`${tag.name}`} key={index} />
+                        ))}
+                      </div>
+                    </div>
+                  </ListGroup.Item>
+                </ListGroup>
               </Col>
             </div>
           )}
         </div>
-        {/* <div className="profile-wrapper">
-          {isLoading ? (
-            <Spinner animation="grow" />
-          ) : (
-            <div id="profile-page">
-              <div id="profile-main-container">
-                <div class="center" id="photo-container">
-                  <Image
-                    src={this.state.image}
-                    className="d-block center"
-                    alt="..."
-                    id="user-photo"
-                    roundedCircle
-                  />
-                </div>
-                <div></div>
-                <div class="profile-box" id="profile-basic">
-                  <h2>{this.state.name}</h2>
-                  <p> {this.state.sex}</p>
-                  <p>Age: {this.state.age}</p>
-                </div>
-                <Row>
-                  <Col xs={12} md={8} lg={6} id="profile-col-1">
-                    <div class="profile-box" id="basic-info">
-                      <li>Looking for Rent under {this.state.rent}</li>
-                      <li>Undergraduate student at Virginia Tech</li>
-                      <li>
-                        {this.state.description}
-                        As a sophomore student at Virginia Tech, I just moved
-                        out from university dormitory and I’m looking for an
-                        apartment with an individual bedroom and bathroom in
-                        each bedroom so that there is better privacy compared
-                        with my life in-campus dormitory.
-                      </li>
-                    </div>
-                  </Col>
-
-                  <Col xs={6} md={4} lg={6} id="profile-col-2">
-                    <div class="profile-box">
-                      <div id="basic-info" class="profile-tag-box">
-                        <h4 class="profile-box-title">My Personality</h4>
-                        <TagTemplate1 />
-                        <TagTemplate2 />
-                        <TagTemplate3 />
-                      </div>
-                    </div>
-
-                    <div class="profile-box">
-                      <div id="apartment-info" class="profile-tag-box">
-                        <h4 class="profile-box-title">I hope my roommate is</h4>
-                        <TagTemplate4 />
-                        <TagTemplate5 />
-                        <TagTemplate6 />
-                      </div>
-                    </div>
-
-                    <div class="profile-box">
-                      <div id="roommate-info" class="profile-tag-box">
-                        <h4 class="profile-box-title">
-                          I hope my apartment is
-                        </h4>
-                        <TagTemplate7 />
-                        <TagTemplate8 />
-                        <TagTemplate9 />
-                      </div>
-                    </div>
-                  </Col>
-                </Row>
-                <button
-                  type="edit"
-                  class="btn btn-success btn-default center"
-                  id="edit-button"
-                  onClick={this.edit}
-                >
-                  <Nav.Link href="/profileedit" id="edit-link">
-                    Edit
-                  </Nav.Link>
-                </button>
-              </div>
-            </div>
-          )}
-        </div>    */}
       </Container>
     );
   }

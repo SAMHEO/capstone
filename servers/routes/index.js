@@ -86,7 +86,7 @@ router.post("/search", function (req, res) {
   console.log(numBed);
   console.log(numRate);
   console.log(numBath);
-  
+
   db.query(
     `SELECT name, rent, rate,bath, num_room,address from roommate_finder.apartments where rent <= ${maxPrice} AND num_room = ${numBed} AND rate >= ${numRate} And bath = ${numBath}`,
     (err, rows) => {
@@ -201,9 +201,7 @@ router.post("/temp", function (req, res) {
   var critical = req.body.critical;
   var secondary = req.body.secondary;
   var hobbies = req.body.hobbies;
-
-  var query = `UPDATE clients SET birthday = "${req.body.birthdate}", sex= "${req.body.gender}" WHERE (client_id = "${req.body.id}");`;
-
+  var query = `UPDATE clients SET description= "${req.body.description}", birthday = "${req.body.birthdate}", sex= "${req.body.gender}" WHERE (client_id = "${req.body.id}");`;
   db.query(query, (err) => {
     if (err) {
       console.log(`query error: ${err}`);
@@ -216,7 +214,7 @@ router.post("/temp", function (req, res) {
       console.log(critical[i]);
       db.query(
         `
-      INSERT INTO requests_for_critical (client_id, tag_id) VALUES (${req.body.id}, ${critical[i].id});`,
+      INSERT IGNORE INTO requests_for_critical (client_id, tag_id) VALUES (${req.body.id}, ${critical[i].id});`,
         (err, rows) => {
           if (err) {
             console.log(`query error: ${err}`);
@@ -230,7 +228,7 @@ router.post("/temp", function (req, res) {
     if (secondary[i].checked == true) {
       db.query(
         `
-      INSERT INTO requests_for_secondary (client_id, tag_id) VALUES (${req.body.id}, ${secondary[i].id});`,
+      INSERT IGNORE INTO requests_for_secondary (client_id, tag_id) VALUES (${req.body.id}, ${secondary[i].id});`,
         (err, rows) => {
           if (err) {
             console.log(`query error: ${err}`);
@@ -244,7 +242,7 @@ router.post("/temp", function (req, res) {
     if (hobbies[i].checked == true) {
       db.query(
         `
-      INSERT INTO requests_for_hobby (client_id, tag_id) VALUES (${req.body.id}, ${hobbies[i].id});`,
+      INSERT IGNORE INTO requests_for_hobby (client_id, tag_id) VALUES (${req.body.id}, ${hobbies[i].id});`,
         (err, rows) => {
           if (err) {
             console.log(`query error: ${err}`);

@@ -103,6 +103,7 @@ router.post("/signup", function (req, res) {
 router.post("/user", (req, res) => {
   db.query(
     `select * from clients where email = "${req.body.email}"`,
+
     (err, rows) => {
       if (!err) {
         (clientId = rows[0].client_id),
@@ -137,22 +138,57 @@ router.post("/user", (req, res) => {
   );
 });
 
-router.post("/getTags", (req, res) => {
-  db.query(
-    `select * from requests_for_critical where client_id = "${req.body.id}"`,
-    (err, rows) => {
-      if (!err) {
-        res.json({
-          criticalTags: ["has_pet", "smokes"],
-          hobbyTags: [],
-          secondaryTags: [],
-        });
-      } else {
-        console.log(`query error: ${err}`);
-        res.send(err);
+router.post("/usercritical", (req, res) => {
+  var query = `SELECT * FROM requests_for_critical JOIN critical_tags ON critical_tags.tag_id = requests_for_critical.tag_id WHERE requests_for_critical.client_id = "${req.body.id}"`;
+  db.query(query, (err, rows) => {
+    if (!err) {
+      const result = [];
+      for (r in rows) {
+        tag = { id: rows[r].tag_id, name: rows[r].name };
+        result.push(tag);
       }
+      res.json(result);
+    } else {
+      console.log(`query error: ${err}`);
+      res.send(err);
     }
-  );
+  });
+});
+
+router.post("/usersecondary", (req, res) => {
+  var query = `SELECT * FROM requests_for_secondary JOIN secondary_tags ON secondary_tags.tag_id = requests_for_secondary.tag_id WHERE requests_for_secondary.client_id = "${req.body.id}"`;
+
+  db.query(query, (err, rows) => {
+    if (!err) {
+      const result = [];
+      for (r in rows) {
+        tag = { id: rows[r].tag_id, name: rows[r].name };
+        result.push(tag);
+      }
+      res.json(result);
+    } else {
+      console.log(`query error: ${err}`);
+      res.send(err);
+    }
+  });
+});
+
+router.post("/userhobbies", (req, res) => {
+  var query = `SELECT * FROM requests_for_hobby JOIN hobbies ON hobbies.tag_id = requests_for_hobby.tag_id WHERE requests_for_hobby.client_id = "${req.body.id}"`;
+
+  db.query(query, (err, rows) => {
+    if (!err) {
+      const result = [];
+      for (r in rows) {
+        tag = { id: rows[r].tag_id, name: rows[r].name };
+        result.push(tag);
+      }
+      res.json(result);
+    } else {
+      console.log(`query error: ${err}`);
+      res.send(err);
+    }
+  });
 });
 
 module.exports = router;

@@ -114,49 +114,6 @@ class Login extends Component {
             </div>
           </Col>
         </div>
-        {/* <div align="center" className="login-wrapper">
-          <div align="center">
-          <img
-          src="logo.png"
-          id="main-logo-loginpage"
-          />
-          </div>
-          <div style={{ clear: "both", margin: "25px" }} align="center">
-          <h2>Login</h2>
-          </div>
-          <form onSubmit={this.login} className="login-form">
-            <input
-              type="email"
-              className="form-control"
-              onChange={this.handleEmailChange}
-              id="username-input-box"
-              placeholder="Email Adddress"
-              required
-              autoFocus
-            />
-            <br />
-            <input
-              type="password"
-              className="form-control"
-              onChange={this.handlePasswordChange}
-              id="password-input-box"
-              placeholder="Password"
-              required
-            />
-            <br />
-            <button
-              type="submit"
-              className="btn btn-success center"
-              id="login-button"
-            >
-              Login
-            </button>
-          </form>
-          <div className="center">
-            <Nav.Link href="/signup">Don't have an account? Sign Up</Nav.Link>
-            <Nav.Link href="/forget">Forget your password?</Nav.Link>
-          </div>
-        </div> */}
       </Container>
     );
   }
