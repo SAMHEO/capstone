@@ -252,6 +252,9 @@ class Apartment extends Component {
                 initialCenter={{ lat: 37.2296, lng: -80.41394 }}
               >
                 <Marker position={{ lat: 37.2296, lng: -80.41394 }} />
+                <Marker position={{ lat: 37.224124908447266, lng: -80.44402313232422}} />
+                <Marker position={{ lat: 37.2394331, lng: -80.3970311}} />
+                <Marker position={{ lat: 37.2422171, lng: -80.4334681}} />
               </Map>
             </Col>
           </div>

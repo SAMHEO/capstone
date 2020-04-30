@@ -91,7 +91,7 @@ router.post("/search", function (req, res) {
   console.log(numBath);
 
   db.query(
-    `SELECT name, rent, rate,bath, num_room,address,shortName from roommate_finder.apartments where rent <= ${maxPrice} AND num_room = ${numBed} AND rate >= ${numRate} And bath = ${numBath}`,
+    `SELECT name, rent, rate,bath, num_room,address,shortName, lat, long from roommate_finder.apartments where rent <= ${maxPrice} AND num_room = ${numBed} AND rate >= ${numRate} And bath = ${numBath}`,
     (err, rows) => {
       if (rows != 0) {
         //console.log(rows);
