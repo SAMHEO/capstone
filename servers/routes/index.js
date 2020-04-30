@@ -86,11 +86,12 @@ router.post("/search", function (req, res) {
   console.log(numBed);
   console.log(numRate);
   console.log(numBath);
+  
   db.query(
     `SELECT name, rent, rate,bath, num_room,address from roommate_finder.apartments where rent <= ${maxPrice} AND num_room = ${numBed} AND rate >= ${numRate} And bath = ${numBath}`,
     (err, rows) => {
       if (rows != 0) {
-        console.log(rows);
+        //console.log(rows);
         //console.log(rows[0]);
         res.json({
           aptList: rows,

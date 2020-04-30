@@ -141,7 +141,7 @@ class Apartment extends Component {
             <div class="input-group" id="input-group3">
               <div class="input-group-prepend">
                 <label class="input-group-text" for="Beds">
-                  Preferences
+                  Beds
                 </label>
               </div>
               <select
