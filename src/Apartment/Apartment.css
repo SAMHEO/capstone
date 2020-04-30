@@ -77,4 +77,8 @@
     display: block;
     width: 100%;
   }
+
+  #apartment-address-container {
+    display: none;
+  }
 }

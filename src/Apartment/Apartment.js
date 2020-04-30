@@ -246,7 +246,7 @@ class Apartment extends Component {
             <Col xs={0} md={4} lg={6} id="map-canvas">
               <Map
                 google={this.props.google}
-                zoom={8}
+                zoom={14}
                 style={mapStyles}
                 initialCenter={{ lat: 37.2296, lng: -80.41394 }}
               >
