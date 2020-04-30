@@ -28,6 +28,8 @@ class ApartmentDetail extends Component {
       aptAddress: "",
       aptWebsite: "",
       aptDescription: "",
+      aptLat: "",
+      aptLong: "",
       aptDetail: [],
     };
   }
@@ -55,7 +57,7 @@ class ApartmentDetail extends Component {
     .then((json) => {
       console.log(json);
       if (json.success === true) {
-        console.log(json.aptRate);
+        console.log(json.aptLat);
         window.localStorage.setItem("userInfo", JSON.stringify(json));
         this.setState({
           aptName: json.aptName,
@@ -64,14 +66,15 @@ class ApartmentDetail extends Component {
           aptAddress: json.aptAddress,
           aptRate: json.aptRate,
           aptWebsite: json.aptWebsite,
-          aptDescription: json.aptDescription
+          aptDescription: json.aptDescription,
+          aptLat: json.aptLat,
+          aptLong: json.aptLong
         });
         //this.props.history.push("/apartmentdetail");
       } else {
         alert("Could not find any");
       }
     });
-
   };
   
   render() {
@@ -185,9 +188,9 @@ class ApartmentDetail extends Component {
                 google={this.props.google}
                 zoom={16}
                 style={mapStyles}
-                initialCenter={{ lat: 37.2296, lng: -80.41394 }}
+                initialCenter={{ lat: 37.224124908447266, lng: -80.44402313232422  }}
               >
-                <Marker position={{ lat: 37.2296, lng: -80.41394 }} />
+                <Marker position={{ lat: `${this.state.aptLat}`, lng: `${this.state.aptLong}` }} />
               </Map>
             </Col>
           </Col>

@@ -4,6 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./Home.css";
 import ReactStars from "react-stars";
+import Nav from "react-bootstrap/Nav";
 
 //This is an example of user. Whieh will be used to connect with the database api
 // var tempUser1Name = "user1";
@@ -109,6 +110,14 @@ export default class Home extends Component {
                       edit={false}
                       color2={"#ffd700"}
                     />
+                    <Nav.Link
+                      href={`/apartmentdetail/${apt.name}`}
+                      style={{ marginLeft: "-17px" }}
+                      component={apt.shortName}
+                    >
+                      {" "}
+                      Detail{" "}
+                    </Nav.Link>
                   </div>
                 </div>
               </Col>

@@ -88,7 +88,7 @@ router.post("/search", function (req, res) {
   console.log(numBath);
   
   db.query(
-    `SELECT name, rent, rate,bath, num_room,address from roommate_finder.apartments where rent <= ${maxPrice} AND num_room = ${numBed} AND rate >= ${numRate} And bath = ${numBath}`,
+    `SELECT name, rent, rate,bath, num_room,address,shortName from roommate_finder.apartments where rent <= ${maxPrice} AND num_room = ${numBed} AND rate >= ${numRate} And bath = ${numBath}`,
     (err, rows) => {
       if (rows != 0) {
         //console.log(rows);
@@ -127,6 +127,8 @@ router.post("/aptdetail", function (req, res) {
           aptRate: rows[0].rate,
           aptWebsite: rows[0].website,
           aptDescription: rows[0].description,
+          aptLong: rows[0].long,
+          aptLat: rows[0].lat,
           // nameOfAPT: rows[0].name,
           // price: rows[0].average_rent,
           success: true,
