@@ -180,10 +180,10 @@ class ApartmentDetail extends Component {
                 {this.state.aptAddress}
               </h4>
             </div>
-            <Col xs={0} md={4} lg={6} id="map-canvas">
+            <Col xs={0} md={4} lg={6} id="map-canvas" style={{ position: "initial", width: "100%" }}>
               <Map
                 google={this.props.google}
-                zoom={8}
+                zoom={16}
                 style={mapStyles}
                 initialCenter={{ lat: 37.2296, lng: -80.41394 }}
               >

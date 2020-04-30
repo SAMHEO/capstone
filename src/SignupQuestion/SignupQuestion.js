@@ -121,6 +121,7 @@ class SignupQuestion extends Component {
       })
       .then((body) => {
         console.log(body);
+        window.sessionStorage.setItem("selected_tags", true);
         // this.props.history.push("/roommate");
       });
     e.preventDefault();
