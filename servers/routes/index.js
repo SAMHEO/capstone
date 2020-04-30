@@ -62,6 +62,9 @@ router.get("/homeUser", function (req, res) {
   db.query(
     `SELECT * FROM roommate_finder.clients ORDER BY RAND() LIMIT 3`,
     (err, rows) => {
+      console.log("this is user list " + rows[0].created);
+      // console.log("this is user list" + rows[1].firstName);
+      // console.log("this is user list" + rows[2].firstName);
       if (!err) {
         res.send(rows);
         //console.log(rows);
@@ -88,7 +91,7 @@ router.post("/search", function (req, res) {
   console.log(numBath);
 
   db.query(
-    `SELECT name, rent, rate,bath, num_room,address from roommate_finder.apartments where rent <= ${maxPrice} AND num_room = ${numBed} AND rate >= ${numRate} And bath = ${numBath}`,
+    `SELECT name, rent, rate,bath, num_room,address,shortName from roommate_finder.apartments where rent <= ${maxPrice} AND num_room = ${numBed} AND rate >= ${numRate} And bath = ${numBath}`,
     (err, rows) => {
       if (rows != 0) {
         //console.log(rows);
@@ -127,6 +130,8 @@ router.post("/aptdetail", function (req, res) {
           aptRate: rows[0].rate,
           aptWebsite: rows[0].website,
           aptDescription: rows[0].description,
+          aptLong: rows[0].long,
+          aptLat: rows[0].lat,
           // nameOfAPT: rows[0].name,
           // price: rows[0].average_rent,
           success: true,

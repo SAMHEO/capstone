@@ -8,6 +8,11 @@
   width: 45%;
   position: relative;
 }
+.aprtname{
+  width: 100%;
+  color: black;
+  background-color:lightblue;
+}
 
 .input-group {
   min-width: 100px;
