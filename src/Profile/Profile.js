@@ -132,7 +132,7 @@ class Profile extends Component {
                     {this.capitalize(`${user.lastname}`)}
                   </h2>
                   <p>
-                    {user.sex === "none" ? "N/A" : `${user.sex}`.toUpperCase()}
+                    {user.sex === "none" ? "" : `${user.sex}`.toUpperCase()}
                   </p>
                   <p>Age: {getAgeFromBirthdate(user.age)}</p>
                 </div>
