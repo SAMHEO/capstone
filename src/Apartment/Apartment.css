@@ -78,14 +78,12 @@
   color: black;
 }
 
-/* .nav-link:hover {
-  color: black;
-} */
 .card:hover {
   border: 1px solid lightblue;
   box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.25);
   transition: border ease-in 0.3s;
 }
+
 @media only screen and (max-width: 800px) {
   #map-canvas {
     display: none;
