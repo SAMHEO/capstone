@@ -217,30 +217,30 @@ class Apartment extends Component {
           <div className="apartment-canvas">
             <Col xs={12} md={8} lg={6}>
               <div class="apartmentPostsArea">
-               {this.state.apartmentList.map((apt, index) => (
-                  <div class="card" key={index}>
-                    <div className="row">
-                      <img src={`${apt.shortName}` + ".jpeg"} class="col-sm-6" alt="ExampleImage" />
-                      <div class="col-sm-6">
-                        <h5 class="card-title">{apt.name}</h5>
-                        <p class="card-text">
-                          <p>Price: ${apt.rent}</p>
-                          <p>Location: {apt.address}</p>
-                          <p>Rate: {apt.rate}</p>
-                          
-                          <Nav.Link
-                            href={`/apartmentdetail/${apt.name}`}
-                            style={{ marginLeft: "-17px" }}
-                            component={apt.shortName}
-                          >
-                            {" "}
-                            Detail{" "}
-                          </Nav.Link>
-                        </p>
+                {this.state.apartmentList.map((apt, index) => (
+                  <Nav.Link
+                    href={`/apartmentdetail/${apt.name}`}
+                    style={{ marginLeft: "-17px" }}
+                    component={apt.shortName}
+                  >
+                    <div class="card" key={index}>
+                      <div className="row">
+                        <img
+                          src={`${apt.shortName}` + ".jpeg"}
+                          class="col-sm-6"
+                          alt="ExampleImage"
+                        />
+                        <div class="col-sm-6">
+                          <h5 class="card-title">{apt.name}</h5>
+                          <p class="card-text">
+                            <p>Price: ${apt.rent}</p>
+                            <p>Location: {apt.address}</p>
+                            <p>Rate: {apt.rate}</p>
+                          </p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  
+                  </Nav.Link>
                 ))}
               </div>
             </Col>

@@ -216,7 +216,6 @@ router.post("/temp", function (req, res) {
 
   for (i in critical) {
     if (critical[i].checked == true) {
-      console.log(critical[i]);
       db.query(
         `
       INSERT IGNORE INTO requests_for_critical (client_id, tag_id) VALUES (${req.body.id}, ${critical[i].id});`,
@@ -227,6 +226,14 @@ router.post("/temp", function (req, res) {
           }
         }
       );
+    } else {
+      var query = `DELETE FROM requests_for_critical where client_id = "${req.body.id}" and tag_id = "${critical[i].id}";`;
+      db.query(query, (err) => {
+        if (err) {
+          console.log(`query error: ${err}`);
+          res.send(err);
+        }
+      });
     }
   }
   for (i in secondary) {
@@ -241,6 +248,14 @@ router.post("/temp", function (req, res) {
           }
         }
       );
+    } else {
+      var query = `DELETE FROM requests_for_secondary where client_id = "${req.body.id}" and tag_id = "${secondary[i].id}";`;
+      db.query(query, (err) => {
+        if (err) {
+          console.log(`query error: ${err}`);
+          res.send(err);
+        }
+      });
     }
   }
   for (i in hobbies) {
@@ -255,6 +270,15 @@ router.post("/temp", function (req, res) {
           }
         }
       );
+    } else {
+      var query = `
+      DELETE FROM requests_for_hobby where client_id = "${req.body.id}" and tag_id = "${hobbies[i].id}";`;
+      db.query(query, (err) => {
+        if (err) {
+          console.log(`query error: ${err}`);
+          res.send(err);
+        }
+      });
     }
   }
 

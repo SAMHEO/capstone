@@ -67,9 +67,7 @@ class SignupQuestion extends Component {
       alert("please log in first");
       this.props.history.push("/login");
     }
-    console.log(this.props);
     this.getTags();
-    console.log(this.state);
   }
 
   getTags() {
@@ -177,9 +175,6 @@ class SignupQuestion extends Component {
             <div align="center">
               <img src="logo.png" id="main-logo-loginpage" alt="logo" />
             </div>
-            <div style={{ clear: "both", margin: "25px" }} align="center">
-              <h2>Please do some introduction about you</h2>
-            </div>
             <div className="center-label">Basic information</div>
             <form onSubmit={this.submit}>
               <div
@@ -196,7 +191,8 @@ class SignupQuestion extends Component {
                     id="gender"
                     value={this.state.gender}
                     onChange={this.handleChange}
-                    // required
+                    defaultValue={this.state.gender}
+                    required
                   >
                     <option value="none">Prefer not to answer</option>
                     <option value="male">Male</option>
@@ -213,7 +209,7 @@ class SignupQuestion extends Component {
                     className="form-control"
                     value={this.state.birthdate}
                     onChange={this.handleChange}
-                    // required
+                    required
                   />
                 </div>
               </div>

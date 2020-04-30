@@ -25,7 +25,6 @@
 }
 
 .basic-information {
-  display: flex;
   width: max-content;
   margin-left: auto;
   margin-right: auto;
@@ -40,9 +39,9 @@
   max-width: 342px;
 }
 
-#age-input-box {
+/* #age-input-box {
   max-width: 200px;
-}
+} */
 
 .tag-container {
   float: left;

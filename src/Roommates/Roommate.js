@@ -19,7 +19,9 @@ let tags = ["Has Pets", "Smoke", "Like Parties", "Play Instruments"];
 //Change this with "display:none" if the user already finished the signup questions.
 //
 function PromptBox(selected) {
-  if (!selected) {
+  console.log(selected.selected);
+  if (!selected.selected || selected == null) {
+    console.log(selected);
     return (
       <div className="modal" id="prompt-box" role="dialog">
         <div className="modal-dialog">
@@ -70,13 +72,11 @@ class Roommate extends Component {
         return res.json();
       })
       .then((users) => {
-        console.log(window.sessionStorage.getItem("selected_tags"));
         this.setState({
           userList: users,
           selected_tags: window.sessionStorage.getItem("selected_tags"),
           isLoading: false,
         });
-        console.log(this.state);
       });
   }
   render() {

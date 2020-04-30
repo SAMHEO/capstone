@@ -148,7 +148,7 @@ class Profile extends Component {
                     Looking for Rent under {user.rent}
                   </ListGroup.Item>
                   <ListGroup.Item>
-                    <a href="/profileedit">Edit</a>
+                    <a href="/signupquestion">Edit</a>
                   </ListGroup.Item>
                 </ListGroup>
               </Col>
