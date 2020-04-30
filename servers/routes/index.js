@@ -62,6 +62,9 @@ router.get("/homeUser", function (req, res) {
   db.query(
     `SELECT * FROM roommate_finder.clients ORDER BY RAND() LIMIT 3`,
     (err, rows) => {
+      console.log("this is user list " + rows[0].created);
+      // console.log("this is user list" + rows[1].firstName);
+      // console.log("this is user list" + rows[2].firstName);
       if (!err) {
         res.send(rows);
         //console.log(rows);

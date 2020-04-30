@@ -240,6 +240,7 @@ class Apartment extends Component {
                       </div>
                     </div>
                   </div>
+                  
                 ))}
               </div>
             </Col>

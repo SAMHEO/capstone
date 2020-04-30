@@ -6,6 +6,7 @@ import "./Home.css";
 import ReactStars from "react-stars";
 import Nav from "react-bootstrap/Nav";
 
+
 //This is an example of user. Whieh will be used to connect with the database api
 // var tempUser1Name = "user1";
 // var tempUser1Des =
@@ -26,7 +27,6 @@ import Nav from "react-bootstrap/Nav";
 // }
 // var tempUser2Name = "user2";
 var tempUser2Des = "I want to find a roommate with similar lifestyle as me.";
-var tempUser2Time = "April 4, 2020, 22:33";
 // function Post2() {
 //   return (
 //     <div class="card">
@@ -92,7 +92,7 @@ export default class Home extends Component {
 
           <Row>
             {this.state.apartmentList.map((apt, index) => (
-              <Col key={index}>
+              <Col key={index} height = "200">
                 <div className="card">
                   <img
                     src={`${apt.shortName}` + ".jpeg"}
@@ -100,9 +100,17 @@ export default class Home extends Component {
                     height = "200"
                     alt="postUserImage"
                   />
-                  <div className="card-body">
-                    <h5 className="card-title">{apt.name}</h5>
-                    <p className="card-text">{apt.description}</p>
+                  <div className="card-body" height = "200" >
+                  <Nav.Link
+                      className = "aprtname"
+                      href={`/apartmentdetail/${apt.name}`}
+                      style={{ marginLeft: "-17px" }}
+                      component={apt.shortName}
+                    >
+                      {" "}
+                      {apt.name}{" "}
+                    </Nav.Link>
+                    {/* <p className="card-text">{apt.description}</p> */}
                     <ReactStars
                       count={5}
                       value={parseInt(apt.rate)}
@@ -110,14 +118,7 @@ export default class Home extends Component {
                       edit={false}
                       color2={"#ffd700"}
                     />
-                    <Nav.Link
-                      href={`/apartmentdetail/${apt.name}`}
-                      style={{ marginLeft: "-17px" }}
-                      component={apt.shortName}
-                    >
-                      {" "}
-                      Detail{" "}
-                    </Nav.Link>
+                    
                   </div>
                 </div>
               </Col>
@@ -143,9 +144,9 @@ export default class Home extends Component {
                     alt="postUserImage"
                   />
                   <div className="card-body">
-                    <h5 className="card-title">{user.name}</h5>
+                    <h5 className="card-title">{user.firstName}</h5>
                     <p className="card-text">
-                      {tempUser2Des} {tempUser2Time}
+                      {tempUser2Des} {user.created}
                     </p>
                   </div>
                 </div>
