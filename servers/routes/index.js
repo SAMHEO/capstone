@@ -78,7 +78,7 @@ router.get("/homeUser", function (req, res) {
 
 //getting apartment data from database according to the preferences
 router.post("/search", function (req, res) {
-  var sort = req.body.sort;
+  //var sort = req.body.sort;
   var maxPrice = req.body.maxPrice;
   var numBed = req.body.numBeds;
   var numRate = req.body.numRate;
@@ -91,10 +91,10 @@ router.post("/search", function (req, res) {
   console.log(numBath);
 
   db.query(
-    `SELECT name, rent, rate,bath, num_room,address,shortName, lat, long from roommate_finder.apartments where rent <= ${maxPrice} AND num_room = ${numBed} AND rate >= ${numRate} And bath = ${numBath}`,
+    `SELECT name, rent, rate, bath, num_room,address,shortName, lat from roommate_finder.apartments where rent <= ${maxPrice} AND num_room = ${numBed} AND rate >= ${numRate} And bath = ${numBath}`,
     (err, rows) => {
       if (rows != 0) {
-        //console.log(rows);
+        console.log(rows);
         //console.log(rows[0]);
         res.json({
           aptList: rows,
